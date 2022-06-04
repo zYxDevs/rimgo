@@ -4,20 +4,6 @@ variables:
 
 stages:
   - build
-  - deploy
-
-bin:
-  stage: build
-  needs: []
-  image: golang:latest
-  script:
-    - mkdir -p $GOPATH/src/$(dirname $REPO_NAME)
-    - ln -svf $CI_PROJECT_DIR $GOPATH/src/$REPO_NAME
-    - cd $GOPATH/src/$REPO_NAME
-    - CGO_ENABLED=0 go build -o $CI_PROJECT_DIR/rimgo
-  artifacts:
-    paths:
-        - rimgo
 
 docker:
   image: docker:20
@@ -34,13 +20,7 @@ docker:
     - docker context create mybuilder
     - docker buildx create --use --name mybuilder mybuilder
     - docker buildx build --platform linux/amd64,linux/arm64 --push -t $CI_REGISTRY_IMAGE:latest .
-
-deploy:
-  image: alpine:latest
-  stage: deploy
-  needs: []
-  before_script:
-    - apk update && apk --no-cache add curl
-    - wget -O - https://fly.io/install.sh | sh
-  script:
-    - /root/.fly/bin/flyctl deploy --detach
+    - docker run --rm $CI_REGISTRY_IMAGE:latest cat /app/stream-proxy > stream-proxy
+  artifacts:
+    paths:
+      - rimgo
