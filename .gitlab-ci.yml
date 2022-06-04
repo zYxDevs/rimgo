@@ -20,7 +20,9 @@ docker:
     - docker context create mybuilder
     - docker buildx create --use --name mybuilder mybuilder
     - docker buildx build --platform linux/amd64,linux/arm64 --push -t $CI_REGISTRY_IMAGE:latest .
-    - docker run --rm $CI_REGISTRY_IMAGE:latest cat /app/stream-proxy > stream-proxy
+    - docker create --name tmp $CI_REGISTRY_IMAGE:latest
+    - docker cp tmp:/app/rimgo rimgo
+    - docker rm -f tmp
   artifacts:
     paths:
       - rimgo
