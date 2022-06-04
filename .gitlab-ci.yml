@@ -4,6 +4,7 @@ variables:
 
 stages:
   - build
+  - deploy
 
 docker:
   image: docker:20
@@ -26,3 +27,14 @@ docker:
   artifacts:
     paths:
       - rimgo
+
+deploy:
+  image: alpine:latest
+  stage: deploy
+  before_script:
+    - apk update && apk --no-cache add curl git
+    - wget -O - https://fly.io/install.sh | sh
+    - git clone https://codeberg.org/video-prize-ranch/fly-cfg.git
+  script:
+    - cd fly-cfg
+    - /root/.fly/bin/flyctl deploy --no-cache --detach
