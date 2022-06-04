@@ -48,7 +48,7 @@ Open an issue to have your instance listed here!
 
 | URL                                                        | Country | Cloudflare |
 | :--------------------------------------------------------- | :------ | :--------- |
-| [i.bcow.xyz](https://i.bcow.xyz) (official)                | 🇳🇱️ NL   |            |
+| [i.bcow.xyz](https://i.bcow.xyz) (official)                | 🇨🇦️ CA, 🇳🇱️ NL, 🇸🇬️ SG   |            |
 | [rimgo.pussthecat.org](https://rimgo.pussthecat.org)       | 🇩🇪 DE   |            |
 | [img.riverside.rocks](https://img.riverside.rocks)         | 🇺🇸 US   |            |
 | [rimgo.totaldarkness.net](https://rimgo.totaldarkness.net) | 🇨🇦 CA   |            |
