@@ -43,6 +43,10 @@
 
     <p>Just replace imgur.com or i.imgur.com with <code>{{domain}}</code>! You can setup automatic redirects using <a
         href="https://github.com/libredirect/libredirect">LibRedirect</a> (recommended) or <a href="https://github.com/einaregilsson/Redirector">Redirector</a>.</p>
+    <br>
+    {{#if force_webp}}
+    <p>To download images as their original filetype, add <code>?no_webp=1</code> to the end of the image URL.</p>
+    {{/if}}
 
     <br>
     <details>

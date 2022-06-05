@@ -23,6 +23,7 @@ It's read-only and works without JavaScript. Images and albums can be viewed wit
 - Albums
 - User page
 - Tag page
+- Bandwidth efficient - automatically use WebP with the `FORCE_WEBP` environment variable
 
 Some things left to implement (contributions welcome!):
 
