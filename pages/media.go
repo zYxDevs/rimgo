@@ -2,7 +2,9 @@ package pages
 
 import (
 	"net/http"
+	"os"
 	"strconv"
+	"strings"
 
 	"codeberg.org/video-prize-ranch/rimgo/utils"
 	"github.com/gofiber/fiber/v2"
@@ -26,6 +28,12 @@ func HandleUserAvatar(c *fiber.Ctx) error {
 func handleMedia(c *fiber.Ctx, url string) error {
 	utils.SetHeaders(c)
 	c.Set("Content-Security-Policy", "default-src 'none'; media-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; manifest-src 'self'; block-all-mixed-content")
+
+	if os.Getenv("FORCE_WEBP") == "1" && c.Query("no_webp") != "" && c.Accepts("image/webp") == "image/webp" {
+		url = strings.ReplaceAll(url, ".png", ".webp")
+		url = strings.ReplaceAll(url, ".jpg", ".webp")
+		url = strings.ReplaceAll(url, ".jpeg", ".webp")
+	}
 
 	res, err := http.Get(url)
 	if err != nil {

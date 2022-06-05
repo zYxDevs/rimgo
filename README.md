@@ -138,6 +138,7 @@ rimgo can be configured using environment variables.
 | PORT            | 3000            |
 | ADDRESS         | 0.0.0.0         |
 | IMGUR_CLIENT_ID | 546c25a59c58ad7 |
+| FORCE_WEBP      | 0               |
 
 ## Contributing
 
