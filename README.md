@@ -59,6 +59,7 @@ Open an issue to have your instance listed here!
 | [i.actionsack.com](https://i.actionsack.com)               | 🇺🇸 US   | 😢         |
 | [rimgo.privacydev.net](https://rimgo.privacydev.net)       | 🇺🇸 US   |            |
 | [imgur.artemislena.eu](https://imgur.artemislena.eu)       | 🇩🇪 DE   |            |
+| [rimgo.vern.cc](https://rimgo.vern.cc)                     | 🇨🇦️ CA   |            |
 
 ### Tor
 
