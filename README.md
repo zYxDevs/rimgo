@@ -60,7 +60,7 @@ Open an issue to have your instance listed here!
 | [rimgo.privacydev.net](https://rimgo.privacydev.net)       	| 🇺🇸 US   |            |
 | [imgur.artemislena.eu](https://imgur.artemislena.eu)       	| 🇩🇪 DE   |            |
 | [rimgo.vern.cc](https://rimgo.vern.cc)                     	| 🇨🇦️ CA   |            |
-| [rimgo.encrypted-data.xyz](https://rimgo.encrypted-data.xyz/)	| 🇫 FR	  | 😢	       |
+| [rimgo.encrypted-data.xyz](https://rimgo.encrypted-data.xyz/)	| 🇫🇷️ FR | 😢	       |
 
 ### Tor
 
