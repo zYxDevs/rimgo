@@ -47,19 +47,20 @@ Open an issue to have your instance listed here!
 
 ### Clearnet
 
-| URL                                                        | Country | Cloudflare |
-| :--------------------------------------------------------- | :------ | :--------- |
-| [i.bcow.xyz](https://i.bcow.xyz) (official)                | 🇨🇦️ CA, 🇳🇱️ NL, 🇸🇬️ SG   |            |
-| [rimgo.pussthecat.org](https://rimgo.pussthecat.org)       | 🇩🇪 DE   |            |
-| [img.riverside.rocks](https://img.riverside.rocks)         | 🇺🇸 US   |            |
-| [rimgo.totaldarkness.net](https://rimgo.totaldarkness.net) | 🇨🇦 CA   |            |
-| [rimgo.bus-hit.me](https://rimgo.bus-hit.me)               | 🇨🇦 CA   |            |
-| [rimgo.esmailelbob.xyz](https://rimgo.esmailelbob.xyz)     | 🇨🇦 CA   |            |
-| [rimgo.lunar.icu](https://rimgo.lunar.icu)                 | 🇩🇪 DE   | 😢         |
-| [i.actionsack.com](https://i.actionsack.com)               | 🇺🇸 US   | 😢         |
-| [rimgo.privacydev.net](https://rimgo.privacydev.net)       | 🇺🇸 US   |            |
-| [imgur.artemislena.eu](https://imgur.artemislena.eu)       | 🇩🇪 DE   |            |
-| [rimgo.vern.cc](https://rimgo.vern.cc)                     | 🇨🇦️ CA   |            |
+| URL                                                        	| Country | Cloudflare |
+| :------------------------------------------------------------ | :------ | :--------- |
+| [i.bcow.xyz](https://i.bcow.xyz) (official)                	| 🇨🇦️ CA, 🇳🇱️ NL, 🇸🇬️ SG   |            |
+| [rimgo.pussthecat.org](https://rimgo.pussthecat.org)       	| 🇩🇪 DE   |            |
+| [img.riverside.rocks](https://img.riverside.rocks)         	| 🇺🇸 US   |            |
+| [rimgo.totaldarkness.net](https://rimgo.totaldarkness.net) 	| 🇨🇦 CA   |            |
+| [rimgo.bus-hit.me](https://rimgo.bus-hit.me)               	| 🇨🇦 CA   |            |
+| [rimgo.esmailelbob.xyz](https://rimgo.esmailelbob.xyz)     	| 🇨🇦 CA   |            |
+| [rimgo.lunar.icu](https://rimgo.lunar.icu)                 	| 🇩🇪 DE   | 😢         |
+| [i.actionsack.com](https://i.actionsack.com)               	| 🇺🇸 US   | 😢         |
+| [rimgo.privacydev.net](https://rimgo.privacydev.net)       	| 🇺🇸 US   |            |
+| [imgur.artemislena.eu](https://imgur.artemislena.eu)       	| 🇩🇪 DE   |            |
+| [rimgo.vern.cc](https://rimgo.vern.cc)                     	| 🇨🇦️ CA   |            |
+| [rimgo.encrypted-data.xyz](https://rimgo.encrypted-data.xyz/)	| 🇫 FR	  | 😢	       |
 
 ### Tor
 
