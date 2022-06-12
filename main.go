@@ -58,5 +58,5 @@ func main() {
 	app.Get("/user/:userID/avatar", pages.HandleUserAvatar)
 	app.Get("/gallery/:postID", pages.HandlePost)
 
-	app.Listen(":" + utils.Config["port"].(string))
+	app.Listen(utils.Config["addr"].(string) + ":" + utils.Config["port"].(string))
 }
