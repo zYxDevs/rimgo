@@ -32,6 +32,10 @@ func main() {
 		},
 	}))
 	app.Use("/static", filesystem.New(filesystem.Config{
+		Next: func(c *fiber.Ctx) bool {
+			c.Response().Header.Add("Cache-Control", "public,max-age=2592000")
+			return false
+		},
 		Root: http.FS(static.GetFiles()),
 	}))
 
