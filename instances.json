@@ -16,14 +16,6 @@
     "cloudflare": false
   },
   {
-    "url": "https://img.riverside.rocks",
-    "onion": "http://jx3dpcwedpzu2mh54obk5gvl64i2ln7pt5mrzd75s4jnndkqwzaim7ad.onion",
-    "countries": [
-      "us"
-    ],
-    "cloudflare": false
-  },
-  {
     "url": "rimgo.totaldarkness.net",
     "countries": [
       "ca"
@@ -80,13 +72,5 @@
       "ca"
     ],
     "cloudflare": true
-  },
-  {
-    "onion": "http://be7udfhmnzqyt7cxysg6c4pbawarvaofjjywp35nhd5qamewdfxl6sid.onion",
-    "i2p": "http://xazdnfgtzmcbcxhmcbbvr4uodd6jtn4fdiayasghywdn227xsmoa.b32.i2p",
-    "countries": [
-      "au"
-    ],
-    "cloudflare": false
   }
 ]
