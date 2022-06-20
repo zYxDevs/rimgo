@@ -59,12 +59,6 @@ Open an issue to have your instance listed here!
 | [rimgo.lqs5fjmajyp7rvp4qvyubwofzi6d4imua7vs237rkc4m5qogitqwrgyd.onion](http://rimgo.lqs5fjmajyp7rvp4qvyubwofzi6d4imua7vs237rkc4m5qogitqwrgyd.onion) (onion of rimgo.esmailelbob.xyz) | 🇨🇦 CA |
 | [rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion) (onion of rimgo.vern.cc) | 🇨🇦 CA |
 
-### I2P
-
-| URL | Country |
-| :-- | :------ |
-| [xazdnfgtzmcbcxhmcbbvr4uodd6jtn4fdiayasghywdn227xsmoa.b32.i2p](http://xazdnfgtzmcbcxhmcbbvr4uodd6jtn4fdiayasghywdn227xsmoa.b32.i2p) | 🇦🇺 AU |
-
 ## Automatically redirect links
 
 ### LibRedirect
