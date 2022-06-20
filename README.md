@@ -1,7 +1,7 @@
 <img src="https://codeberg.org/video-prize-ranch/rimgo/raw/branch/main/static/img/rimgo.svg" width="96" height="96" />
 
 # rimgo
-An alternative frontend for Imgur. Based on [rimgu](https://codeberg.org/3np/rimgu) and rewritten in Go.
+An alternative frontend for Imgur. Originally based on [rimgu](https://codeberg.org/3np/rimgu).
 
 <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">
   <img alt="License: AGPLv3" src="https://shields.io/badge/License-AGPL%20v3-blue.svg">
@@ -13,36 +13,27 @@ An alternative frontend for Imgur. Based on [rimgu](https://codeberg.org/3np/rim
   <img alt="CI" src="https://gitlab.com/overtime-zone-wildfowl/rimgo/badges/main/pipeline.svg">
 </a>
 
-It's read-only and works without JavaScript. Images and albums can be viewed without wasting resources from downloading and running tracking scripts. No sign-up nags.
-
 ## Features
+- Lightweight
+- No JavaScript
+- No ads or tracking
+- No sign up or app install prompts
+- Bandwidth efficient - automatically uses newer image formats (if enabled)
 
-- URL-compatible with i.imgur.com - just replace the domain in the URL
-- Images and videos (~~gifv~~, mp4)
-- Galleries with comments
-- Albums
-- User page
-- Tag page
-- Bandwidth efficient - automatically use WebP with the `FORCE_WEBP` environment variable
+## Comparison
+Comparing rimgo to Imgur.
 
-Some things left to implement (contributions welcome!):
+### Speed
+Tested using [Google PageSpeed Insights](https://pagespeed.web.dev/).
 
-- [x] Streaming (currently media is downloaded in full in rimgu before it's returned)
-- [ ] Localization/internationalization
-- [x] Pretty CSS styling (responsive?)
-- [ ] Support for other popular image sites
-- [x] Filtering and exploration on user/tags pages
-- [x] Responsive scaling of videos on user/tags pages
-- [x] Logo
-
-Things that are considered out of scope:
-
-* Uploading, commenting, voting, etc - rimgo is read-only.
-* Authentication, serving HTTPS, rate limiting, etc - Use a reverse proxy or load balancer like Caddy, Traefik, or NGINX.
-* Anything requiring JavaScript or the client directly interacting with upstream servers.
+| | [rimgo](https://pagespeed.web.dev/report?url=https%3A%2F%2Fi.bcow.xyz%2Fgallery%2FgYiQLWy) | [Imgur](https://pagespeed.web.dev/report?url=https%3A%2F%2Fimgur.com%2Fgallery%2FgYiQLWy) |
+| ------------------- | ------- | --------- |
+| Performance         | 91      | 28        |
+| Request count       | 29      | 340       |
+| Resource Size       | 218 KiB | 2,542 KiB |
+| Time to Interactive | 1.6s    | 23.8s     |
 
 ## Instances
-
 Open an issue to have your instance listed here!
 
 ### Clearnet
@@ -65,8 +56,8 @@ Open an issue to have your instance listed here!
 
 | URL | Country |
 | :-- | :------ |
-| [rimgo.lqs5fjmajyp7rvp4qvyubwofzi6d4imua7vs237rkc4m5qogitqwrgyd.onion](http://rimgo.lqs5fjmajyp7rvp4qvyubwofzi6d4imua7vs237rkc4m5qogitqwrgyd.onion) | 🇨🇦 CA |
-| [rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion) | 🇨🇦 CA |
+| [rimgo.lqs5fjmajyp7rvp4qvyubwofzi6d4imua7vs237rkc4m5qogitqwrgyd.onion](http://rimgo.lqs5fjmajyp7rvp4qvyubwofzi6d4imua7vs237rkc4m5qogitqwrgyd.onion) (onion of rimgo.esmailelbob.xyz) | 🇨🇦 CA |
+| [rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion) (onion of rimgo.vern.cc) | 🇨🇦 CA |
 
 ### I2P
 
@@ -90,7 +81,7 @@ There is a script to redirect Imgur links to rimgo.
 rimgo can run on any platform Go compiles on.
 
 ### Docker (recommended)
-Install Docker and docker-compose, then clone this repository.
+Install [Docker](https://docs.docker.com/engine/install/) and [docker-compose](https://docs.docker.com/compose/install/), then clone this repository.
 ```
 git clone https://codeberg.org/video-prize-ranch/rimgo
 cd rimgo
