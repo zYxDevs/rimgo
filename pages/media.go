@@ -3,7 +3,6 @@ package pages
 import (
 	"net/http"
 	"os"
-	"strconv"
 	"strings"
 
 	"codeberg.org/video-prize-ranch/rimgo/utils"
@@ -27,7 +26,6 @@ func HandleUserAvatar(c *fiber.Ctx) error {
 
 func handleMedia(c *fiber.Ctx, url string) error {
 	utils.SetHeaders(c)
-	c.Set("Content-Security-Policy", "default-src 'none'; media-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; manifest-src 'self'; block-all-mixed-content")
 
 	if os.Getenv("FORCE_WEBP") == "1" && c.Query("no_webp") == "" && c.Accepts("image/webp") == "image/webp" {
 		url = strings.ReplaceAll(url, ".png", ".webp")
@@ -35,7 +33,16 @@ func handleMedia(c *fiber.Ctx, url string) error {
 		url = strings.ReplaceAll(url, ".jpeg", ".webp")
 	}
 
-	res, err := http.Get(url)
+	req, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		return err
+	}
+
+	if c.Get("Range") != "" {
+		req.Header.Set("Range", c.Get("Range"))
+	}
+
+	res, err := http.DefaultClient.Do(req)
 	if err != nil {
 		return err
 	}
@@ -45,7 +52,12 @@ func handleMedia(c *fiber.Ctx, url string) error {
 		return c.Render("errors/404", nil)
 	}
 
+	c.Set("Accept-Ranges", "bytes")
 	c.Set("Content-Type", res.Header.Get("Content-Type"));
-	contentLen, _ := strconv.Atoi(res.Header.Get("Content-Length"))
-	return c.SendStream(res.Body, contentLen)
+	c.Set("Content-Length", res.Header.Get("Content-Length"))
+	if res.Header.Get("Content-Range") != "" {
+		c.Set("Content-Range", res.Header.Get("Content-Range"))
+	}
+
+	return c.SendStream(res.Body)
 }
