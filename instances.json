@@ -71,6 +71,21 @@
     "countries": [
       "ca"
     ],
+    "cloudflare": false
+  },
+  {
+    "url": "https://rimgo.encrypted-data.xyz",
+    "countries": [
+      "fr"
+    ],
     "cloudflare": true
+  },
+  {
+    "url": "https://rimgo.mha.fi",
+    "onion": "http://rimgo.micohauwkjbyw5meacrb4ipicwvwg4xtzl7y7viv53kig2mdcsvwkyyd.onion",
+    "countries": [
+      "fi"
+    ],
+    "cloudflare": false
   }
 ]
