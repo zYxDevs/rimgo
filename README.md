@@ -9,9 +9,6 @@ An alternative frontend for Imgur. Originally based on [rimgu](https://codeberg.
 <a href="https://matrix.to/#/#rimgo:nitro.chat">
   <img alt="Matrix" src="https://img.shields.io/badge/chat-matrix-blue">
 </a>
-<a href="https://gitlab.com/overtime-zone-wildfowl/rimgo">
-  <img alt="CI" src="https://gitlab.com/overtime-zone-wildfowl/rimgo/badges/main/pipeline.svg">
-</a>
 
 ## Features
 - Lightweight
