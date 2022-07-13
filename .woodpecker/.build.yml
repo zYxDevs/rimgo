@@ -1,0 +1,14 @@
+pipeline:
+  build:
+    image: woodpeckerci/plugin-docker-buildx
+    settings:
+      dockerfile: Dockerfile
+      registry: https://registry.gitlab.com/
+      repo: registry.gitlab.com/overtime-zone-wildfowl/rimgo
+      platforms: linux/amd64,linux/arm64
+      tag: latest
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+    secrets: [docker_username, docker_password]
