@@ -9,6 +9,7 @@ import (
 
 func HandleFrontpage(c *fiber.Ctx) error {
 	utils.SetHeaders(c)
+	c.Set("X-Frame-Options", "DENY")
 	c.Set("Cache-Control", "public,max-age=31557600")
 	c.Set("Content-Security-Policy", "default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; manifest-src 'self'; block-all-mixed-content")
 

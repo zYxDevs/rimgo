@@ -11,6 +11,7 @@ import (
 
 func HandlePost(c *fiber.Ctx) error {
 	utils.SetHeaders(c)
+	c.Set("X-Frame-Options", "DENY")
 	c.Set("Content-Security-Policy", "default-src 'none'; media-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; manifest-src 'self'; block-all-mixed-content")
 
 	post, err := types.Album{}, error(nil)
