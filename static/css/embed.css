@@ -2,12 +2,50 @@
   filter: invert(180deg), hue-rotate(180deg);
 }
 
-.postLink {
+body {
+  overflow: hidden;
+}
+
+.mediaWrapper {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+}
+
+.media {
+  display: flex;
+  overflow: scroll;
+  gap: 1rem;
+  align-items: center;
+  height: 90vh;
+}
+
+.media img, .media video {
+  height: 100%;
+}
+
+.logoContainer {
+  display: flex;
   align-items: center;
 }
 
-.rimgoLink {
-  width: 100%;
+.views {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.postDetails {
+  display: flex;
+  gap: 1rem;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+.postMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 9vh;
 }
