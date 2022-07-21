@@ -1,12 +1,8 @@
 pipeline:
   deploy:
-    image: alpine:latest
+    image: flyio/flyctl:latest
     commands:
-      - apk update && apk --no-cache add curl git
-      - wget -O - https://fly.io/install.sh | sh
-      - git clone https://codeberg.org/video-prize-ranch/fly-cfg.git
-      - cd fly-cfg
-      - /root/.fly/bin/flyctl deploy --detach
+      - /flyctl deploy --detach --remote-only
     secrets: [fly_api_token]
 
 depends_on:
