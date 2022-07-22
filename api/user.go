@@ -7,35 +7,57 @@ import (
 	"sync"
 	"time"
 
-	"codeberg.org/video-prize-ranch/rimgo/types"
 	"codeberg.org/video-prize-ranch/rimgo/utils"
 	"github.com/patrickmn/go-cache"
 	"github.com/tidwall/gjson"
 )
 
+type User struct {
+	Id        int64
+	Bio       string
+	Username  string
+	Points    int64
+	Cover     string
+	Avatar    string
+	CreatedAt string
+}
+
+type Submission struct {
+	Id        string
+	Title     string
+	Link      string
+	Cover     Media
+	Points    int64
+	Upvotes   int64
+	Downvotes int64
+	Comments  int64
+	Views     int64
+	IsAlbum   bool
+}
+
 var userCache = cache.New(30*time.Minute, 15*time.Minute)
 
-func FetchUser(username string) (types.User, error) {
+func FetchUser(username string) (User, error) {
 	cacheData, found := userCache.Get(username)
 	if found {
-		return cacheData.(types.User), nil
+		return cacheData.(User), nil
 	}
 
 	res, err := http.Get("https://api.imgur.com/account/v1/accounts/" + username + "?client_id=" + utils.Config["imgurId"].(string))
 	if err != nil {
-		return types.User{}, err
+		return User{}, err
 	}
 
 	body, err := io.ReadAll(res.Body)
 	if err != nil {
-		return types.User{}, err
+		return User{}, err
 	}
 
 	data := gjson.Parse(string(body))
 
 	createdTime, _ := time.Parse(time.RFC3339, data.Get("created_at").String())
 
-	user := types.User{
+	user := User{
 		Id:        data.Get("id").Int(),
 		Bio:       data.Get("bio").String(),
 		Username:  data.Get("username").String(),
@@ -49,18 +71,18 @@ func FetchUser(username string) (types.User, error) {
 	return user, nil
 }
 
-func FetchSubmissions(username string, sort string, page string) ([]types.Submission, error) {
+func FetchSubmissions(username string, sort string, page string) ([]Submission, error) {
 	cacheData, found := userCache.Get(username + "-submissions")
 	if found {
-		return cacheData.([]types.Submission), nil
+		return cacheData.([]Submission), nil
 	}
 
 	data, err := utils.GetJSON("https://api.imgur.com/3/account/" + username + "/submissions/" + page + "/" + sort + "?album_previews=1&client_id=" + utils.Config["imgurId"].(string))
 	if err != nil {
-		return []types.Submission{}, err
+		return []Submission{}, err
 	}
 
-	submissions := []types.Submission{}
+	submissions := []Submission{}
 
 	wg := sync.WaitGroup{}
 	data.Get("data").ForEach(
@@ -71,16 +93,16 @@ func FetchSubmissions(username string, sort string, page string) ([]types.Submis
 				defer wg.Done()
 
 				coverData := value.Get("images.#(id==\"" + value.Get("cover").String() + "\")")
-				cover := types.Media{}
+				cover := Media{}
 				if coverData.Exists() {
-					cover = types.Media{
+					cover = Media{
 						Id:          coverData.Get("id").String(),
 						Description: coverData.Get("description").String(),
 						Type:        strings.Split(coverData.Get("type").String(), "/")[0],
 						Url:         strings.ReplaceAll(coverData.Get("link").String(), "https://i.imgur.com", ""),
 					}
 				} else {
-					cover = types.Media{
+					cover = Media{
 						Id:          value.Get("id").String(),
 						Description: value.Get("description").String(),
 						Type:        strings.Split(value.Get("type").String(), "/")[0],
@@ -90,7 +112,7 @@ func FetchSubmissions(username string, sort string, page string) ([]types.Submis
 
 				id := value.Get("id").String()
 
-				submissions = append(submissions, types.Submission{
+				submissions = append(submissions, Submission{
 					Id:    id,
 					Link:  "/a/" + id,
 					Title: value.Get("title").String(),

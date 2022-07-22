@@ -5,28 +5,41 @@ import (
 	"sync"
 	"time"
 
-	"codeberg.org/video-prize-ranch/rimgo/types"
 	"codeberg.org/video-prize-ranch/rimgo/utils"
 	"github.com/dustin/go-humanize"
 	"github.com/patrickmn/go-cache"
 	"github.com/tidwall/gjson"
 )
 
+type Comment struct {
+	Comments  []Comment
+	User			User
+	Id        string
+	Comment   string
+	Upvotes   int64
+	Downvotes int64
+	Platform  string
+	CreatedAt string
+	RelTime		string
+	UpdatedAt string
+	DeletedAt string
+}
+
 var commentCache = cache.New(15*time.Minute, 15*time.Minute)
 
-func FetchComments(galleryID string) ([]types.Comment, error) {
+func FetchComments(galleryID string) ([]Comment, error) {
 	cacheData, found := commentCache.Get(galleryID)
 	if found {
-		return cacheData.([]types.Comment), nil
+		return cacheData.([]Comment), nil
 	}
 
 	data, err := utils.GetJSON("https://api.imgur.com/comment/v1/comments?client_id=" + utils.Config["imgurId"].(string) + "&filter[post]=eq:" + galleryID + "&include=account,adconfig&per_page=30&sort=best")
 	if err != nil {
-		return []types.Comment{}, nil
+		return []Comment{}, nil
 	}
 
 	wg := sync.WaitGroup{}
-	comments := make([]types.Comment, 0)
+	comments := make([]Comment, 0)
 	data.Get("data").ForEach(
 		func(key, value gjson.Result) bool {
 			wg.Add(1)
@@ -45,7 +58,7 @@ func FetchComments(galleryID string) ([]types.Comment, error) {
 	return comments, nil
 }
 
-func ParseComment(data gjson.Result) types.Comment {
+func ParseComment(data gjson.Result) Comment {
 	createdTime, _ := time.Parse("2006-01-02T15:04:05Z", data.Get("created_at").String())
 	createdAt := createdTime.Format("January 2, 2006 3:04 PM")
 	updatedAt, _ := utils.FormatDate(data.Get("updated_at").String())
@@ -54,7 +67,7 @@ func ParseComment(data gjson.Result) types.Comment {
 	userAvatar := strings.ReplaceAll(data.Get("account.avatar").String(), "https://i.imgur.com", "")
 
 	wg := sync.WaitGroup{}
-	comments := make([]types.Comment, 0)
+	comments := make([]Comment, 0)
 	data.Get("comments").ForEach(
 		func(key, value gjson.Result) bool {
 			wg.Add(1)
@@ -69,9 +82,9 @@ func ParseComment(data gjson.Result) types.Comment {
 	)
 	wg.Wait()
 
-	return types.Comment{
+	return Comment{
 		Comments: comments,
-		User: types.User{
+		User: User{
 			Id:       data.Get("account.id").Int(),
 			Username: data.Get("account.username").String(),
 			Avatar:   userAvatar,

@@ -5,7 +5,6 @@ import (
 	"sync"
 
 	"codeberg.org/video-prize-ranch/rimgo/api"
-	"codeberg.org/video-prize-ranch/rimgo/types"
 	"codeberg.org/video-prize-ranch/rimgo/utils"
 	"github.com/gofiber/fiber/v2"
 )
@@ -28,7 +27,7 @@ func HandleUser(c *fiber.Ctx) error {
 
 	wg := sync.WaitGroup{}
 	wg.Add(2)
-	user, err := types.User{}, error(nil)
+	user, err := api.User{}, error(nil)
 	go func() {
 		defer wg.Done()
 		user, err = api.FetchUser(c.Params("userID"))
@@ -37,7 +36,7 @@ func HandleUser(c *fiber.Ctx) error {
 		return err
 	}
 
-	submissions, err := []types.Submission{}, error(nil)
+	submissions, err := []api.Submission{}, error(nil)
 	go func() {
 		defer wg.Done()
 		submissions, err = api.FetchSubmissions(c.Params("userID"), "newest", page)

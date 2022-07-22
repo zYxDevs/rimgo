@@ -4,82 +4,106 @@ import (
 	"strings"
 	"time"
 
-	"codeberg.org/video-prize-ranch/rimgo/types"
 	"codeberg.org/video-prize-ranch/rimgo/utils"
 	"github.com/patrickmn/go-cache"
 	"github.com/tidwall/gjson"
 )
 
+type Album struct {
+	Id                  string
+	Title               string
+	Views               int64
+	Upvotes             int64
+	Downvotes           int64
+	SharedWithCommunity bool
+	CreatedAt           string
+	UpdatedAt           string
+	Comments            int64
+	User								User
+	Media               []Media
+	Tags								[]Tag
+}
+
+type Media struct {
+	Id          string
+	Name        string
+	Title       string
+	Description string
+	Url         string
+	Type				string
+	MimeType		string
+}
+
 var albumCache = cache.New(1*time.Hour, 15*time.Minute)
 
-func FetchAlbum(albumID string) (types.Album, error) {
+func FetchAlbum(albumID string) (Album, error) {
 	cacheData, found := albumCache.Get(albumID + "-album")
 	if found {
-		return cacheData.(types.Album), nil
+		return cacheData.(Album), nil
 	}
 
 	data, err := utils.GetJSON("https://api.imgur.com/post/v1/albums/" + albumID + "?client_id=" + utils.Config["imgurId"].(string) + "&include=media%2Caccount")
 	if err != nil {
-		return types.Album{}, err
+		return Album{}, err
 	}
 
 	album, err := ParseAlbum(data)
 	if err != nil {
-		return types.Album{}, err
+		return Album{}, err
 	}
 
 	albumCache.Set(albumID + "-album", album, cache.DefaultExpiration)
 	return album, err
 }
 
-func FetchPosts(albumID string) (types.Album, error) {
+func FetchPosts(albumID string) (Album, error) {
 	cacheData, found := albumCache.Get(albumID + "-posts")
 	if found {
-		return cacheData.(types.Album), nil
+		return cacheData.(Album), nil
 	}
 
 	data, err := utils.GetJSON("https://api.imgur.com/post/v1/posts/" + albumID + "?client_id=" + utils.Config["imgurId"].(string) + "&include=media%2Caccount%2Ctags")
 	if err != nil {
-		return types.Album{}, err
+		return Album{}, err
 	}
 
 	album, err := ParseAlbum(data)
 	if err != nil {
-		return types.Album{}, err
+		return Album{}, err
 	}
 
 	albumCache.Set(albumID + "-posts", album, cache.DefaultExpiration)
 	return album, nil
 }
 
-func FetchMedia(mediaID string) (types.Album, error) {
+func FetchMedia(mediaID string) (Album, error) {
 	cacheData, found := albumCache.Get(mediaID + "-media")
 	if found {
-		return cacheData.(types.Album), nil
+		return cacheData.(Album), nil
 	}
 	
 	data, err := utils.GetJSON("https://api.imgur.com/post/v1/media/" + mediaID + "?client_id=" + utils.Config["imgurId"].(string) + "&include=media%2Caccount")
 	if err != nil {
-		return types.Album{}, err
+		return Album{}, err
 	}
 
 	album, err := ParseAlbum(data)
 	if err != nil {
-		return types.Album{}, err
+		return Album{}, err
 	}
 
 	albumCache.Set(mediaID + "-media", album, cache.DefaultExpiration)
 	return album, nil
 }
 
-func ParseAlbum(data gjson.Result) (types.Album, error) {
-	media := make([]types.Media, 0)
+func ParseAlbum(data gjson.Result) (Album, error) {
+	media := make([]Media, 0)
 	data.Get("media").ForEach(
 		func(key gjson.Result, value gjson.Result) bool {
 			url := value.Get("url").String()
 			url = strings.ReplaceAll(url, "https://i.imgur.com", "")
 
-			media = append(media, types.Media{
+			media = append(media, Media{
 				Id:          value.Get("id").String(),
 				Name:        value.Get("name").String(),
 				MimeType:    value.Get("mime_type").String(),
@@ -93,10 +117,10 @@ func ParseAlbum(data gjson.Result) (types.Album, error) {
 		},
 	)
 
-	tags := make([]types.Tag, 0)
+	tags := make([]Tag, 0)
 	data.Get("tags").ForEach(
 		func(key gjson.Result, value gjson.Result) bool {
-			tags = append(tags, types.Tag{
+			tags = append(tags, Tag{
 				Tag: value.Get("tag").String(),
 				Display: value.Get("display").String(),
 				Background: "/" + value.Get("background_id").String() + ".webp",
@@ -107,10 +131,10 @@ func ParseAlbum(data gjson.Result) (types.Album, error) {
 
 	createdAt, err := utils.FormatDate(data.Get("created_at").String())
 	if err != nil {
-		return types.Album{}, err
+		return Album{}, err
 	}
 
-	album := types.Album{
+	album := Album{
 		Id:                  data.Get("id").String(),
 		Title:               data.Get("title").String(),
 		SharedWithCommunity: data.Get("shared_with_community").Bool(),
@@ -125,7 +149,7 @@ func ParseAlbum(data gjson.Result) (types.Album, error) {
 
 	account := data.Get("account")
 	if account.Raw != "" {
-		album.User = types.User{
+		album.User = User{
 			Id: account.Get("id").Int(),
 			Username: account.Get("username").String(),
 			Avatar: strings.ReplaceAll(account.Get("avatar_url").String(), "https://i.imgur.com", ""),
