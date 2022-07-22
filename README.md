@@ -46,7 +46,7 @@ Open an issue to have your instance listed here!
 | [i.actionsack.com](https://i.actionsack.com)               	| 🇺🇸 US   | 😢         |
 | [rimgo.privacydev.net](https://rimgo.privacydev.net)       	| 🇺🇸 US   |            |
 | [imgur.artemislena.eu](https://imgur.artemislena.eu)       	| 🇩🇪 DE   |            |
-| [rimgo.vern.cc](https://rimgo.vern.cc) ([edited theme](https://git.vern.cc/root/modifications/src/branch/master/rimgo) | 🇨🇦️ CA   |            |
+| [rimgo.vern.cc](https://rimgo.vern.cc) ([edited theme](https://git.vern.cc/root/modifications/src/branch/master/rimgo)) | 🇨🇦️ CA   |            |
 | [rimgo.encrypted-data.xyz](https://rimgo.encrypted-data.xyz/)	| 🇫🇷️ FR | 😢	       |
 | [rimgo.mha.fi](https://rimgo.mha.fi/)                       | 🇫🇮 FI   |            |
 
@@ -126,6 +126,6 @@ rimgo can be configured using environment variables.
 
 ## Contributing
 
-PRs are welcome! You can also send patches to `cb.8a3w5@simplelogin.co` but pull requests are preferred.
+Pull requests are welcome!
 
 This software is released under the AGPL 3.0 license. In short, this means that if you make any modifications to the code and then publish the result (e.g. by hosting the result on a web server), you must publicly distribute your changes and declare that they also use AGPL 3.0.
