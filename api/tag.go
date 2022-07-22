@@ -13,12 +13,13 @@ import (
 )
 
 type Tag struct {
-	Tag	        string
-	Display			string
-	Sort				string
-	PostCount	  int64
-	Posts				[]Submission
-	Background  string
+	Tag          string
+	Display      string
+	Sort         string
+	PostCount    int64
+	Posts        []Submission
+	Background   string
+	BackgroundId string
 }
 
 var tagCache = cache.New(15*time.Minute, 15*time.Minute)
@@ -80,9 +81,9 @@ func FetchTag(tag string, sort string, page string) (Tag, error) {
 					Title: value.Get("title").String(),
 					Link:  strings.ReplaceAll(value.Get("url").String(), "https://imgur.com", ""),
 					Cover: Media{
-						Id:  value.Get("cover_id").String(),
+						Id:   value.Get("cover_id").String(),
 						Type: value.Get("cover.type").String(),
-						Url: strings.ReplaceAll(value.Get("cover.url").String(), "https://i.imgur.com", ""),
+						Url:  strings.ReplaceAll(value.Get("cover.url").String(), "https://i.imgur.com", ""),
 					},
 					Points:    value.Get("point_count").Int(),
 					Upvotes:   value.Get("upvote_count").Int(),
@@ -100,12 +101,12 @@ func FetchTag(tag string, sort string, page string) (Tag, error) {
 	wg.Wait()
 
 	tagData := Tag{
-		Tag: tag,
-		Display: data.Get("display").String(),
-		Sort: sort,
-		PostCount: data.Get("post_count").Int(),
-		Posts: posts,
-		Background: "/" + data.Get("background_id").String() + ".webp",
+		Tag:          tag,
+		Display:      data.Get("display").String(),
+		Sort:         sort,
+		PostCount:    data.Get("post_count").Int(),
+		Posts:        posts,
+		Background:   "/" + data.Get("background_id").String() + ".webp",
 	}
 
 	tagCache.Set(tag, tagData, cache.DefaultExpiration)

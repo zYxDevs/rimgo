@@ -1,6 +1,8 @@
 package pages
 
 import (
+	"crypto/rand"
+	"fmt"
 	"strings"
 
 	"codeberg.org/video-prize-ranch/rimgo/api"
@@ -11,7 +13,6 @@ import (
 func HandlePost(c *fiber.Ctx) error {
 	utils.SetHeaders(c)
 	c.Set("X-Frame-Options", "DENY")
-	c.Set("Content-Security-Policy", "default-src 'none'; media-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; manifest-src 'self'; block-all-mixed-content")
 
 	post, err := api.Album{}, error(nil)
 	switch {
@@ -26,7 +27,7 @@ func HandlePost(c *fiber.Ctx) error {
 		c.Status(404)
 		return c.Render("errors/404", nil)
 	}
- 	if err != nil {
+	if err != nil {
 		return err
 	}
 
@@ -41,8 +42,19 @@ func HandlePost(c *fiber.Ctx) error {
 		c.Set("Cache-Control", "public,max-age=31557600")
 	}
 
+	nonce := ""
+	csp := "default-src 'none'; media-src 'self'; img-src 'self'; font-src 'self'; manifest-src 'self'; block-all-mixed-content; style-src 'self'"
+	if len(post.Tags) != 0 {
+		b := make([]byte, 8)
+		rand.Read(b)
+		nonce = fmt.Sprintf("%x", b)
+		csp = csp + " 'nonce-" + nonce + "'"
+	}
+	c.Set("Content-Security-Policy", csp)
+
 	return c.Render("post", fiber.Map{
-		"post":    post,
+		"post":     post,
 		"comments": comments,
+		"nonce":    nonce,
 	})
 }

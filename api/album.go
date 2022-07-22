@@ -19,9 +19,9 @@ type Album struct {
 	CreatedAt           string
 	UpdatedAt           string
 	Comments            int64
-	User								User
+	User                User
 	Media               []Media
-	Tags								[]Tag
+	Tags                []Tag
 }
 
 type Media struct {
@@ -30,8 +30,8 @@ type Media struct {
 	Title       string
 	Description string
 	Url         string
-	Type				string
-	MimeType		string
+	Type        string
+	MimeType    string
 }
 
 var albumCache = cache.New(1*time.Hour, 15*time.Minute)
@@ -52,7 +52,7 @@ func FetchAlbum(albumID string) (Album, error) {
 		return Album{}, err
 	}
 
-	albumCache.Set(albumID + "-album", album, cache.DefaultExpiration)
+	albumCache.Set(albumID+"-album", album, cache.DefaultExpiration)
 	return album, err
 }
 
@@ -72,7 +72,7 @@ func FetchPosts(albumID string) (Album, error) {
 		return Album{}, err
 	}
 
-	albumCache.Set(albumID + "-posts", album, cache.DefaultExpiration)
+	albumCache.Set(albumID+"-posts", album, cache.DefaultExpiration)
 	return album, nil
 }
 
@@ -81,7 +81,7 @@ func FetchMedia(mediaID string) (Album, error) {
 	if found {
 		return cacheData.(Album), nil
 	}
-	
+
 	data, err := utils.GetJSON("https://api.imgur.com/post/v1/media/" + mediaID + "?client_id=" + utils.Config["imgurId"].(string) + "&include=media%2Caccount")
 	if err != nil {
 		return Album{}, err
@@ -92,7 +92,7 @@ func FetchMedia(mediaID string) (Album, error) {
 		return Album{}, err
 	}
 
-	albumCache.Set(mediaID + "-media", album, cache.DefaultExpiration)
+	albumCache.Set(mediaID+"-media", album, cache.DefaultExpiration)
 	return album, nil
 }
 
@@ -121,9 +121,10 @@ func ParseAlbum(data gjson.Result) (Album, error) {
 	data.Get("tags").ForEach(
 		func(key gjson.Result, value gjson.Result) bool {
 			tags = append(tags, Tag{
-				Tag: value.Get("tag").String(),
-				Display: value.Get("display").String(),
-				Background: "/" + value.Get("background_id").String() + ".webp",
+				Tag:          value.Get("tag").String(),
+				Display:      value.Get("display").String(),
+				Background:   "/" + value.Get("background_id").String() + ".webp",
+				BackgroundId: value.Get("background_id").String(),
 			})
 			return true
 		},
@@ -144,15 +145,15 @@ func ParseAlbum(data gjson.Result) (Album, error) {
 		Comments:            data.Get("comment_count").Int(),
 		CreatedAt:           createdAt,
 		Media:               media,
-		Tags:								 tags,
+		Tags:                tags,
 	}
 
 	account := data.Get("account")
 	if account.Raw != "" {
 		album.User = User{
-			Id: account.Get("id").Int(),
+			Id:       account.Get("id").Int(),
 			Username: account.Get("username").String(),
-			Avatar: strings.ReplaceAll(account.Get("avatar_url").String(), "https://i.imgur.com", ""),
+			Avatar:   strings.ReplaceAll(account.Get("avatar_url").String(), "https://i.imgur.com", ""),
 		}
 	}
 

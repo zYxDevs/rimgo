@@ -74,9 +74,14 @@
 
     {{#if post.tags}}
     <div class="tags">
+      <style nonce="{{nonce}}">
+        {{#each post.tags}}
+          .{{this.BackgroundId}} { background-image: url('{{this.Background}}') }
+        {{/each}}	      
+      </style>
       {{#each post.tags}}
       <a href="/t/{{this.Tag}}">
-        <div class="tag" style="background-image: url('{{this.Background}}');">
+        <div class="tag {{this.BackgroundId}}">
           <p class="tag__display">{{this.Display}}</p>
         </div>
       </a>
