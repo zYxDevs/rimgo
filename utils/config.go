@@ -35,9 +35,22 @@ func LoadConfig() {
 	}
 
 	Config = map[string]interface{}{
-		"port": port,
-		"addr": addr,
-		"imgurId": imgurId,
+		"port":         port,
+		"addr":         addr,
+		"imgurId":      imgurId,
 		"fiberPrefork": fiberPrefork,
+		"privacy": map[string]interface{}{
+			"set":					 os.Getenv("PRIVACY_NOT_COLLECTED") != "",
+			"policy":	       os.Getenv("PRIVACY_POLICY"),
+			"message":       os.Getenv("PRIVACY_MESSAGE"),
+			"country":       os.Getenv("PRIVACY_COUNTRY"),
+			"provider":      os.Getenv("PRIVACY_PROVIDER"),
+			"cloudflare":    os.Getenv("PRIVACY_CLOUDFLARE") == "true",
+			"not_collected": os.Getenv("PRIVACY_NOT_COLLECTED") == "true",
+			"ip":            os.Getenv("PRIVACY_IP") == "true",
+			"url":           os.Getenv("PRIVACY_URL") == "true",
+			"device":        os.Getenv("PRIVACY_DEVICE") == "true",
+			"diagnostics":   os.Getenv("PRIVACY_DIAGNOSTICS") == "true",
+		},
 	}
 }

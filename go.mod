@@ -6,6 +6,7 @@ require (
 	github.com/dustin/go-humanize v1.0.0
 	github.com/gofiber/fiber/v2 v2.32.0
 	github.com/gofiber/template v1.6.27
+	github.com/joho/godotenv v1.4.0
 	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/tidwall/gjson v1.14.1
 )

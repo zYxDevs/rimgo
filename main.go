@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"net/http"
 
@@ -12,9 +13,15 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/filesystem"
 	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/gofiber/template/handlebars"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	envPath := flag.String("c", ".env", "Path to env file")
+	err := godotenv.Load(*envPath)
+	if err != nil {
+		fmt.Println(err)
+	}
 	utils.LoadConfig()
 
 	engine := handlebars.NewFileSystem(http.FS(views.GetFiles()), ".hbs")
@@ -51,6 +58,7 @@ func main() {
 	})
 
 	app.Get("/", pages.HandleFrontpage)
+	app.Get("/privacy", pages.HandlePrivacy)
 	app.Get("/:postID.gifv", pages.HandleGifv)
 	app.Get("/:baseName.:extension", pages.HandleMedia)
 	app.Get("/:postID", pages.HandlePost)

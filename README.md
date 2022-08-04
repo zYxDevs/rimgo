@@ -111,18 +111,39 @@ You can now run rimgo.
 ./rimgo
 ```
 
+To include version information use:
+```
+go build -ldflags "-X codeberg.org/librarian/librarian/pages.VersionInfo=$(date '+%Y-%m-%d')-$(git rev-list --abbrev-commit -1 HEAD)"
+```
+
+(optional) You can use a .env file to set environment variables for configuration.
+```
+cp .env.example .env
+nvim .env
+```
+
 ## Configuration
 
-rimgo can be configured using environment variables.
+rimgo can be configured using environment variables. The path to the .env file can be changed the -c flag.
 
 ### Environment variables
 
-| Name            | Default         |
-|-----------------|-----------------|
-| PORT            | 3000            |
-| ADDRESS         | 0.0.0.0         |
-| IMGUR_CLIENT_ID | 546c25a59c58ad7 |
-| FORCE_WEBP      | 0               |
+| Name                  | Default         |
+|-----------------------|-----------------|
+| PORT                  | 3000            |
+| ADDRESS               | 0.0.0.0         |
+| IMGUR_CLIENT_ID       | 546c25a59c58ad7 |
+| FORCE_WEBP            | 0               |
+| PRIVACY_POLICY        |                 |
+| PRIVACY_MESSAGE       |                 |
+| PRIVACY_COUNTRY       |                 |
+| PRIVACY_PROVIDER      |                 |
+| PRIVACY_CLOUDFLARE    |                 |
+| PRIVACY_NOT_COLLECTED |                 |
+| PRIVACY_IP            |                 |
+| PRIVACY_URL           |                 |
+| PRIVACY_DEVICE        |                 |
+| PRIVACY_DIAGNOSTICS   |                 |
 
 ## Contributing
 
