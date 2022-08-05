@@ -20,11 +20,12 @@
 <body>
   {{> partials/header }}
 
-  <main>
+  <header>
     <h1>{{post.Title}}</h1>
-
     <p>{{post.CreatedAt}}</p>
-
+  </header>
+  
+  <main>
     <div class="imageMeta__wrapper">
       {{#if post.User.Username}}
       <div class="user">
@@ -68,8 +69,6 @@
       </video>
       {{/equal}}
     </div>
-
-    <br>
     {{/each}}
 
     {{#if post.tags}}
@@ -88,7 +87,9 @@
       {{/each}}
     </div>
     {{/if}}
+  </main>
 
+  <section>
     {{#if comments}}
     <div>
       <hr>
@@ -105,7 +106,7 @@
     </div>
     <hr>
     {{/if}}
-  </main>
+  </section>
 
   {{> partials/footer }}
 </body>

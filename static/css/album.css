@@ -2,13 +2,15 @@ h1 {
   margin: 0;
 }
 
-p {
-  margin: 0.5em 0;
+main p, h4 {
+  text-align: center;
 }
 
-video,
-img {
+main video,
+main img {
+  margin: 1em 0;
   max-width: 100%;
+  max-height: 85vh;
 }
 
 .pfp {

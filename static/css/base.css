@@ -33,6 +33,8 @@ nav {
   filter: invert(1) hue-rotate(180deg);
 }
 
+section,
+header,
 main {
   margin: 0 24vw;
 }
