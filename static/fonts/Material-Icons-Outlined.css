@@ -3,6 +3,7 @@
   font-family: 'Material Icons Outlined';
   font-style: normal;
   font-weight: 400;
+  font-display: optional;
   src: url(Material-Icons-Outlined.woff2) format('woff2');
 }
 
