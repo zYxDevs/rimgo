@@ -3,8 +3,8 @@ pipeline:
     image: woodpeckerci/plugin-docker-buildx
     settings:
       dockerfile: Dockerfile
-      registry: https://registry.gitlab.com/
-      repo: registry.gitlab.com/overtime-zone-wildfowl/rimgo
+      registry: https://codeberg.org/
+      repo: codeberg.org/overtime-zone-wildfowl/rimgo
       platforms: linux/amd64,linux/arm64
       tag: latest
       username:
