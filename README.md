@@ -90,6 +90,19 @@ You can now run rimgo.
 sudo docker-compose up -d
 ```
 
+#### Automatic updates
+[Watchtower](https://containrrr.dev/watchtower/) can automatically update your Docker containers.
+
+Create a new `docker-compose.yml` file or add the watchtower section to your existing `docker-compose.yml` file.
+```yml
+version: "3"
+services:
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+```
+
 ### Build from source
 
 #### Requirements

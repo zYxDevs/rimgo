@@ -2,9 +2,9 @@ version: '3'
 
 services:
   rimgo:
-    #image: codeberg.org/video-prize-ranch/rimgo # Uncomment to use image, official image
+    image: codeberg.org/video-prize-ranch/rimgo # Official image
     #image: quay.io/pussthecatorg/rimgo # Unofficial image
-    build: .
+    #build: . # Uncomment to build from source
     ports:
       - 3000:3000
     restart: unless-stopped
