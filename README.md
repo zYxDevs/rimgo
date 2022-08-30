@@ -36,8 +36,8 @@ Open an issue to have your instance listed here!
 ### Clearnet
 
 | URL                                                        	| Country | Cloudflare |
-| :------------------------------------------------------------ | :------ | :--------- |
-| [i.bcow.xyz](https://i.bcow.xyz) (official)                	| 🇨🇦️ CA, 🇳🇱️ NL, 🇸🇬️ SG   |            |
+| :---------------------------------------------------------- | :------ | :--------- |
+| [i.bcow.xyz](https://i.bcow.xyz) (official)                	| 🇩🇪 DE   |            |
 | [rimgo.pussthecat.org](https://rimgo.pussthecat.org)       	| 🇩🇪 DE   |            |
 | [rimgo.totaldarkness.net](https://rimgo.totaldarkness.net) 	| 🇨🇦 CA   |            |
 | [rimgo.bus-hit.me](https://rimgo.bus-hit.me)               	| 🇨🇦 CA   |            |
@@ -49,6 +49,7 @@ Open an issue to have your instance listed here!
 | [rimgo.vern.cc](https://rimgo.vern.cc) ([edited theme](https://git.vern.cc/root/modifications/src/branch/master/rimgo)) | 🇨🇦️ CA   |            |
 | [rimgo.encrypted-data.xyz](https://rimgo.encrypted-data.xyz/)	| 🇫🇷️ FR | 😢	       |
 | [rimgo.mha.fi](https://rimgo.mha.fi/)                       | 🇫🇮 FI   |            |
+| [img.riverside.rocks](https://img.riverside.rocks)          | 🇺🇸 US   |            |
 
 ### Tor
 
@@ -57,6 +58,7 @@ Open an issue to have your instance listed here!
 | [rimgo.lqs5fjmajyp7rvp4qvyubwofzi6d4imua7vs237rkc4m5qogitqwrgyd.onion](http://rimgo.lqs5fjmajyp7rvp4qvyubwofzi6d4imua7vs237rkc4m5qogitqwrgyd.onion) (onion of rimgo.esmailelbob.xyz) | 🇨🇦 CA |
 | [rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion) (onion of rimgo.vern.cc) | 🇨🇦 CA |
 | [rimgo.micohauwkjbyw5meacrb4ipicwvwg4xtzl7y7viv53kig2mdcsvwkyyd.onion](http://rimgo.micohauwkjbyw5meacrb4ipicwvwg4xtzl7y7viv53kig2mdcsvwkyyd.onion) (onion of rimgo.mha.fi)  | 🇫🇮 FI |
+| []()
 
 ## Automatically redirect links
 
