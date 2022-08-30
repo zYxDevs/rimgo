@@ -3,7 +3,7 @@
   font-family: 'Material Icons Outlined';
   font-style: normal;
   font-weight: 400;
-  font-display: optional;
+  font-display: block;
   src: url(Material-Icons-Outlined.woff2) format('woff2');
 }
 
@@ -18,6 +18,6 @@
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-  -moz-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
   -moz-osx-font-smoothing: grayscale;
 }
