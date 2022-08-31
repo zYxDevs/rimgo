@@ -35,30 +35,27 @@ Open an issue to have your instance listed here!
 
 ### Clearnet
 
-| URL                                                        	| Country | Cloudflare |
-| :---------------------------------------------------------- | :------ | :--------- |
-| [i.bcow.xyz](https://i.bcow.xyz) (official)                	| 🇩🇪 DE   |            |
-| [rimgo.pussthecat.org](https://rimgo.pussthecat.org)       	| 🇩🇪 DE   |            |
-| [rimgo.totaldarkness.net](https://rimgo.totaldarkness.net) 	| 🇨🇦 CA   |            |
-| [rimgo.bus-hit.me](https://rimgo.bus-hit.me)               	| 🇨🇦 CA   |            |
-| [rimgo.esmailelbob.xyz](https://rimgo.esmailelbob.xyz)     	| 🇨🇦 CA   |            |
-| [rimgo.lunar.icu](https://rimgo.lunar.icu)                 	| 🇩🇪 DE   | 😢         |
-| [i.actionsack.com](https://i.actionsack.com)               	| 🇺🇸 US   | 😢         |
-| [rimgo.privacydev.net](https://rimgo.privacydev.net)       	| 🇺🇸 US   |            |
-| [imgur.artemislena.eu](https://imgur.artemislena.eu)       	| 🇩🇪 DE   |            |
-| [rimgo.vern.cc](https://rimgo.vern.cc) ([edited theme](https://git.vern.cc/root/modifications/src/branch/master/rimgo)) | 🇨🇦️ CA   |            |
-| [rimgo.encrypted-data.xyz](https://rimgo.encrypted-data.xyz/)	| 🇫🇷️ FR | 😢	       |
-| [rimgo.mha.fi](https://rimgo.mha.fi/)                       | 🇫🇮 FI   |            |
-| [img.riverside.rocks](https://img.riverside.rocks)          | 🇺🇸 US   |            |
+| URL                                                        	  | Country | Provider         | Privacy               | Notes |
+| :------------------------------------------------------------ | :------ | :--------------- | :-------------------- | :---- |
+| [i.bcow.xyz](https://i.bcow.xyz) (official)                	  | 🇩🇪 DE   | AWS	             | ⚠️ Data collected     |       |
+| [rimgo.pussthecat.org](https://rimgo.pussthecat.org)       	  | 🇩🇪 DE   | Hetzner          | ⚠️ Data collected     |       |
+| [rimgo.totaldarkness.net](https://rimgo.totaldarkness.net) 	  | 🇨🇦 CA   | Vultr            | ❓️ No details         |       |
+| [rimgo.bus-hit.me](https://rimgo.bus-hit.me)               	  | 🇨🇦 CA   | Oracle           | ❓️ No details         |       |
+| [rimgo.esmailelbob.xyz](https://rimgo.esmailelbob.xyz)     	  | 🇨🇦 CA   | OVH              | ❓️ No details         |       |
+| [i.actionsack.com](https://i.actionsack.com)               	  | 🇺🇸 US   | Cloudflare       | ❓️ No details         |       |
+| [rimgo.privacydev.net](https://rimgo.privacydev.net)       	  | 🇺🇸 US   | Cyber Wurx       | ❓️ No details         |       |
+| [imgur.artemislena.eu](https://imgur.artemislena.eu)       	  | 🇩🇪 DE   | Deutsche Telekom | ❓️ No details         |       |
+| [rimgo.vern.cc](https://rimgo.vern.cc)                        | 🇨🇦️ CA   | OVHCloud         | ✅ Data not collected | [Edited theme](https://git.vern.cc/root/modifications/src/branch/master/rimgo) |
+| [rimgo.encrypted-data.xyz](https://rimgo.encrypted-data.xyz/)	| 🇫🇷️ FR   | Cloudflare	      | ❓️ No details         |       |
+| [rimgo.mha.fi](https://rimgo.mha.fi/)                       	| 🇫🇮 FI   | Hetzner          | ❓️ No details         |       |
 
 ### Tor
 
-| URL | Country |
-| :-- | :------ |
-| [rimgo.lqs5fjmajyp7rvp4qvyubwofzi6d4imua7vs237rkc4m5qogitqwrgyd.onion](http://rimgo.lqs5fjmajyp7rvp4qvyubwofzi6d4imua7vs237rkc4m5qogitqwrgyd.onion) (onion of rimgo.esmailelbob.xyz) | 🇨🇦 CA |
-| [rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion) (onion of rimgo.vern.cc) | 🇨🇦 CA |
-| [rimgo.micohauwkjbyw5meacrb4ipicwvwg4xtzl7y7viv53kig2mdcsvwkyyd.onion](http://rimgo.micohauwkjbyw5meacrb4ipicwvwg4xtzl7y7viv53kig2mdcsvwkyyd.onion) (onion of rimgo.mha.fi)  | 🇫🇮 FI |
-| []()
+| URL | Privacy | Notes                    |
+| :-- | :------ | :----------------------- |
+| [rimgo.lqs5fjmajyp7rvp4qvyubwofzi6d4imua7vs237rkc4m5qogitqwrgyd.onion](http://rimgo.lqs5fjmajyp7rvp4qvyubwofzi6d4imua7vs237rkc4m5qogitqwrgyd.onion) | ❓️ No details   | Onion of rimgo.esmailelbob.xyz |
+| [rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion) | ✅ Data not collected | Onion of rimgo.vern.cc         |
+| [rimgo.micohauwkjbyw5meacrb4ipicwvwg4xtzl7y7viv53kig2mdcsvwkyyd.onion](http://rimgo.micohauwkjbyw5meacrb4ipicwvwg4xtzl7y7viv53kig2mdcsvwkyyd.onion) | ❓️ No details   | Onion of rimgo.mha.fi          |
 
 ## Automatically redirect links
 
