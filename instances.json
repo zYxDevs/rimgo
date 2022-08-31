@@ -2,9 +2,7 @@
   {
     "url": "https://i.bcow.xyz",
     "countries": [
-      "ca",
-      "nl",
-      "sg"
+      "de"
     ],
     "cloudflare": false
   },
@@ -36,13 +34,6 @@
       "ca"
     ],
     "cloudflare": false
-  },
-  {
-    "url": "https://rimgo.lunar.icu",
-    "countries": [
-      "de"
-    ],
-    "cloudflare": true
   },
   {
     "url": "https://i.actionsack.com",
