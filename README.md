@@ -125,7 +125,7 @@ You can now run rimgo.
 
 To include version information use:
 ```
-go build -ldflags "-X codeberg.org/librarian/librarian/pages.VersionInfo=$(date '+%Y-%m-%d')-$(git rev-list --abbrev-commit -1 HEAD)"
+go build -ldflags "-X codeberg.org/video-prize-ranch/rimgo/pages.VersionInfo=$(date '+%Y-%m-%d')-$(git rev-list --abbrev-commit -1 HEAD)"
 ```
 
 (optional) You can use a .env file to set environment variables for configuration.
