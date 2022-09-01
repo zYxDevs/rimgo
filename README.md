@@ -34,20 +34,21 @@ Tested using [Google PageSpeed Insights](https://pagespeed.web.dev/).
 Open an issue to have your instance listed here!
 
 ### Clearnet
+To help distribute load, consider using instances other than the official one.
 
-| URL                                                        	  | Country | Provider         | Privacy               | Notes |
-| :------------------------------------------------------------ | :------ | :--------------- | :-------------------- | :---- |
-| [i.bcow.xyz](https://i.bcow.xyz) (official)                	  | 🇩🇪 DE   | AWS	             | ⚠️ Data collected     |       |
-| [rimgo.pussthecat.org](https://rimgo.pussthecat.org)       	  | 🇩🇪 DE   | Hetzner          | ⚠️ Data collected     |       |
-| [rimgo.totaldarkness.net](https://rimgo.totaldarkness.net) 	  | 🇨🇦 CA   | Vultr            | ✅ Data not collected |       |
-| [rimgo.bus-hit.me](https://rimgo.bus-hit.me)               	  | 🇨🇦 CA   | Oracle           | ⚠️ Data collected     |       |
-| [rimgo.esmailelbob.xyz](https://rimgo.esmailelbob.xyz)     	  | 🇨🇦 CA   | OVH              | ⚠️ Data collected     |       |
-| [i.actionsack.com](https://i.actionsack.com)               	  | 🇺🇸 US   | Cloudflare       | ❓️ No details         |       |
-| [rimgo.privacydev.net](https://rimgo.privacydev.net)       	  | 🇺🇸 US   | Cyber Wurx       | ❓️ No details         |       |
-| [imgur.artemislena.eu](https://imgur.artemislena.eu)       	  | 🇩🇪 DE   | Deutsche Telekom | ❓️ No details         |       |
-| [rimgo.vern.cc](https://rimgo.vern.cc)                        | 🇨🇦️ CA   | OVHCloud         | ✅ Data not collected | [Edited theme](https://git.vern.cc/root/modifications/src/branch/master/rimgo) |
-| [rimgo.encrypted-data.xyz](https://rimgo.encrypted-data.xyz/)	| 🇫🇷️ FR   | Cloudflare	      | ❓️ No details         |       |
-| [rimgo.mha.fi](https://rimgo.mha.fi/)                       	| 🇫🇮 FI   | Hetzner          | ❓️ No details         |       |
+| URL                                                        	  | Country      | Provider         | Privacy               | Notes |
+| :------------------------------------------------------------ | :----------- | :--------------- | :-------------------- | :---- |
+| [i.bcow.xyz](https://i.bcow.xyz) (official)                	  | 🇨🇦️ CA, 🇳🇱 NL | Fly.io	         | ⚠️ Data collected     |       |
+| [rimgo.pussthecat.org](https://rimgo.pussthecat.org)       	  | 🇩🇪 DE        | Hetzner          | ⚠️ Data collected     |       |
+| [rimgo.totaldarkness.net](https://rimgo.totaldarkness.net) 	  | 🇨🇦 CA        | Vultr            | ✅ Data not collected |       |
+| [rimgo.bus-hit.me](https://rimgo.bus-hit.me)               	  | 🇨🇦 CA        | Oracle           | ⚠️ Data collected     |       |
+| [rimgo.esmailelbob.xyz](https://rimgo.esmailelbob.xyz)     	  | 🇨🇦 CA        | OVH              | ⚠️ Data collected     |       |
+| [i.actionsack.com](https://i.actionsack.com)               	  | 🇺🇸 US        | Cloudflare       | ❓️ No details         |       |
+| [rimgo.privacydev.net](https://rimgo.privacydev.net)       	  | 🇺🇸 US        | Cyber Wurx       | ❓️ No details         |       |
+| [imgur.artemislena.eu](https://imgur.artemislena.eu)       	  | 🇩🇪 DE        | Deutsche Telekom | ❓️ No details         |       |
+| [rimgo.vern.cc](https://rimgo.vern.cc)                        | 🇨🇦️ CA        | OVHCloud         | ✅ Data not collected | [Edited theme](https://git.vern.cc/root/modifications/src/branch/master/rimgo) |
+| [rimgo.encrypted-data.xyz](https://rimgo.encrypted-data.xyz/)	| 🇫🇷️ FR        | Cloudflare	     | ❓️ No details         |       |
+| [rimgo.mha.fi](https://rimgo.mha.fi/)                       	| 🇫🇮 FI        | Hetzner          | ❓️ No details         |       |
 
 ### Tor
 

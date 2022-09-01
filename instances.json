@@ -2,7 +2,8 @@
   {
     "url": "https://i.bcow.xyz",
     "countries": [
-      "de"
+      "ca",
+      "nl"
     ],
     "cloudflare": false
   },
