@@ -40,7 +40,7 @@ Open an issue to have your instance listed here!
 | [i.bcow.xyz](https://i.bcow.xyz) (official)                	  | 🇩🇪 DE   | AWS	             | ⚠️ Data collected     |       |
 | [rimgo.pussthecat.org](https://rimgo.pussthecat.org)       	  | 🇩🇪 DE   | Hetzner          | ⚠️ Data collected     |       |
 | [rimgo.totaldarkness.net](https://rimgo.totaldarkness.net) 	  | 🇨🇦 CA   | Vultr            | ✅ Data not collected |       |
-| [rimgo.bus-hit.me](https://rimgo.bus-hit.me)               	  | 🇨🇦 CA   | Oracle           | ❓️ No details         |       |
+| [rimgo.bus-hit.me](https://rimgo.bus-hit.me)               	  | 🇨🇦 CA   | Oracle           | ⚠️ Data collected     |       |
 | [rimgo.esmailelbob.xyz](https://rimgo.esmailelbob.xyz)     	  | 🇨🇦 CA   | OVH              | ⚠️ Data collected     |       |
 | [i.actionsack.com](https://i.actionsack.com)               	  | 🇺🇸 US   | Cloudflare       | ❓️ No details         |       |
 | [rimgo.privacydev.net](https://rimgo.privacydev.net)       	  | 🇺🇸 US   | Cyber Wurx       | ❓️ No details         |       |
