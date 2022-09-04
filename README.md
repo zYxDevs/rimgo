@@ -50,6 +50,7 @@ To help distribute load, consider using instances other than the official one.
 | [rimgo.encrypted-data.xyz](https://rimgo.encrypted-data.xyz/)	| 🇫🇷️ FR        | Cloudflare	             | ❓️ No details         |       |
 | [rimgo.mha.fi](https://rimgo.mha.fi/)                       	| 🇫🇮 FI        | Hetzner                  | ❓️ No details         |       |
 | [rim.odyssey346.dev](https://rim.odyssey346.dev/)             | 🇫🇷️ FR        | Trolling Solutions (OVH) | ✅ Data not collected |       |
+| [rimgo.privacytools.io](https://rimgo.privacytools.io/)       | 🇸🇪 SE        | Cloudflare               | ❓️ No details         |       |
 
 ### Tor
 
@@ -72,6 +73,15 @@ Use [LibRedirect](https://github.com/libredirect/libredirect) to automatically r
 ### GreaseMonkey script
 There is a script to redirect Imgur links to rimgo.
 [https://codeberg.org/zortazert/GreaseMonkey-Redirect/src/branch/main/imgur-to-rimgo.user.js](https://codeberg.org/zortazert/GreaseMonkey-Redirect/src/branch/main/imgur-to-rimgo.user.js)
+
+### Redirector
+You can use the [Redirector](https://github.com/einaregilsson/Redirector) extension to redirect Imgur links to rimgo with the configuration below:
+
+* Description: Imgur -> rimgo
+* Example URL: https://imgur.com/a/H8M4rcp
+* Include pattern: `^https?://i?.?imgur.com(/.*)?$`
+* Redirect to: `https://rimgo.example.com$1`
+* Pattern type: Regular Expression
 
 ## Install
 rimgo can run on any platform Go compiles on.
