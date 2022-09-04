@@ -36,19 +36,20 @@ Open an issue to have your instance listed here!
 ### Clearnet
 To help distribute load, consider using instances other than the official one.
 
-| URL                                                        	  | Country      | Provider            | Privacy               | Notes |
-| :------------------------------------------------------------ | :----------- | :------------------ | :-------------------- | :---- |
-| [i.bcow.xyz](https://i.bcow.xyz) (official)                	  | 🇨🇦️ CA, 🇳🇱 NL | Fly.io	            | ⚠️ Data collected     |       |
-| [rimgo.pussthecat.org](https://rimgo.pussthecat.org)       	  | 🇩🇪 DE        | Hetzner             | ⚠️ Data collected     |       |
-| [rimgo.totaldarkness.net](https://rimgo.totaldarkness.net) 	  | 🇨🇦 CA        | Vultr               | ✅ Data not collected |       |
-| [rimgo.bus-hit.me](https://rimgo.bus-hit.me)               	  | 🇨🇦 CA        | Oracle              | ⚠️ Data collected     |       |
-| [rimgo.esmailelbob.xyz](https://rimgo.esmailelbob.xyz)     	  | 🇨🇦 CA        | OVH                 | ⚠️ Data collected     |       |
-| [i.actionsack.com](https://i.actionsack.com)               	  | 🇺🇸 US        | Cloudflare          | ❓️ No details         |       |
-| [rimgo.privacydev.net](https://rimgo.privacydev.net)       	  | 🇺🇸 US        | Cyber Wurx          | ❓️ No details         |       |
-| [imgur.artemislena.eu](https://imgur.artemislena.eu)       	  | 🇩🇪 DE        | Telekom Deutschland | ✅ Data not collected | Self-hosted, provider is ISP |
-| [rimgo.vern.cc](https://rimgo.vern.cc)                        | 🇨🇦️ CA        | OVHCloud            | ✅ Data not collected | [Edited theme](https://git.vern.cc/root/modifications/src/branch/master/rimgo) |
-| [rimgo.encrypted-data.xyz](https://rimgo.encrypted-data.xyz/)	| 🇫🇷️ FR        | Cloudflare	        | ❓️ No details         |       |
-| [rimgo.mha.fi](https://rimgo.mha.fi/)                       	| 🇫🇮 FI        | Hetzner             | ❓️ No details         |       |
+| URL                                                        	  | Country      | Provider                 | Privacy               | Notes |
+| :------------------------------------------------------------ | :----------- | :----------------------- | :-------------------- | :---- |
+| [i.bcow.xyz](https://i.bcow.xyz) (official)                	  | 🇨🇦️ CA, 🇳🇱 NL | Fly.io	                 | ⚠️ Data collected     |       |
+| [rimgo.pussthecat.org](https://rimgo.pussthecat.org)       	  | 🇩🇪 DE        | Hetzner                  | ⚠️ Data collected     |       |
+| [rimgo.totaldarkness.net](https://rimgo.totaldarkness.net) 	  | 🇨🇦 CA        | Vultr                    | ✅ Data not collected |       |
+| [rimgo.bus-hit.me](https://rimgo.bus-hit.me)               	  | 🇨🇦 CA        | Oracle                   | ⚠️ Data collected     |       |
+| [rimgo.esmailelbob.xyz](https://rimgo.esmailelbob.xyz)     	  | 🇨🇦 CA        | OVH                      | ⚠️ Data collected     |       |
+| [i.actionsack.com](https://i.actionsack.com)               	  | 🇺🇸 US        | Cloudflare               | ❓️ No details         |       |
+| [rimgo.privacydev.net](https://rimgo.privacydev.net)       	  | 🇺🇸 US        | Cyber Wurx               | ❓️ No details         |       |
+| [imgur.artemislena.eu](https://imgur.artemislena.eu)       	  | 🇩🇪 DE        | Telekom Deutschland      | ✅ Data not collected | Self-hosted, provider is ISP |
+| [rimgo.vern.cc](https://rimgo.vern.cc)                        | 🇨🇦️ CA        | OVHCloud                 | ✅ Data not collected | [Edited theme](https://git.vern.cc/root/modifications/src/branch/master/rimgo) |
+| [rimgo.encrypted-data.xyz](https://rimgo.encrypted-data.xyz/)	| 🇫🇷️ FR        | Cloudflare	             | ❓️ No details         |       |
+| [rimgo.mha.fi](https://rimgo.mha.fi/)                       	| 🇫🇮 FI        | Hetzner                  | ❓️ No details         |       |
+| [rim.odyssey346.dev](https://rim.odyssey346.dev/)             | 🇫🇷️ FR        | Trolling Solutions (OVH) | ✅ Data not collected |       |
 
 ### Tor
 
@@ -58,6 +59,7 @@ To help distribute load, consider using instances other than the official one.
 | [rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion) | ✅ Data not collected | Onion of rimgo.vern.cc         |
 | [rimgo.micohauwkjbyw5meacrb4ipicwvwg4xtzl7y7viv53kig2mdcsvwkyyd.onion](http://rimgo.micohauwkjbyw5meacrb4ipicwvwg4xtzl7y7viv53kig2mdcsvwkyyd.onion) | ❓️ No details   | Onion of rimgo.mha.fi          |
 | [imgur.lpoaj7z2zkajuhgnlltpeqh3zyq7wk2iyeggqaduhgxhyajtdt2j7wad.onion](http://imgur.lpoaj7z2zkajuhgnlltpeqh3zyq7wk2iyeggqaduhgxhyajtdt2j7wad.onion) | ✅ Data not collected | Onion of imgur.artemislena.eu  |
+| [rim.odysfvr23q5wgt7i456o5t3trw2cw5dgn56vbjfbq2m7xsc5vqbqpcyd.onion](http://rim.odysfvr23q5wgt7i456o5t3trw2cw5dgn56vbjfbq2m7xsc5vqbqpcyd.onion)     | ⚠️ Data collected |  |
 
 ## Automatically redirect links
 
