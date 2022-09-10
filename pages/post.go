@@ -23,9 +23,11 @@ func HandlePost(c *fiber.Ctx) error {
 	default:
 		post, err = api.FetchMedia(c.Params("postID"))
 	}
+	if err != nil && err.Error() == "ratelimited by imgur" {
+		return c.Status(429).Render("errors/429", nil)
+	}
 	if post.Id == "" || (err != nil && strings.Contains(err.Error(), "404")) {
-		c.Status(404)
-		return c.Render("errors/404", nil)
+		return c.Status(404).Render("errors/404", nil)
 	}
 	if err != nil {
 		return err

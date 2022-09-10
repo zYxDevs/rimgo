@@ -2,7 +2,6 @@ package pages
 
 import (
 	"strconv"
-	"sync"
 
 	"codeberg.org/video-prize-ranch/rimgo/api"
 	"codeberg.org/video-prize-ranch/rimgo/utils"
@@ -25,30 +24,24 @@ func HandleUser(c *fiber.Ctx) error {
 		pageNumber = 0
 	}
 
-	wg := sync.WaitGroup{}
-	wg.Add(2)
-	user, err := api.User{}, error(nil)
-	go func() {
-		defer wg.Done()
-		user, err = api.FetchUser(c.Params("userID"))
-	}()
+	user, err := api.FetchUser(c.Params("userID"))
+	if err != nil && err.Error() == "ratelimited by imgur" {
+		return c.Status(429).Render("errors/429", nil)
+	}
 	if err != nil {
 		return err
 	}
-
-	submissions, err := []api.Submission{}, error(nil)
-	go func() {
-		defer wg.Done()
-		submissions, err = api.FetchSubmissions(c.Params("userID"), "newest", page)
-	}()
-	if err != nil {
-		return err
-	}
-
-	wg.Wait()
 	if user.Username == "" {
-		c.Status(404)
-		return c.Render("errors/404", nil)
+		return c.Status(404).Render("errors/404", nil)
+	}
+
+	submissions, err := api.FetchSubmissions(c.Params("userID"), "newest", page)
+	if err != nil && err.Error() == "ratelimited by imgur" {
+		c.Status(429)
+		return c.Render("errors/429", nil)
+	}
+	if err != nil {
+		return err
 	}
 
 	return c.Render("user", fiber.Map{
