@@ -25,7 +25,7 @@ func HandleEmbed(c *fiber.Ctx) error {
 	if err != nil && err.Error() == "ratelimited by imgur" {
 		return c.Status(429).Render("errors/429", nil)
 	}
-	if post.Id == "" || (err != nil && strings.Contains(err.Error(), "404")) {
+	if err != nil && post.Id == "" && strings.Contains(err.Error(), "404") {
 		return c.Status(404).Render("errors/404", nil)
 	}
  	if err != nil {

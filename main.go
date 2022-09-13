@@ -30,6 +30,22 @@ func main() {
 		Prefork:           utils.Config["fiberPrefork"].(bool),
 		UnescapePath:      true,
 		StreamRequestBody: true,
+		ErrorHandler: func(ctx *fiber.Ctx, err error) error {
+			code := fiber.StatusInternalServerError
+
+			if e, ok := err.(*fiber.Error); ok {
+				code = e.Code
+			}
+
+			err = ctx.Status(code).Render("errors/error", fiber.Map{
+				"err": err,
+			})
+			if err != nil {
+				return ctx.Status(fiber.StatusInternalServerError).SendString("Internal Server Error")
+			}
+
+			return nil
+		},
 	})
 
 	app.Use(recover.New(recover.Config{
