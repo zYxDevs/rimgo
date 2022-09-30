@@ -33,7 +33,7 @@ func FetchComments(galleryID string) ([]Comment, error) {
 		return cacheData.([]Comment), nil
 	}
 
-	data, err := utils.GetJSON("https://api.imgur.com/comment/v1/comments?client_id=" + utils.Config["imgurId"].(string) + "&filter[post]=eq:" + galleryID + "&include=account,adconfig&per_page=30&sort=best")
+	data, err := utils.GetJSON("https://api.imgur.com/comment/v1/comments?client_id=" + utils.Config.ImgurId + "&filter[post]=eq:" + galleryID + "&include=account,adconfig&per_page=30&sort=best")
 	if err != nil {
 		return []Comment{}, nil
 	}

@@ -1,6 +1,9 @@
 package pages
 
 import (
+	"crypto/sha256"
+	"encoding/hex"
+	"io"
 	"net/http"
 	"os"
 	"strings"
@@ -37,6 +40,19 @@ func handleMedia(c *fiber.Ctx, url string) error {
 		url = strings.ReplaceAll(url, ".jpeg", ".webp")
 	}
 
+	optionsHash := ""
+	if utils.Config.ImageCache {
+		hasher := sha256.New()
+		hasher.Write([]byte(url))
+		optionsHash = hex.EncodeToString(hasher.Sum(nil))
+
+		image, err := os.ReadFile(utils.Config.CacheDir + "/" + optionsHash)
+		if err == nil {
+			_, err := c.Write(image)
+			return err
+		}
+	}
+
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return err
@@ -63,5 +79,20 @@ func handleMedia(c *fiber.Ctx, url string) error {
 		c.Set("Content-Range", res.Header.Get("Content-Range"))
 	}
 
-	return c.SendStream(res.Body)
+	if strings.HasPrefix(res.Header.Get("Content-Type"), "image/") && utils.Config.ImageCache && res.StatusCode == 200 {
+		data, err := io.ReadAll(res.Body)
+		if err != nil {
+			return err
+		}
+
+		err = os.WriteFile(utils.Config.CacheDir + "/" + optionsHash, data, 0644)
+		if err != nil {
+			return err
+		}
+
+		_, err = c.Write(data)
+		return err
+	} else {
+		return c.SendStream(res.Body)
+	}
 }

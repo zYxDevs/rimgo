@@ -3,7 +3,11 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 	"net/http"
+	"os"
+	"path/filepath"
+	"time"
 
 	"codeberg.org/video-prize-ranch/rimgo/pages"
 	"codeberg.org/video-prize-ranch/rimgo/static"
@@ -24,10 +28,22 @@ func main() {
 	}
 	utils.LoadConfig()
 
+	if utils.Config.ImageCache {
+		go func() {
+			for range time.Tick(utils.Config.CleanupInterval) {
+				log.Println("Cache cleaned")
+				files, _ := filepath.Glob(filepath.Join(utils.Config.CacheDir, "*"))
+				for _, file := range files {
+					os.RemoveAll(file)
+				}
+			}
+		}()
+	}
+
 	engine := handlebars.NewFileSystem(http.FS(views.GetFiles()), ".hbs")
 	app := fiber.New(fiber.Config{
 		Views:             engine,
-		Prefork:           utils.Config["fiberPrefork"].(bool),
+		Prefork:           utils.Config.FiberPrefork,
 		UnescapePath:      true,
 		StreamRequestBody: true,
 		ErrorHandler: func(ctx *fiber.Ctx, err error) error {
@@ -90,5 +106,5 @@ func main() {
 	app.Get("/gallery/:postID", pages.HandlePost)
 	app.Get("/gallery/:postID/embed", pages.HandleEmbed)
 
-	app.Listen(utils.Config["addr"].(string) + ":" + utils.Config["port"].(string))
+	app.Listen(utils.Config.Addr + ":" + utils.Config.Port)
 }

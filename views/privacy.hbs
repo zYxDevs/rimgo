@@ -14,18 +14,18 @@
 
   <main>
     <h1>Instance Privacy</h1>
-    {{#if config.privacy.policy}}
+    {{#if config.Privacy.policy}}
     <p>The instance operator has indicated their instance's privacy practices below. For more information, see the
-      instance operator's <a href="{{config.privacy.policy}}">privacy policy</a>.</p>
+      instance operator's <a href="{{config.Privacy.policy}}">privacy policy</a>.</p>
     {{else}}
     <p>The instance operator has indicated their instance's privacy practices below.</p>
     {{/if}}
 
-    {{#if config.privacy.message}}
-    <p>{{{config.privacy.message}}}</p>
+    {{#if config.Privacy.message}}
+    <p>{{{config.Privacy.message}}}</p>
     {{/if}}
 
-    {{#if config.privacy.not_collected}}
+    {{#if config.Privacy.not_collected}}
     <div class="badgeWrapper">
       <div class="badge">
         <span class="material-icons-outlined largeIcon">
@@ -37,7 +37,7 @@
     </div>
     {{/if}}
 
-    {{#unless config.privacy.set}}
+    {{#unless config.Privacy.set}}
     <div class="badgeWrapper">
       <div class="badge">
         <span class="material-icons-outlined largeIcon">
@@ -49,7 +49,7 @@
       </div>
     </div>
     {{else}}
-    {{#unless config.privacy.not_collected}}
+    {{#unless config.Privacy.not_collected}}
     <div class="badgeWrapper">
       <div class="badge">
         <span class="material-icons-outlined largeIcon">
@@ -58,25 +58,25 @@
         <h3>Data Collected</h3>
         <p>The following data may be collected:</p>
         <ul>
-          {{#if config.privacy.ip}}
+          {{#if config.Privacy.ip}}
           <li>
             <span class="material-icons-outlined">password</span>
             Internet address (IP Address)
           </li>
           {{/if}}
-          {{#if config.privacy.url}}
+          {{#if config.Privacy.url}}
           <li>
             <span class="material-icons-outlined">link</span>
             Page viewed (Request URL)
           </li>
           {{/if}}
-          {{#if config.privacy.device}}
+          {{#if config.Privacy.device}}
           <li>
             <span class="material-icons-outlined">phonelink</span>
             Device Type (User agent)
           </li>
           {{/if}}
-          {{#if config.privacy.diagnostics}}
+          {{#if config.Privacy.diagnostics}}
           <li>
             <span class="material-icons-outlined">settings</span>
             Diagnostics
@@ -119,9 +119,9 @@
     <h2 class="addInfo">Additional information</h2>
     <ul>
       <li>Version: {{version}}</li>
-      <li>Country: {{config.privacy.country}}</li>
-      <li>Provider: {{config.privacy.provider}}</li>
-      {{#if config.privacy.cloudflare}}
+      <li>Country: {{config.Privacy.country}}</li>
+      <li>Provider: {{config.Privacy.provider}}</li>
+      {{#if config.Privacy.cloudflare}}
       <li>Using Cloudflare?: Yes</li>
       {{else}}
       <li>Using Cloudflare?: No</li>

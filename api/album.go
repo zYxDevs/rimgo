@@ -42,7 +42,7 @@ func FetchAlbum(albumID string) (Album, error) {
 		return cacheData.(Album), nil
 	}
 
-	data, err := utils.GetJSON("https://api.imgur.com/post/v1/albums/" + albumID + "?client_id=" + utils.Config["imgurId"].(string) + "&include=media%2Caccount")
+	data, err := utils.GetJSON("https://api.imgur.com/post/v1/albums/" + albumID + "?client_id=" + utils.Config.ImgurId + "&include=media%2Caccount")
 	if err != nil {
 		return Album{}, err
 	}
@@ -62,7 +62,7 @@ func FetchPosts(albumID string) (Album, error) {
 		return cacheData.(Album), nil
 	}
 
-	data, err := utils.GetJSON("https://api.imgur.com/post/v1/posts/" + albumID + "?client_id=" + utils.Config["imgurId"].(string) + "&include=media%2Caccount%2Ctags")
+	data, err := utils.GetJSON("https://api.imgur.com/post/v1/posts/" + albumID + "?client_id=" + utils.Config.ImgurId + "&include=media%2Caccount%2Ctags")
 	if err != nil {
 		return Album{}, err
 	}
@@ -82,7 +82,7 @@ func FetchMedia(mediaID string) (Album, error) {
 		return cacheData.(Album), nil
 	}
 
-	data, err := utils.GetJSON("https://api.imgur.com/post/v1/media/" + mediaID + "?client_id=" + utils.Config["imgurId"].(string) + "&include=media%2Caccount")
+	data, err := utils.GetJSON("https://api.imgur.com/post/v1/media/" + mediaID + "?client_id=" + utils.Config.ImgurId + "&include=media%2Caccount")
 	if err != nil {
 		return Album{}, err
 	}

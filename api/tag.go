@@ -36,7 +36,7 @@ func FetchTag(tag string, sort string, page string) (Tag, error) {
 	}
 
 	q := req.URL.Query()
-	q.Add("client_id", utils.Config["imgurId"].(string))
+	q.Add("client_id", utils.Config.ImgurId)
 	q.Add("include", "cover")
 	q.Add("page", page)
 

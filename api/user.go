@@ -43,7 +43,7 @@ func FetchUser(username string) (User, error) {
 		return cacheData.(User), nil
 	}
 
-	res, err := http.Get("https://api.imgur.com/account/v1/accounts/" + username + "?client_id=" + utils.Config["imgurId"].(string))
+	res, err := http.Get("https://api.imgur.com/account/v1/accounts/" + username + "?client_id=" + utils.Config.ImgurId)
 	if err != nil {
 		return User{}, err
 	}
@@ -77,7 +77,7 @@ func FetchSubmissions(username string, sort string, page string) ([]Submission, 
 		return cacheData.([]Submission), nil
 	}
 
-	data, err := utils.GetJSON("https://api.imgur.com/3/account/" + username + "/submissions/" + page + "/" + sort + "?album_previews=1&client_id=" + utils.Config["imgurId"].(string))
+	data, err := utils.GetJSON("https://api.imgur.com/3/account/" + username + "/submissions/" + page + "/" + sort + "?album_previews=1&client_id=" + utils.Config.ImgurId)
 	if err != nil {
 		return []Submission{}, err
 	}
