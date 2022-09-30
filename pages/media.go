@@ -11,7 +11,11 @@ import (
 
 func HandleMedia(c *fiber.Ctx) error {
 	c.Set("Cache-Control", "public,max-age=31557600")
-	return handleMedia(c, "https://i.imgur.com/" + c.Params("baseName") + "." + c.Params("extension"))
+	if strings.HasPrefix(c.Path(), "/stack") {
+		return handleMedia(c, "https://i.stack.imgur.com/" + strings.ReplaceAll(c.Params("baseName"), "stack/", "") + "." + c.Params("extension"))
+	} else {
+		return handleMedia(c, "https://i.imgur.com/" + c.Params("baseName") + "." + c.Params("extension"))
+	}
 }
 
 func HandleUserCover(c *fiber.Ctx) error {
