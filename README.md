@@ -30,6 +30,11 @@ Tested using [Google PageSpeed Insights](https://pagespeed.web.dev/).
 | Resource Size       | 218 KiB | 2,542 KiB |
 | Time to Interactive | 1.6s    | 23.8s     |
 
+### Privacy
+Imgur collects information about your device and uses tracking cookies for advertising, this is mentioned in their [privacy policy](https://imgur.com/privacy/). [Blacklight](https://themarkup.org/blacklight) found 31 trackers and 87 third-party cookies.
+
+See what cookies and trackers Imgur uses and where your data gets sent: https://themarkup.org/blacklight?url=imgur.com
+
 ## Instances
 Open an issue to have your instance listed here!
 
