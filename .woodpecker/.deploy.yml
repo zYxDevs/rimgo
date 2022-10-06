@@ -5,7 +5,7 @@ pipeline:
       - apk update && apk --no-cache add curl git
       - wget -O - https://fly.io/install.sh | sh
       - git clone https://codeberg.org/video-prize-ranch/fly-cfg.git
-      - cd fly-cfg
+      - cd fly-cfg/rimgo
       - /root/.fly/bin/flyctl deploy --detach --remote-only
     secrets: [fly_api_token]
 
