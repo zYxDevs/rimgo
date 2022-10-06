@@ -44,9 +44,12 @@ func GetJSON(url string) (gjson.Result, error) {
 		return gjson.Result{}, err
 	}
 
-	if res.StatusCode != 200 {
+	switch (res.StatusCode) {
+	case 200:
+		return gjson.Parse(string(body)), nil
+	case 429:
+		return gjson.Result{}, fmt.Errorf("ratelimited by imgur")
+	default:
 		return gjson.Result{}, fmt.Errorf("received status %s, expected 200 OK.\n%s", res.Status, string(body))
 	}
-
-	return gjson.Parse(string(body)), nil
 }
