@@ -23,6 +23,10 @@ body {
   height: 100%;
 }
 
+.media--gifv {
+  width: 100%;
+}
+
 .logoContainer {
   display: flex;
   align-items: center;
