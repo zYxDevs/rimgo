@@ -43,7 +43,7 @@ To help distribute load, consider using instances other than the official one.
 
 | URL                                                        	  | Country      | Provider                 | Privacy               | Notes |
 | :------------------------------------------------------------ | :----------- | :----------------------- | :-------------------- | :---- |
-| [rimgo.bcow.xyz](https://rimgo.bcow.xyz) (official)           | 🇨🇦️ CA, 🇳🇱 NL | Fly.io	                 | ⚠️ Data collected     |       |
+| [rimgo.bcow.xyz](https://rimgo.bcow.xyz) (official)           | 🇳🇱 NL        | Fly.io	                 | ⚠️ Data collected     |       |
 | [rimgo.pussthecat.org](https://rimgo.pussthecat.org)       	  | 🇩🇪 DE        | Hetzner                  | ⚠️ Data collected     |       |
 | [rimgo.totaldarkness.net](https://rimgo.totaldarkness.net) 	  | 🇨🇦 CA        | Vultr                    | ✅ Data not collected |       |
 | [rimgo.bus-hit.me](https://rimgo.bus-hit.me)               	  | 🇨🇦 CA        | Oracle                   | ⚠️ Data collected     |       |
