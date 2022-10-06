@@ -40,7 +40,7 @@ func handleMedia(c *fiber.Ctx, url string) error {
 		url = strings.ReplaceAll(url, ".jpeg", ".webp")
 	}
 
-	if strings.HasPrefix(c.Path(), "/stack") {
+	if strings.HasPrefix(c.Path(), "/stack") && strings.Contains(c.OriginalURL(), "?") {
 		url = url + "?" + strings.Split(c.OriginalURL(), "?")[1]
 	}
 
