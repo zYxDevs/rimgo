@@ -34,7 +34,7 @@ func HandleUserAvatar(c *fiber.Ctx) error {
 func handleMedia(c *fiber.Ctx, url string) error {
 	utils.SetHeaders(c)
 
-	if os.Getenv("FORCE_WEBP") == "1" && c.Query("no_webp") == "" && c.Accepts("image/webp") == "image/webp" {
+	if os.Getenv("FORCE_WEBP") == "1" && c.Query("no_webp") == "" && c.Accepts("image/webp") == "image/webp" && !strings.HasPrefix(c.Path(), "/stack") {
 		url = strings.ReplaceAll(url, ".png", ".webp")
 		url = strings.ReplaceAll(url, ".jpg", ".webp")
 		url = strings.ReplaceAll(url, ".jpeg", ".webp")
