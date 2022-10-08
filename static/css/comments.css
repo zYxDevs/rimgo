@@ -49,6 +49,7 @@
 
 .comment__media {
   height: 10em;
+  display: block
 }
 
 .comment__updatedDate {

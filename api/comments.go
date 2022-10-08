@@ -94,12 +94,12 @@ func ParseComment(data gjson.Result) Comment {
 
 	for _, match := range imgRe.FindAllString(comment, -1) {
 		img := iImgurRe.ReplaceAllString(match, "")
-		img = `<img src="` + img + `" class="comment__media" loading="lazy"/><br>`
+		img = `<img src="` + img + `" class="comment__media" loading="lazy"/>`
 		comment = strings.Replace(comment, match, img, 1)
 	}
 	for _, match := range vidRe.FindAllString(comment, -1) {
 		vid := iImgurRe.ReplaceAllString(match, "")
-		vid = `<video class="comment__media" controls loop preload="none" poster="` + vidFormatRe.ReplaceAllString(vid, ".webp") + `"><source type="` + strings.Split(vid, ".")[1] + `" src="` + vid + `" /></video><br>`
+		vid = `<video class="comment__media" controls loop preload="none" poster="` + vidFormatRe.ReplaceAllString(vid, ".webp") + `"><source type="` + strings.Split(vid, ".")[1] + `" src="` + vid + `" /></video>`
 		comment = strings.Replace(comment, match, vid, 1)
 	}
 	for _, l := range linkify.Links(comment) {
