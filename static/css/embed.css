@@ -24,6 +24,12 @@ body {
 }
 
 .media--gifv {
+  width: 100vw;
+  overflow: unset;
+  justify-content: center;
+}
+
+.media--gifv video {
   width: 100%;
 }
 
