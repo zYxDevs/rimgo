@@ -8,7 +8,7 @@ a > h2 {
   color: white;
 }
 
-h2, p {
+h2, h3, p {
   margin: 0;
 }
 

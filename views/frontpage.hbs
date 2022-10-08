@@ -14,18 +14,10 @@
   {{> partials/header }}
 
   <main>
-    <p>An alternative frontend for Imgur. Originally based on <a href="https://codeberg.org/3np/rimgu">rimgu</a>.</p>
+    <p>An alternative frontend for Imgur. Originally based on <a href="https://codeberg.org/3np/rimgu" rel="noreferrer">rimgu</a>.</p>
 
-    <h3>Try it!</h3>
-
-    <ul>
-      <li><a href="/a/H8M4rcp">Album</a></li>
-      <li><a href="/gallery/gYiQLWy">Gallery</a></li>
-      <li><a href="/gallery/cTRwaJU">Video</a></li>
-    </ul>
-
+    <br>
     <h2>Features</h2>
-
     <ul>
       <li>Lightweight</li>
       <li>No JavaScript</li>
@@ -34,28 +26,79 @@
       <li>Bandwidth efficient - automatically uses newer image formats (if enabled)</li>
     </ul>
 
-    <h2>Usage</h2>
+    <h2>Comparison</h2>
+    <p>Comparing rimgo to Imgur.</p>
 
-    <p>Just replace imgur.com or i.imgur.com with <code>{{domain}}</code>! You can setup automatic redirects using <a
-        href="https://github.com/libredirect/libredirect">LibRedirect</a> (recommended) or <a href="https://github.com/einaregilsson/Redirector">Redirector</a>.</p>
+    <br>
+    <h3>Speed</h3>
+    <p>Tested using <a href="https://pagespeed.web.dev/" rel="nofollow noreferrer">Google PageSpeed Insights</a>.</p>
+    <table>
+      <tr>
+        <td></td>
+        <td><a href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fi.bcow.xyz%2Fgallery%2FgYiQLWy" rel="nofollow noreferrer">rimgo</a></td>
+        <td><a href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fimgur.com%2Fgallery%2FgYiQLWy" rel="nofollow noreferrer">Imgur</a></td>
+      </tr>
+      <tr>
+        <td>Performance</td>
+        <td>91</td>
+        <td>28</td>
+      </tr>
+      <tr>
+        <td>Request count</td>
+        <td>29</td>
+        <td>340</td>
+      </tr>
+      <tr>
+        <td>Resource Size</td>
+        <td>218 KiB</td>
+        <td>2,542 KiB</td>
+      </tr>
+      <tr>
+        <td>Time to Interactive</td>
+        <td>1.6s</td>
+        <td>23.8s</td>
+      </tr>
+    </table>
+
+    <br>
+    <h3>Privacy</h3>
+    <p>Imgur collects information about your device and uses tracking cookies for advertising, this is mentioned in their <a href="https://imgur.com/privacy/" rel="nofollow noreferrer">privacy policy</a>. <a href="https://themarkup.org/blacklight" rel="nofollow noreferrer">Blacklight</a> found 31 trackers and 87 third-party cookies.</p>
+    <br>
+    <p>See what cookies and trackers Imgur uses and where your data gets sent: <a href="https://themarkup.org/blacklight?url=imgur.com" rel="nofollow noreferrer">https://themarkup.org/blacklight?url=imgur.com</a></p>
+
+    <br> 
+    <h2>Usage</h2>
+    <p>Just replace imgur.com or i.imgur.com with <code>{{domain}}</code>. You can setup automatic redirects using <a href="https://github.com/libredirect/libredirect" rel="nofollow noreferrer">LibRedirect</a> (recommended) or <a href="https://github.com/einaregilsson/Redirector" rel="nofollow noreferrer">Redirector</a>.</p>
+
     <br>
     {{#if force_webp}}
     <p>To download images as their original filetype, add <code>?no_webp=1</code> to the end of the image URL.</p>
     {{/if}}
 
     <br>
-    <details>
-      <summary>
-        Redirector configuration
-      </summary>
-      <ul>
-          <li>Description: Imgur -> rimgo</li>
-          <li>Example URL: https://imgur.com/a/H8M4rcp</li>
-          <li>Include pattern: <code>^https?://i?.?imgur.com(/.*)?$</code></li>
-          <li>Redirect to: <code>{{proto}}://{{domain}}$1</code></li>
-          <li>Pattern type: Regular Expression</li>
-        </ul>
-    </details>
+    <h2>Automatically redirect links</h2>
+    
+    <br>
+    <h3>LibRedirect</h3>
+    <p>Use <a href="https://github.com/libredirect/libredirect" rel="nofollow noreferrer">LibRedirect</a> to automatically redirect Imgur links to rimgo!</p>
+
+    <br>
+    <h3>GreaseMonkey script</h3>
+    <p>There is a script to redirect Imgur links to rimgo. <a rel="noreferrer" href="https://codeberg.org/zortazert/GreaseMonkey-Redirect/src/branch/main/imgur-to-rimgo.user.js">https://codeberg.org/zortazert/GreaseMonkey-Redirect/src/branch/main/imgur-to-rimgo.user.js</a></p>
+
+    <br>
+    <h3>Redirector</h3>
+    <p>You can use the <a href="https://github.com/einaregilsson/Redirector" rel="nofollow noreferrer">Redirector</a> extension to redirect Imgur links to rimgo with the configuration below:</p>
+    <ul>
+      <li>Description: Imgur -> rimgo</li>
+      <li>Example URL: https://imgur.com/a/H8M4rcp</li>
+      <li>Include pattern: <code>^https?://i?.?imgur.com(/.*)?$</code></li>
+      <li>Redirect to: <code>{{proto}}://{{domain}}$1</code></li>
+      <li>Pattern type: Regular Expression</li>
+    </ul>
+
+    <h2>Notice</h2>
+    <p>All images and media are from Imgur. rimgo does not allow uploads or comments. Any issues with content should be reported to Imgur.</p>
   </main>
 
   {{> partials/footer }}
