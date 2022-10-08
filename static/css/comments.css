@@ -48,7 +48,7 @@
 }
 
 .comment__media {
-  display: inline;
+  height: 10em;
 }
 
 .comment__updatedDate {

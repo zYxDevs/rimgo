@@ -1,14 +1,17 @@
 package api
 
 import (
+	"regexp"
 	"strings"
 	"sync"
 	"time"
 
 	"codeberg.org/video-prize-ranch/rimgo/utils"
 	"github.com/dustin/go-humanize"
+	"github.com/microcosm-cc/bluemonday"
 	"github.com/patrickmn/go-cache"
 	"github.com/tidwall/gjson"
+	"gitlab.com/golang-commonmark/linkify"
 )
 
 type Comment struct {
@@ -58,6 +61,11 @@ func FetchComments(galleryID string) ([]Comment, error) {
 	return comments, nil
 }
 
+var imgRe = regexp.MustCompile(`https?://i\.imgur\.com/(.*)\.(png|gif|jpg|webp)`)
+var vidRe = regexp.MustCompile(`https?://i\.imgur\.com/(.*)\.(mp4|webm)`)
+var vidFormatRe = regexp.MustCompile(`\.(mp4|webm)`)
+var iImgurRe = regexp.MustCompile(`https?://i\.imgur\.com`)
+
 func ParseComment(data gjson.Result) Comment {
 	createdTime, _ := time.Parse("2006-01-02T15:04:05Z", data.Get("created_at").String())
 	createdAt := createdTime.Format("January 2, 2006 3:04 PM")
@@ -82,6 +90,35 @@ func ParseComment(data gjson.Result) Comment {
 	)
 	wg.Wait()
 
+	comment := data.Get("comment").String()
+
+	for _, match := range imgRe.FindAllString(comment, -1) {
+		img := iImgurRe.ReplaceAllString(match, "")
+		img = `<img src="` + img + `" class="comment__media" loading="lazy"/><br>`
+		comment = strings.Replace(comment, match, img, 1)
+	}
+	for _, match := range vidRe.FindAllString(comment, -1) {
+		vid := iImgurRe.ReplaceAllString(match, "")
+		vid = `<video class="comment__media" controls loop preload="none" poster="` + vidFormatRe.ReplaceAllString(vid, ".webp") + `"><source type="` + strings.Split(vid, ".")[1] + `" src="` + vid + `" /></video><br>`
+		comment = strings.Replace(comment, match, vid, 1)
+	}
+	for _, l := range linkify.Links(comment) {
+		origLink := comment[l.Start:l.End]
+		link := `<a href="` + origLink + `">` + origLink + `</a>`
+		comment = strings.Replace(comment, origLink, link, 1)
+	}
+
+	p := bluemonday.UGCPolicy()
+	p.AllowImages()
+	p.AllowElements("video", "source")
+	p.AllowAttrs("src", "tvpe").OnElements("source")
+	p.AllowAttrs("controls", "loop", "preload", "poster").OnElements("video")
+	p.AllowAttrs("class", "loading").OnElements("img", "video")
+	p.RequireNoReferrerOnLinks(true)
+	p.RequireNoFollowOnLinks(true)
+	p.RequireCrossOriginAnonymous(true)
+	comment = p.Sanitize(comment)
+
 	return Comment{
 		Comments: comments,
 		User: User{
@@ -90,7 +127,7 @@ func ParseComment(data gjson.Result) Comment {
 			Avatar:   userAvatar,
 		},
 		Id:        data.Get("id").String(),
-		Comment:   data.Get("comment").String(),
+		Comment:   comment,
 		Upvotes:   data.Get("upvote_count").Int(),
 		Downvotes: data.Get("downvote_count").Int(),
 		Platform:  data.Get("platform").String(),
