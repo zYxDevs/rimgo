@@ -55,9 +55,6 @@
     {{#if this.Title}}
     <h4>{{this.Title}}</h4>
     {{/if}}
-    {{#if this.Description}}
-    <p>{{this.Description}}</p>
-    {{/if}}
 
     <div class="center">
       {{#equal this.Type "image"}}
@@ -69,6 +66,10 @@
       </video>
       {{/equal}}
     </div>
+    
+    {{#if this.Description}}
+    <p>{{this.Description}}</p>
+    {{/if}}
     {{/each}}
 
     {{#if post.tags}}
