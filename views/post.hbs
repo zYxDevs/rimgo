@@ -28,16 +28,12 @@
   <main>
     <div class="imageMeta__wrapper">
       {{#if post.User.Username}}
-      <div class="user">
-        <a href="/user/{{post.User.Username}}">
-          <img src="{{post.User.Avatar}}" class="pfp" width="36" height="36" loading="lazy" />
-        </a>
-        <a href="/user/{{post.User.Username}}">
-          <p>
-            <b>{{post.User.Username}}</b>
-          </p>
-        </a>
-      </div>
+      <a href="/user/{{post.User.Username}}" class="user">
+        <img src="{{post.User.Avatar}}" class="pfp" width="36" height="36" />
+        <p>
+          <b>{{post.User.Username}}</b>
+        </p>
+      </a>
       {{/if}}
       <div class="imageMeta">
         <div class="imageMeta__item">
@@ -51,12 +47,12 @@
       </div>
     </div>
 
-    {{#each post.Media}}
-    {{#if this.Title}}
-    <h4>{{this.Title}}</h4>
-    {{/if}}
+    <div class="post__media">
+      {{#each post.Media}}
+      {{#if this.Title}}
+      <h4>{{this.Title}}</h4>
+      {{/if}}
 
-    <div class="center">
       {{#equal this.Type "image"}}
       <img src="{{this.Url}}" loading="lazy">
       {{/equal}}
@@ -65,12 +61,12 @@
         <source type="{{this.MimeType}}" src="{{this.Url}}" />
       </video>
       {{/equal}}
-    </div>
-    
-    {{#if this.Description}}
-    <p>{{this.Description}}</p>
-    {{/if}}
+
+      {{#if this.Description}}
+      <p>{{{this.Description}}}</p>
+      {{/if}}
     {{/each}}
+    </div>
 
     {{#if post.tags}}
     <div class="tags">
@@ -105,7 +101,6 @@
         {{/each}}
       </div>
     </div>
-    <hr>
     {{/if}}
   </section>
 

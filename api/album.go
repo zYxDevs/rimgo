@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"codeberg.org/video-prize-ranch/rimgo/utils"
+	"github.com/microcosm-cc/bluemonday"
 	"github.com/patrickmn/go-cache"
 	"github.com/tidwall/gjson"
 )
@@ -103,13 +104,17 @@ func ParseAlbum(data gjson.Result) (Album, error) {
 			url := value.Get("url").String()
 			url = strings.ReplaceAll(url, "https://i.imgur.com", "")
 
+			description := value.Get("metadata.description").String()
+			description = strings.ReplaceAll(description, "\n", "<br>")
+			description = bluemonday.UGCPolicy().Sanitize(description)
+
 			media = append(media, Media{
 				Id:          value.Get("id").String(),
 				Name:        value.Get("name").String(),
 				MimeType:    value.Get("mime_type").String(),
 				Type:        value.Get("type").String(),
 				Title:       value.Get("metadata.title").String(),
-				Description: value.Get("metadata.description").String(),
+				Description: description,
 				Url:         url,
 			})
 

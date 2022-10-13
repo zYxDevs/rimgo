@@ -13,6 +13,7 @@ import (
 	"codeberg.org/video-prize-ranch/rimgo/static"
 	"codeberg.org/video-prize-ranch/rimgo/utils"
 	"codeberg.org/video-prize-ranch/rimgo/views"
+	"github.com/aymerick/raymond"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/filesystem"
 	"github.com/gofiber/fiber/v2/middleware/recover"
@@ -41,6 +42,14 @@ func main() {
 	}
 
 	engine := handlebars.NewFileSystem(http.FS(views.GetFiles()), ".hbs")
+
+	engine.AddFunc("noteq", func(a interface{}, b interface{}, options *raymond.Options) interface{} {
+		if raymond.Str(a) != raymond.Str(b) {
+			return options.Fn()
+		}
+		return ""
+	})
+
 	app := fiber.New(fiber.Config{
 		Views:             engine,
 		Prefork:           utils.Config.FiberPrefork,

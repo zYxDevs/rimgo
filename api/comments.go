@@ -92,6 +92,8 @@ func ParseComment(data gjson.Result) Comment {
 
 	comment := data.Get("comment").String()
 
+	comment = strings.ReplaceAll(comment, "\n", "<br>")
+
 	for _, match := range imgRe.FindAllString(comment, -1) {
 		img := iImgurRe.ReplaceAllString(match, "")
 		img = `<img src="` + img + `" class="comment__media" loading="lazy"/>`

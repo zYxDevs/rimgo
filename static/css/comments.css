@@ -5,6 +5,7 @@
 }
 
 .comments {
+  margin-top: 1em;
   gap: 0.25em;
   display: flex;
   flex-direction: column;
@@ -49,7 +50,8 @@
 
 .comment__media {
   height: 10em;
-  display: block
+  display: block;
+  margin: 0.5em 0;
 }
 
 .comment__updatedDate {
