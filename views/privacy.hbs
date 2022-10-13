@@ -28,9 +28,7 @@
     {{#if config.Privacy.not_collected}}
     <div class="badgeWrapper">
       <div class="badge">
-        <span class="material-icons-outlined largeIcon">
-          check_circle
-        </span>
+        <img class="icon largeIcon" src="/static/icons/check-circle.svg" alt="">
         <h3>Data Not Collected</h3>
         <p>The instance operator does not collect any data from this instance.</p>
       </div>
@@ -40,9 +38,7 @@
     {{#unless config.Privacy.set}}
     <div class="badgeWrapper">
       <div class="badge">
-        <span class="material-icons-outlined largeIcon">
-          report_problem
-        </span>
+        <img class="icon largeIcon" src="/static/icons/alert-triangle.svg" alt="">
         <h3>No Details Provided</h3>
         <p>The operator of this instance will be required to provide privacy details to be added to the instance list.
         </p>
@@ -52,33 +48,31 @@
     {{#unless config.Privacy.not_collected}}
     <div class="badgeWrapper">
       <div class="badge">
-        <span class="material-icons-outlined largeIcon">
-          error_outline
-        </span>
+        <img class="icon largeIcon" src="/static/icons/alert-circle.svg" alt="">
         <h3>Data Collected</h3>
         <p>The following data may be collected:</p>
         <ul>
           {{#if config.Privacy.ip}}
           <li>
-            <span class="material-icons-outlined">password</span>
+            <img class="icon" src="/static/icons/hash.svg" alt="">
             Internet address (IP Address)
           </li>
           {{/if}}
           {{#if config.Privacy.url}}
           <li>
-            <span class="material-icons-outlined">link</span>
+            <img class="icon" src="/static/icons/link.svg" alt="">
             Page viewed (Request URL)
           </li>
           {{/if}}
           {{#if config.Privacy.device}}
           <li>
-            <span class="material-icons-outlined">phonelink</span>
+            <img class="icon" src="/static/icons/smartphone.svg" alt="">
             Device Type (User agent)
           </li>
           {{/if}}
           {{#if config.Privacy.diagnostics}}
           <li>
-            <span class="material-icons-outlined">settings</span>
+            <img class="icon" src="/static/icons/tool.svg" alt="">
             Diagnostics
           </li>
           {{/if}}
@@ -95,21 +89,21 @@
       </p>
       <ul>
         <li>
-          <span class="material-icons-outlined">password</span>
+          <img class="icon" src="/static/icons/hash.svg" alt="">
           Internet address (IP Address) - This is an address that is given to your computer or internet connection.
           This can be used to find your city or region and internet provider but can change depending on your connection.
         </li>
         <li>
-          <span class="material-icons-outlined">link</span>
+          <img class="icon" src="/static/icons/link.svg" alt="">
           Page viewed (Request URL) - This is what page you are viewing. Searches are kept private.
         </li>
         <li>
-          <span class="material-icons-outlined">phonelink</span>
+          <img class="icon" src="/static/icons/smartphone.svg" alt="">
           Device Type (User agent) - This is what browser, device, and operating system you are using.
           Advanced users can change this with an extension or browser setting.
         </li>
         <li>
-          <span class="material-icons-outlined">settings</span>
+          <img class="icon" src="/static/icons/tool.svg" alt="">
           Diagnostics - When this data is only collected when there is an error or only a short amount of time while
           diagnosing an issue.
         </li>

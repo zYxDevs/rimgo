@@ -24,7 +24,7 @@ nav {
   align-items: center;
 }
 
-.logo {
+.logo, .icon {
   filter: invert(1) hue-rotate(180deg);
 }
 
@@ -71,10 +71,6 @@ main {
   gap: 10px;
 }
 
-.post__meta .material-icons-outlined {
-  font-size: 1rem;
-}
-
 .pageSelector {
   display: flex;
   justify-content: space-between;
@@ -85,15 +81,12 @@ footer {
   display: flex;
   justify-content: center;
   flex-direction: row;
-  gap: 10px;
+  gap: 5rem;
+  margin: 2em 0;
 }
 
 @media only screen and (max-width: 812px) {
   section, header, main {
     margin: 0 !important;
-  }
-  footer {
-    flex-direction: column;
-    text-align: center;
   }
 }

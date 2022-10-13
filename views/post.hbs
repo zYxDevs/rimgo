@@ -11,7 +11,6 @@
 
   {{> partials/head }}
 
-  <link rel="stylesheet" href="/static/fonts/Material-Icons-Outlined.css" />
   <link rel="stylesheet" href="/static/css/album.css" />
   <link rel="stylesheet" href="/static/css/comments.css" />
 
@@ -37,12 +36,18 @@
       {{/if}}
       <div class="imageMeta">
         <div class="imageMeta__item">
-          <span class="material-icons-outlined" title="Views">visibility</span>
+          <img class="icon" src="/static/icons/eye.svg" alt="Views">
           <p>{{post.Views}}</p>
         </div>
         {{#if post.SharedWithCommunity}}
-        <p><span class="material-icons-outlined" title="Likes">thumb_up</span> {{post.Upvotes}}</p>
-        <p><span class="material-icons-outlined" title="Dislilkes">thumb_down</span> {{post.Downvotes}}</p>
+        <div class="imageMeta__item">
+          <img class="icon" src="/static/icons/chevron-up.svg" alt="Likes">
+          <p>{{post.Upvotes}}</p>
+        </div>
+        <div class="imageMeta__item">
+          <img class="icon" src="/static/icons/chevron-down.svg" alt="Dislikes">
+          <p>{{post.Downvotes}}</p>
+        </div>
         {{/if}}
       </div>
     </div>
@@ -93,7 +98,7 @@
       <input id="comments__expandBtn" type="checkbox">
       <label class="comments__expandBtn__label" for="comments__expandBtn">
         <h3>Comments ({{post.Comments}})</h3>
-        <span class="comments__expandBtn__icon material-icons-outlined"></span>
+        <span class="comments__expandBtn__icon"></span>
       </label>
       <div class="comments">
         {{#each comments}}

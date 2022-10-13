@@ -37,11 +37,11 @@
 }
 
 #comments__expandBtn ~ .comments__expandBtn__label > span::after {
-  content: "expand_more";
+  content: "⌄";
 }
 
 #comments__expandBtn:checked ~ .comments__expandBtn__label > span::after {
-  content: "expand_less";
+  content: "⌃";
 }
 
 #comments__expandBtn:checked ~ .comments {
