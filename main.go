@@ -3,10 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"log"
 	"net/http"
-	"os"
-	"path/filepath"
 	"time"
 
 	"codeberg.org/video-prize-ranch/rimgo/pages"
@@ -15,6 +12,7 @@ import (
 	"codeberg.org/video-prize-ranch/rimgo/views"
 	"github.com/aymerick/raymond"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cache"
 	"github.com/gofiber/fiber/v2/middleware/filesystem"
 	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/gofiber/template/handlebars"
@@ -28,18 +26,6 @@ func main() {
 		fmt.Println(err)
 	}
 	utils.LoadConfig()
-
-	if utils.Config.ImageCache {
-		go func() {
-			for range time.Tick(utils.Config.CleanupInterval) {
-				log.Println("Cache cleaned")
-				files, _ := filepath.Glob(filepath.Join(utils.Config.CacheDir, "*"))
-				for _, file := range files {
-					os.RemoveAll(file)
-				}
-			}
-		}()
-	}
 
 	engine := handlebars.NewFileSystem(http.FS(views.GetFiles()), ".hbs")
 
@@ -75,7 +61,7 @@ func main() {
 
 	app.Use(recover.New(recover.Config{
 		EnableStackTrace: true,
-		StackTraceHandler: func (c *fiber.Ctx, e interface{})  {
+		StackTraceHandler: func(c *fiber.Ctx, e interface{}) {
 			fmt.Println(e)
 		},
 	}))
@@ -85,6 +71,12 @@ func main() {
 			return false
 		},
 		Root: http.FS(static.GetFiles()),
+	}))
+	app.Use(cache.New(cache.Config{
+		Expiration:           30 * time.Minute,
+		MaxBytes:             25000000,
+		CacheControl:         true,
+		StoreResponseHeaders: true,
 	}))
 
 	app.Get("/robots.txt", func(c *fiber.Ctx) error {

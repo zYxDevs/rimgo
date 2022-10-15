@@ -3,7 +3,6 @@ package pages
 import (
 	"crypto/sha256"
 	"encoding/hex"
-	"io"
 	"net/http"
 	"os"
 	"strings"
@@ -83,20 +82,5 @@ func handleMedia(c *fiber.Ctx, url string) error {
 		c.Set("Content-Range", res.Header.Get("Content-Range"))
 	}
 
-	if strings.HasPrefix(res.Header.Get("Content-Type"), "image/") && utils.Config.ImageCache && res.StatusCode == 200 {
-		data, err := io.ReadAll(res.Body)
-		if err != nil {
-			return err
-		}
-
-		err = os.WriteFile(utils.Config.CacheDir + "/" + optionsHash, data, 0644)
-		if err != nil {
-			return err
-		}
-
-		_, err = c.Write(data)
-		return err
-	} else {
-		return c.SendStream(res.Body)
-	}
+	return c.SendStream(res.Body)
 }
