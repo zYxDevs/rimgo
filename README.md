@@ -10,6 +10,28 @@ An alternative frontend for Imgur. Originally based on [rimgu](https://codeberg.
   <img alt="Matrix" src="https://img.shields.io/badge/chat-matrix-blue">
 </a>
 
+## Table of Contents
+- [Features](#features)
+- [Comparison](#comparison)
+  - [Speed](#speed)
+  - [Privacy](#privacy)
+- [Instances](#instances)
+  - [Clearnet](#clearnet)
+  - [Tor](#tor)
+- [Automatically redirect links](#automatically-redirect-links)
+  - [LibRedirect](#libredirect)
+  - [GreaseMonkey script](#greasemonkey-script)
+  - [Redirector](#redirector)
+- [Install](#install)
+  - [Docker (recommended)](#docker-recommended)
+    - [Automatic updates](#automatic-updates)
+  - [Build from source](#build-from-source)
+    - [Requirements](#requirements)
+- [Configuration](#configuration)
+  - [Environment variables](#environment-variables)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## Features
 - Lightweight
 - No JavaScript
@@ -76,7 +98,6 @@ To help distribute load, consider using instances other than the official one.
 Use [LibRedirect](https://github.com/libredirect/libredirect) to automatically redirect Imgur links to rimgo!
 - [Firefox](https://addons.mozilla.org/firefox/addon/libredirect/)
 - [Chromium-based browsers (Brave, Google Chrome)](https://github.com/libredirect/libredirect#install-in-chromium-brave-and-chrome)
-- [Edge](https://microsoftedge.microsoft.com/addons/detail/libredirect/aodffkeankebfonljgbcfbbaljopcpdb)
 
 ### GreaseMonkey script
 There is a script to redirect Imgur links to rimgo.
@@ -182,7 +203,7 @@ rimgo can be configured using environment variables. The path to the .env file c
 | PRIVACY_DIAGNOSTICS   |                 |
 
 ## Contributing
+Pull requests are welcome! If you have any questions or bug reports, open an [issue](https://codeberg.org/video-prize-ranch/rimgo/issues/new).
 
-Pull requests are welcome!
-
-This software is released under the AGPL 3.0 license. In short, this means that if you make any modifications to the code and then publish the result (e.g. by hosting the result on a web server), you must publicly distribute your changes and declare that they also use AGPL 3.0.
+## License
+This software is released under the AGPL-3.0 license. If you make any modifications to the code and distribute it (including use on a network server), you must publicly distribute your changes and release them under the AGPL-3.0.
