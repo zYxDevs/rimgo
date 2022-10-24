@@ -78,5 +78,12 @@
       "fi"
     ],
     "cloudflare": false
+  },
+  {
+    "url": "https://rimgo.hostux.net",
+    "countries": [
+      "fr"
+    ],
+    "cloudflare": false
   }
 ]
