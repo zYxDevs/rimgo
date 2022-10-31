@@ -15,6 +15,7 @@ An alternative frontend for Imgur. Originally based on [rimgu](https://codeberg.
 - [Comparison](#comparison)
   - [Speed](#speed)
   - [Privacy](#privacy)
+- [Usage](#usage)
 - [Instances](#instances)
   - [Clearnet](#clearnet)
   - [Tor](#tor)
@@ -56,6 +57,12 @@ Tested using [Google PageSpeed Insights](https://pagespeed.web.dev/).
 Imgur collects information about your device and uses tracking cookies for advertising, this is mentioned in their [privacy policy](https://imgur.com/privacy/). [Blacklight](https://themarkup.org/blacklight) found 31 trackers and 87 third-party cookies.
 
 See what cookies and trackers Imgur uses and where your data gets sent: https://themarkup.org/blacklight?url=imgur.com
+
+## Usage
+Replace imgur.com or i.imgur.com with the instance domain. For i.stack.imgur.com, replace i.stack.imgur.com with the instance domain and add stack/ before the media ID. You can use a browser extension to do this [automatically](#automatically-redirect-links).
+
+Imgur: `https://imgur.com/gallery/j2sOQkJ` -> `https://rimgo.bcow.xyz/gallery/j2sOQkJ`
+Stack Overflow: `https://i.stack.imgur.com/KnO3v.jpg?s=64&g=1` -> `https://rimgo.bcow.xyz/stack/KnO3v.jpg?s=64&g=1`
 
 ## Instances
 Open an issue to have your instance listed here!
