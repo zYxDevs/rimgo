@@ -87,6 +87,7 @@ To help distribute load, consider using instances other than the official one.
 | [rimgo.privacytools.io](https://rimgo.privacytools.io/)       | 🇸🇪 SE        | Cloudflare               | ✅ Data not collected |       |
 | [i.habedieeh.re](https://i.habedieeh.re/)                     | 🇨🇦️ CA        | Oracle Cloud             | ✅ Data not collected |       |
 | [rimgo.hostux.net](https://rimgo.hostux.net/)	                | 🇫🇷️ FR        | Gandi	                   | ⚠️ Data collected     |       |
+| [ri.zzls.xyz](https://ri.zzls.xyz/)                           | 🇨🇱 CL        | TELEFÓNICA CHILE         | ✅ Data not collected | Self-hosted, provider is ISP |
 
 ### Tor
 

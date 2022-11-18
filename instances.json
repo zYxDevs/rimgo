@@ -85,5 +85,12 @@
       "fr"
     ],
     "cloudflare": false
+  },
+  {
+    "url": "https://ri.zzls.xyz",
+    "countries": [
+      "cl"
+    ],
+    "cloudflare": false
   }
 ]
