@@ -120,6 +120,20 @@ You can use the [Redirector](https://github.com/einaregilsson/Redirector) extens
 * Include pattern: `^https?://i?.?imgur.com(/.*)?$`
 * Redirect to: `https://rimgo.example.com$1`
 * Pattern type: Regular Expression
+* Advanced options:
+  * Apply to:
+    * [x] Main window (address bar)
+    * [x] Images
+
+For Stack Overflow images:
+* Description: Stack Overflow Imgur -> rimgo
+* Example URL: https://i.stack.imgur.com/BTKqD.png?s=128&g=1
+* Include pattern: `^https?://i\.stack\.imgur\.com(/.*)?$`
+* Redirect to: `https://rimgo.example.com/stack$1`
+* Pattern type: Regular Expression
+* Advanced options:
+  * Apply to:
+    * [x] Images
 
 ## Install
 rimgo can run on any platform Go compiles on.
