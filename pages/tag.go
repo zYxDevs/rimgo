@@ -12,7 +12,7 @@ func HandleTag(c *fiber.Ctx) error {
 	utils.SetHeaders(c)
 	c.Set("X-Frame-Options", "DENY")
 	c.Set("Cache-Control", "public,max-age=604800")
-	c.Set("Content-Security-Policy", "default-src 'none'; style-src 'unsafe-inline' 'self'; media-src 'self'; img-src 'self'; font-src 'self'; manifest-src 'self'; block-all-mixed-content")
+	c.Set("Content-Security-Policy", "default-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'; style-src 'unsafe-inline' 'self'; media-src 'self'; img-src 'self'; manifest-src 'self'; block-all-mixed-content")
 
 	page := "1"
 	if c.Query("page") != "" {

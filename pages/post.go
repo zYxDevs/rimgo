@@ -45,7 +45,7 @@ func HandlePost(c *fiber.Ctx) error {
 	}
 
 	nonce := ""
-	csp := "default-src 'none'; media-src 'self'; img-src 'self'; font-src 'self'; manifest-src 'self'; block-all-mixed-content; style-src 'self'"
+	csp := "default-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'; media-src 'self'; img-src 'self'; manifest-src 'self'; block-all-mixed-content; style-src 'self'"
 	if len(post.Tags) != 0 {
 		b := make([]byte, 8)
 		rand.Read(b)
