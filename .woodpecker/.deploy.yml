@@ -8,6 +8,8 @@ pipeline:
       - cd fly-cfg/rimgo
       - /root/.fly/bin/flyctl deploy --detach --remote-only
     secrets: [fly_api_token]
+    when:
+      branch: main
 
 depends_on:
   - build
