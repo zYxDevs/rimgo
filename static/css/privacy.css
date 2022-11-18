@@ -32,7 +32,11 @@ ul {
   text-align: center;
 }
 
-.badge h3,
+.badge h2 {
+  font-size: 1.35rem;
+}
+
+.badge h2,
 .badge p,
 .largeIcon {
   margin: 0;
