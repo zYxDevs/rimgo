@@ -92,5 +92,12 @@
       "cl"
     ],
     "cloudflare": false
+  },
+  {
+    "url": "https://rimgo.marcopisco.com",
+    "countries": [
+      "pt"
+    ],
+    "cloudflare": true
   }
 ]
