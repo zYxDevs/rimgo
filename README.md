@@ -77,8 +77,6 @@ To help distribute load, consider using instances other than the official one.
 | [rimgo.totaldarkness.net](https://rimgo.totaldarkness.net) 	  | 🇨🇦 CA        | Vultr                    | ✅ Data not collected |       |
 | [rimgo.bus-hit.me](https://rimgo.bus-hit.me)               	  | 🇨🇦 CA        | Oracle                   | ⚠️ Data collected     |       |
 | [rimgo.esmailelbob.xyz](https://rimgo.esmailelbob.xyz)     	  | 🇨🇦 CA        | OVH                      | ⚠️ Data collected     |       |
-| [i.actionsack.com](https://i.actionsack.com)               	  | 🇺🇸 US        | Cloudflare               | ❓️ No details         |       |
-| [rimgo.privacydev.net](https://rimgo.privacydev.net)       	  | 🇺🇸 US        | Cyber Wurx               | ❓️ No details         |       |
 | [imgur.artemislena.eu](https://imgur.artemislena.eu)       	  | 🇩🇪 DE        | Vodafone Deutschland     | ✅ Data not collected | Self-hosted, provider is ISP |
 | [rimgo.vern.cc](https://rimgo.vern.cc)                        | 🇨🇦️ CA        | OVHCloud                 | ✅ Data not collected | [Edited theme](https://git.vern.cc/root/modifications/src/branch/master/rimgo) |
 | [rimgo.encrypted-data.xyz](https://rimgo.encrypted-data.xyz/)	| 🇫🇷️ FR        | Cloudflare	             | ✅ Data not collected |       |
