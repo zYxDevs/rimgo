@@ -1,15 +1,9 @@
-h1 {
-  margin: 0;
+p {
+  margin: 0.4rem 0;
 }
 
 .pfp {
   border-radius: 100%;
-}
-
-.post__media {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
 }
 
 .post__media video,
@@ -24,20 +18,7 @@ h1 {
   align-self: flex-start;
 }
 
-.imageMeta__wrapper,
-.imageMeta__item,
-.imageMeta {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.imageMeta__item {
-  gap: 4px;
-}
-
 .imageMeta__wrapper {
-  gap: 1rem;
   margin-top: 0.5em;
 }
 

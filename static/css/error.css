@@ -6,12 +6,6 @@ h2 {
   margin-bottom: 0;
 }
 
-main {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
 code {
   display: block;
   padding: 0.75em;

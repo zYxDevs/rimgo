@@ -1,9 +1,9 @@
-main {
-  margin: 0 24vw
-}
-
 p {
   margin: 1em 0
+}
+
+h1, h2, h3 {
+  margin: 0.4em 0;
 }
 
 ul {
@@ -17,19 +17,13 @@ ul {
   height: 36px;
 }
 
-.badgeWrapper {
+.badge {
   margin: 0 10vw
 }
 
-.badge {
+.badge div {
   background-color: #3b3b3b;
   border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.25em;
-  padding: 1em;
-  text-align: center;
 }
 
 .badge h2 {
@@ -47,15 +41,4 @@ ul {
   user-select: none;
   color: #2b95f2;
   font-weight: 700;
-}
-
-.addInfo {
-  margin-top: 1em;
-}
-
-@media only screen and (max-width: 812px) {
-  .badgeWrapper,
-  main {
-    margin: 0
-  }
 }

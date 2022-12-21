@@ -25,7 +25,7 @@
   </header>
   
   <main>
-    <div class="imageMeta__wrapper">
+    <div class="flex flex-center-y gap-4">
       {{#if post.User.Username}}
       <a href="/user/{{post.User.Username}}" class="user">
         <img src="{{post.User.Avatar}}" class="pfp" width="36" height="36" />
@@ -34,17 +34,17 @@
         </p>
       </a>
       {{/if}}
-      <div class="imageMeta">
-        <div class="imageMeta__item">
+      <div class="flex flex-center-y gap-2">
+        <div class="flex flex-center gap-2">
           <img class="icon" src="/static/icons/eye.svg" alt="Views">
           <p>{{post.Views}}</p>
         </div>
         {{#if post.SharedWithCommunity}}
-        <div class="imageMeta__item">
+        <div class="flex flex-center gap-2">
           <img class="icon" src="/static/icons/chevron-up.svg" alt="Likes">
           <p>{{post.Upvotes}}</p>
         </div>
-        <div class="imageMeta__item">
+        <div class="flex flex-center gap-2">
           <img class="icon" src="/static/icons/chevron-down.svg" alt="Dislikes">
           <p>{{post.Downvotes}}</p>
         </div>
@@ -52,7 +52,7 @@
       </div>
     </div>
 
-    <div class="post__media">
+    <div class="post__media flex flex-center flex-col">
       {{#each post.Media}}
       {{#if this.Title}}
       <h4>{{this.Title}}</h4>
@@ -100,7 +100,7 @@
         <h3>Comments ({{post.Comments}})</h3>
         <span class="comments__expandBtn__icon"></span>
       </label>
-      <div class="comments">
+      <div class="comments flex flex-col">
         {{#each comments}}
         {{> partials/comment }}
         {{/each}}

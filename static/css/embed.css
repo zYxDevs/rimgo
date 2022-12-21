@@ -13,7 +13,7 @@ body {
 
 .media {
   display: flex;
-  overflow: scroll;
+  overflow: auto;
   gap: 1rem;
   align-items: center;
   height: 90vh;
@@ -33,15 +33,8 @@ body {
   width: 100%;
 }
 
-.logoContainer {
-  display: flex;
-  align-items: center;
-}
-
 .views {
-  display: flex;
   gap: 4px;
-  align-items: center;
 }
 
 .postDetails {
