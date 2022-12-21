@@ -80,7 +80,6 @@ To help distribute load, consider using instances other than the official one.
 | [imgur.artemislena.eu](https://imgur.artemislena.eu)       	  | 🇩🇪 DE        | Vodafone Deutschland     | ✅ Data not collected | Self-hosted, provider is ISP |
 | [rimgo.vern.cc](https://rimgo.vern.cc)                        | 🇺🇸 US        | OVHCloud                 | ✅ Data not collected | [Edited theme](https://git.vern.cc/root/modifications/src/branch/master/rimgo) |
 | [rimgo.encrypted-data.xyz](https://rimgo.encrypted-data.xyz/)	| 🇫🇷️ FR        | Cloudflare	             | ✅ Data not collected |       |
-| [rimgo.mha.fi](https://rimgo.mha.fi/)                       	| 🇫🇮 FI        | Hetzner                  | ❓️ No details         |       |
 | [rim.odyssey346.dev](https://rim.odyssey346.dev/)             | 🇫🇷️ FR        | Trolling Solutions (OVH) | ✅ Data not collected |       |
 | [rimgo.privacytools.io](https://rimgo.privacytools.io/)       | 🇸🇪 SE        | Cloudflare               | ✅ Data not collected |       |
 | [i.habedieeh.re](https://i.habedieeh.re/)                     | 🇨🇦️ CA        | Oracle Cloud             | ✅ Data not collected |       |
@@ -94,7 +93,6 @@ To help distribute load, consider using instances other than the official one.
 | :-- | :------ | :----------------------- |
 | [rimgo.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion](http://rimgo.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion) | ⚠️ Data collected | Onion of rimgo.esmailelbob.xyz |
 | [rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion) | ✅ Data not collected | Onion of rimgo.vern.cc         |
-| [rimgo.micohauwkjbyw5meacrb4ipicwvwg4xtzl7y7viv53kig2mdcsvwkyyd.onion](http://rimgo.micohauwkjbyw5meacrb4ipicwvwg4xtzl7y7viv53kig2mdcsvwkyyd.onion) | ❓️ No details   | Onion of rimgo.mha.fi          |
 | [imgur.lpoaj7z2zkajuhgnlltpeqh3zyq7wk2iyeggqaduhgxhyajtdt2j7wad.onion](http://imgur.lpoaj7z2zkajuhgnlltpeqh3zyq7wk2iyeggqaduhgxhyajtdt2j7wad.onion) | ✅ Data not collected | Onion of imgur.artemislena.eu  |
 | [rim.odysfvr23q5wgt7i456o5t3trw2cw5dgn56vbjfbq2m7xsc5vqbqpcyd.onion](http://rim.odysfvr23q5wgt7i456o5t3trw2cw5dgn56vbjfbq2m7xsc5vqbqpcyd.onion)     | ⚠️ Data collected |  |
 | [tdp6uqjtmok723suum5ms3jbquht6d7dssug4cgcxhfniatb25gcipad.onion](http://tdp6uqjtmok723suum5ms3jbquht6d7dssug4cgcxhfniatb25gcipad.onion)             | ✅ Data not collected | Onion of rimgo.privacytools.io |
