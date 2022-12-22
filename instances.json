@@ -65,13 +65,6 @@
     "cloudflare": false
   },
   {
-    "url": "https://rimgo.encrypted-data.xyz",
-    "countries": [
-      "fr"
-    ],
-    "cloudflare": true
-  },
-  {
     "url": "https://rimgo.hostux.net",
     "countries": [
       "fr"
