@@ -65,7 +65,9 @@ Imgur: `https://imgur.com/gallery/j2sOQkJ` -> `https://rimgo.bcow.xyz/gallery/j2
 Stack Overflow: `https://i.stack.imgur.com/KnO3v.jpg?s=64&g=1` -> `https://rimgo.bcow.xyz/stack/KnO3v.jpg?s=64&g=1`
 
 ## Instances
-Open an issue to have your instance listed here!
+Open an issue to have your instance listed here! Instance privacy information is required for the instance list, see [Environment variables](#environment-variables).
+
+> For more details on instance privacy, see https://librarian.codeberg.page/docs/usage/instance-privacy/
 
 ### Clearnet
 To help distribute load, consider using instances other than the official one.
@@ -204,22 +206,24 @@ rimgo can be configured using environment variables. The path to the .env file c
 
 ### Environment variables
 
-| Name                  | Default         |
-|-----------------------|-----------------|
-| PORT                  | 3000            |
-| ADDRESS               | 0.0.0.0         |
-| IMGUR_CLIENT_ID       | 546c25a59c58ad7 |
-| FORCE_WEBP            | 0               |
-| PRIVACY_POLICY        |                 |
-| PRIVACY_MESSAGE       |                 |
-| PRIVACY_COUNTRY       |                 |
-| PRIVACY_PROVIDER      |                 |
-| PRIVACY_CLOUDFLARE    |                 |
-| PRIVACY_NOT_COLLECTED |                 |
-| PRIVACY_IP            |                 |
-| PRIVACY_URL           |                 |
-| PRIVACY_DEVICE        |                 |
-| PRIVACY_DIAGNOSTICS   |                 |
+> For more details on instance privacy, see https://librarian.codeberg.page/docs/usage/instance-privacy/
+
+| Name                  | Default         | Note |
+|-----------------------|-----------------|------|
+| PORT                  | 3000            |      |
+| ADDRESS               | 0.0.0.0         |      |
+| IMGUR_CLIENT_ID       | 546c25a59c58ad7 |      |
+| FORCE_WEBP            | 0               |      |
+| PRIVACY_POLICY        |                 | Optional, URL to privacy policy |
+| PRIVACY_MESSAGE       |                 | Optional, message to display on privacy page |
+| PRIVACY_COUNTRY       |                 |      |
+| PRIVACY_PROVIDER      |                 |      |
+| PRIVACY_CLOUDFLARE    |                 |      |
+| PRIVACY_NOT_COLLECTED |                 |      |
+| PRIVACY_IP            |                 |      |
+| PRIVACY_URL           |                 |      |
+| PRIVACY_DEVICE        |                 |      |
+| PRIVACY_DIAGNOSTICS   |                 |      |
 
 ## Contributing
 Pull requests are welcome! If you have any questions or bug reports, open an [issue](https://codeberg.org/video-prize-ranch/rimgo/issues/new).
