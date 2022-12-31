@@ -67,6 +67,8 @@ Stack Overflow: `https://i.stack.imgur.com/KnO3v.jpg?s=64&g=1` -> `https://rimgo
 ## Instances
 Open an issue to have your instance listed here! Instance privacy information is required for the instance list, see [Environment variables](#environment-variables).
 
+> NOTE: The `instances.json` in this repo file is deprecated and will not be updated. Use the new InstancePage API https://rimgo.codeberg.page/api/instances.json (may change, documentation coming soon)
+
 > For more details on instance privacy, see https://librarian.codeberg.page/docs/usage/instance-privacy/
 
 ### Clearnet
