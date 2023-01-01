@@ -6,7 +6,6 @@ import (
 
 	"codeberg.org/video-prize-ranch/rimgo/utils"
 	"github.com/microcosm-cc/bluemonday"
-	"github.com/patrickmn/go-cache"
 	"github.com/tidwall/gjson"
 )
 
@@ -35,69 +34,67 @@ type Media struct {
 	MimeType    string
 }
 
-var albumCache = cache.New(1*time.Hour, 15*time.Minute)
-
-func FetchAlbum(albumID string) (Album, error) {
-	cacheData, found := albumCache.Get(albumID + "-album")
+func (client *Client) FetchAlbum(albumID string) (Album, error) {
+	cacheData, found := client.Cache.Get(albumID + "-album")
 	if found {
 		return cacheData.(Album), nil
 	}
 
-	data, err := utils.GetJSON("https://api.imgur.com/post/v1/albums/" + albumID + "?client_id=" + utils.Config.ImgurId + "&include=media%2Caccount")
+	data, err := utils.GetJSON("https://api.imgur.com/post/v1/albums/" + albumID + "?client_id=" + client.ClientID + "&include=media%2Caccount")
 	if err != nil {
 		return Album{}, err
 	}
 
-	album, err := ParseAlbum(data)
+	album, err := parseAlbum(data)
 	if err != nil {
 		return Album{}, err
 	}
 
-	albumCache.Set(albumID+"-album", album, cache.DefaultExpiration)
+	client.Cache.Set(albumID+"-album", album, 1*time.Hour)
 	return album, err
 }
 
-func FetchPosts(albumID string) (Album, error) {
-	cacheData, found := albumCache.Get(albumID + "-posts")
+func (client *Client) FetchPosts(albumID string) (Album, error) {
+	cacheData, found := client.Cache.Get(albumID + "-posts")
 	if found {
 		return cacheData.(Album), nil
 	}
 
-	data, err := utils.GetJSON("https://api.imgur.com/post/v1/posts/" + albumID + "?client_id=" + utils.Config.ImgurId + "&include=media%2Caccount%2Ctags")
+	data, err := utils.GetJSON("https://api.imgur.com/post/v1/posts/" + albumID + "?client_id=" + client.ClientID + "&include=media%2Caccount%2Ctags")
 	if err != nil {
 		return Album{}, err
 	}
 
-	album, err := ParseAlbum(data)
+	album, err := parseAlbum(data)
 	if err != nil {
 		return Album{}, err
 	}
 
-	albumCache.Set(albumID+"-posts", album, cache.DefaultExpiration)
+	client.Cache.Set(albumID+"-posts", album, 1*time.Hour)
 	return album, nil
 }
 
-func FetchMedia(mediaID string) (Album, error) {
-	cacheData, found := albumCache.Get(mediaID + "-media")
+func (client *Client) FetchMedia(mediaID string) (Album, error) {
+	cacheData, found := client.Cache.Get(mediaID + "-media")
 	if found {
 		return cacheData.(Album), nil
 	}
 
-	data, err := utils.GetJSON("https://api.imgur.com/post/v1/media/" + mediaID + "?client_id=" + utils.Config.ImgurId + "&include=media%2Caccount")
+	data, err := utils.GetJSON("https://api.imgur.com/post/v1/media/" + mediaID + "?client_id=" + client.ClientID + "&include=media%2Caccount")
 	if err != nil {
 		return Album{}, err
 	}
 
-	album, err := ParseAlbum(data)
+	album, err := parseAlbum(data)
 	if err != nil {
 		return Album{}, err
 	}
 
-	albumCache.Set(mediaID+"-media", album, cache.DefaultExpiration)
+	client.Cache.Set(mediaID+"-media", album, 1*time.Hour)
 	return album, nil
 }
 
-func ParseAlbum(data gjson.Result) (Album, error) {
+func parseAlbum(data gjson.Result) (Album, error) {
 	media := make([]Media, 0)
 	data.Get("media").ForEach(
 		func(key gjson.Result, value gjson.Result) bool {

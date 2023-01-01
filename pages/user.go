@@ -3,7 +3,6 @@ package pages
 import (
 	"strconv"
 
-	"codeberg.org/video-prize-ranch/rimgo/api"
 	"codeberg.org/video-prize-ranch/rimgo/utils"
 	"github.com/gofiber/fiber/v2"
 )
@@ -24,7 +23,7 @@ func HandleUser(c *fiber.Ctx) error {
 		pageNumber = 0
 	}
 
-	user, err := api.FetchUser(c.Params("userID"))
+	user, err := ApiClient.FetchUser(c.Params("userID"))
 	if err != nil && err.Error() == "ratelimited by imgur" {
 		return c.Status(429).Render("errors/429", nil)
 	}
@@ -35,7 +34,7 @@ func HandleUser(c *fiber.Ctx) error {
 		return c.Status(404).Render("errors/404", nil)
 	}
 
-	submissions, err := api.FetchSubmissions(c.Params("userID"), "newest", page)
+	submissions, err := ApiClient.FetchSubmissions(c.Params("userID"), "newest", page)
 	if err != nil && err.Error() == "ratelimited by imgur" {
 		c.Status(429)
 		return c.Render("errors/429", nil)

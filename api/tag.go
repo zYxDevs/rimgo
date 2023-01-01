@@ -5,9 +5,7 @@ import (
 	"net/http"
 	"strings"
 	"sync"
-	"time"
-
-	"codeberg.org/video-prize-ranch/rimgo/utils"
+	
 	"github.com/patrickmn/go-cache"
 	"github.com/tidwall/gjson"
 )
@@ -22,10 +20,8 @@ type Tag struct {
 	BackgroundId string
 }
 
-var tagCache = cache.New(15*time.Minute, 15*time.Minute)
-
-func FetchTag(tag string, sort string, page string) (Tag, error) {
-	cacheData, found := tagCache.Get(tag + sort + page)
+func (client *Client) FetchTag(tag string, sort string, page string) (Tag, error) {
+	cacheData, found := client.Cache.Get(tag + sort + page + "-tag")
 	if found {
 		return cacheData.(Tag), nil
 	}
@@ -36,7 +32,7 @@ func FetchTag(tag string, sort string, page string) (Tag, error) {
 	}
 
 	q := req.URL.Query()
-	q.Add("client_id", utils.Config.ImgurId)
+	q.Add("client_id", client.ClientID)
 	q.Add("include", "cover")
 	q.Add("page", page)
 
@@ -109,6 +105,6 @@ func FetchTag(tag string, sort string, page string) (Tag, error) {
 		Background:   "/" + data.Get("background_id").String() + ".webp",
 	}
 
-	tagCache.Set(tag, tagData, cache.DefaultExpiration)
+	client.Cache.Set(tag + sort + page + "-tag", tagData, cache.DefaultExpiration)
 	return tagData, nil
 }

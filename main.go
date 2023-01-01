@@ -26,6 +26,8 @@ func main() {
 		fmt.Println(err)
 	}
 	utils.LoadConfig()
+	
+	pages.InitializeApiClient()
 
 	engine := handlebars.NewFileSystem(http.FS(views.GetFiles()), ".hbs")
 

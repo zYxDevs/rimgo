@@ -8,7 +8,6 @@ import (
 	"time"
 
 	"codeberg.org/video-prize-ranch/rimgo/utils"
-	"github.com/patrickmn/go-cache"
 	"github.com/tidwall/gjson"
 )
 
@@ -35,10 +34,8 @@ type Submission struct {
 	IsAlbum   bool
 }
 
-var userCache = cache.New(30*time.Minute, 15*time.Minute)
-
-func FetchUser(username string) (User, error) {
-	cacheData, found := userCache.Get(username)
+func (client *Client) FetchUser(username string) (User, error) {
+	cacheData, found := client.Cache.Get(username + "-user")
 	if found {
 		return cacheData.(User), nil
 	}
@@ -67,12 +64,12 @@ func FetchUser(username string) (User, error) {
 		CreatedAt: createdTime.Format("January 2, 2006"),
 	}
 
-	userCache.Set(username, user, 1*time.Hour)
+	client.Cache.Set(username + "-user", user, 1*time.Hour)
 	return user, nil
 }
 
-func FetchSubmissions(username string, sort string, page string) ([]Submission, error) {
-	cacheData, found := userCache.Get(username + "-submissions")
+func (client *Client) FetchSubmissions(username string, sort string, page string) ([]Submission, error) {
+	cacheData, found := client.Cache.Get(username + "-submissions")
 	if found {
 		return cacheData.([]Submission), nil
 	}
@@ -131,6 +128,6 @@ func FetchSubmissions(username string, sort string, page string) ([]Submission, 
 	)
 	wg.Wait()
 
-	userCache.Set(username + "-submissions", submissions, 15*time.Minute)
+	client.Cache.Set(username + "-submissions", submissions, 15*time.Minute)
 	return submissions, nil
 }

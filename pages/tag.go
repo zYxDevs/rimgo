@@ -3,7 +3,6 @@ package pages
 import (
 	"strconv"
 
-	"codeberg.org/video-prize-ranch/rimgo/api"
 	"codeberg.org/video-prize-ranch/rimgo/utils"
 	"github.com/gofiber/fiber/v2"
 )
@@ -29,7 +28,7 @@ func HandleTag(c *fiber.Ctx) error {
 		displayPrevPage = false
 	}
 
-	tag, err := api.FetchTag(c.Params("tag"), c.Query("sort"), page)
+	tag, err := ApiClient.FetchTag(c.Params("tag"), c.Query("sort"), page)
 	if err != nil && err.Error() == "ratelimited by imgur" {
 		return c.Status(429).Render("errors/429", nil)
 	}

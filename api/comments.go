@@ -28,15 +28,13 @@ type Comment struct {
 	DeletedAt string
 }
 
-var commentCache = cache.New(15*time.Minute, 15*time.Minute)
-
-func FetchComments(galleryID string) ([]Comment, error) {
-	cacheData, found := commentCache.Get(galleryID)
+func (client *Client) FetchComments(galleryID string) ([]Comment, error) {
+	cacheData, found := client.Cache.Get(galleryID + "-comments")
 	if found {
 		return cacheData.([]Comment), nil
 	}
 
-	data, err := utils.GetJSON("https://api.imgur.com/comment/v1/comments?client_id=" + utils.Config.ImgurId + "&filter[post]=eq:" + galleryID + "&include=account,adconfig&per_page=30&sort=best")
+	data, err := utils.GetJSON("https://api.imgur.com/comment/v1/comments?client_id=" + client.ClientID + "&filter[post]=eq:" + galleryID + "&include=account,adconfig&per_page=30&sort=best")
 	if err != nil {
 		return []Comment{}, nil
 	}
@@ -49,7 +47,7 @@ func FetchComments(galleryID string) ([]Comment, error) {
 
 			go func() {
 				defer wg.Done()
-				comments = append(comments, ParseComment(value))
+				comments = append(comments, parseComment(value))
 			}()
 
 			return true
@@ -57,7 +55,7 @@ func FetchComments(galleryID string) ([]Comment, error) {
 	)
 	wg.Wait()
 
-	commentCache.Set(galleryID, comments, cache.DefaultExpiration)
+	client.Cache.Set(galleryID + "-comments", comments, cache.DefaultExpiration)
 	return comments, nil
 }
 
@@ -66,7 +64,7 @@ var vidRe = regexp.MustCompile(`https?://i\.imgur\.com/(.*)\.(mp4|webm)`)
 var vidFormatRe = regexp.MustCompile(`\.(mp4|webm)`)
 var iImgurRe = regexp.MustCompile(`https?://i\.imgur\.com`)
 
-func ParseComment(data gjson.Result) Comment {
+func parseComment(data gjson.Result) Comment {
 	createdTime, _ := time.Parse("2006-01-02T15:04:05Z", data.Get("created_at").String())
 	createdAt := createdTime.Format("January 2, 2006 3:04 PM")
 	updatedAt, _ := utils.FormatDate(data.Get("updated_at").String())
@@ -82,7 +80,7 @@ func ParseComment(data gjson.Result) Comment {
 
 			go func() {
 				defer wg.Done()
-				comments = append(comments, ParseComment(value))
+				comments = append(comments, parseComment(value))
 			}()
 
 			return true

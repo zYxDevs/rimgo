@@ -16,11 +16,11 @@ func HandleEmbed(c *fiber.Ctx) error {
 	post, err := api.Album{}, error(nil)
 	switch {
 	case strings.HasPrefix(c.Path(), "/a"):
-		post, err = api.FetchAlbum(c.Params("postID"))
+		post, err = ApiClient.FetchAlbum(c.Params("postID"))
 	case strings.HasPrefix(c.Path(), "/gallery"):
-		post, err = api.FetchPosts(c.Params("postID"))
+		post, err = ApiClient.FetchPosts(c.Params("postID"))
 	default:
-		post, err = api.FetchMedia(c.Params("postID"))
+		post, err = ApiClient.FetchMedia(c.Params("postID"))
 	}
 	if err != nil && err.Error() == "ratelimited by imgur" {
 		return c.Status(429).Render("errors/429", nil)
