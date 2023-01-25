@@ -1,5 +1,0 @@
-{
-  "yaml.schemas": {
-    "https://raw.githubusercontent.com/woodpecker-ci/woodpecker/master/pipeline/schema/schema.json": "./rimgo/.woodpecker/.build.yml"
-  }
-}

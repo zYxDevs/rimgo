@@ -67,8 +67,6 @@ Stack Overflow: `https://i.stack.imgur.com/KnO3v.jpg?s=64&g=1` -> `https://rimgo
 ## Instances
 Open an issue to have your instance listed here! Instance privacy information is required for the instance list, see [Environment variables](#environment-variables).
 
-> NOTE: The `instances.json` in this repo file is deprecated and will not be updated. Use the new InstancePage API https://rimgo.codeberg.page/api/instances.json (may change, documentation coming soon)
-
 > For more details on instance privacy, see https://librarian.codeberg.page/docs/usage/instance-privacy/
 
 ### Clearnet
@@ -100,6 +98,13 @@ To help distribute load, consider using instances other than the official one.
 | [rim.odysfvr23q5wgt7i456o5t3trw2cw5dgn56vbjfbq2m7xsc5vqbqpcyd.onion](http://rim.odysfvr23q5wgt7i456o5t3trw2cw5dgn56vbjfbq2m7xsc5vqbqpcyd.onion)     | ⚠️ Data collected |  |
 | [tdp6uqjtmok723suum5ms3jbquht6d7dssug4cgcxhfniatb25gcipad.onion](http://tdp6uqjtmok723suum5ms3jbquht6d7dssug4cgcxhfniatb25gcipad.onion)             | ✅ Data not collected | Onion of rimgo.privacytools.io |
 | [i.habeehrhadazsw3izbrbilqajalfyqqln54mrja3iwpqxgcuxnus7eid.onion](http://i.habeehrhadazsw3izbrbilqajalfyqqln54mrja3iwpqxgcuxnus7eid.onion/)        | ✅ Data not collected | Onion of i.habedieeh.re |
+
+### I2P
+
+| URL | Privacy | Notes                    |
+| :-- | :------ | :----------------------- |
+| [rimgo.i2p](http://rimgo.i2p) | ✅ Data not collected | i.habedieeh.re on I2P |
+| [rimgov7l2tqyrm5txrtvhtnfyrzkc5d7ipafofavchbnnyog4r3q.b32.i2p](http://rimgov7l2tqyrm5txrtvhtnfyrzkc5d7ipafofavchbnnyog4r3q.b32.i2p) | ✅ Data not collected | Same as rimgo.i2p |
 
 ## Automatically redirect links
 
