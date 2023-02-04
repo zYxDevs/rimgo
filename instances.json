@@ -96,5 +96,12 @@
       "de"
     ],
     "cloudflare": true
+  },
+  {
+    "url": "https://imgur.010032.xyz",
+    "countries": [
+      "kr"
+    ],
+    "cloudflare": true
   }
 ]

@@ -87,6 +87,7 @@ To help distribute load, consider using instances other than the official one.
 | [ri.zzls.xyz](https://ri.zzls.xyz/)                           | 🇨🇱 CL        | TELEFÓNICA CHILE         | ✅ Data not collected | Self-hosted, provider is ISP |
 | [rimgo.marcopisco.com](https://rimgo.marcopisco.com/)         | 🇵🇹 PT        | Cloudflare               | ⚠️ Data collected     |       |
 | [rimgo.lunar.icu](https://rimgo.marcopisco.com/)              | 🇩🇪 DE        | Cloudflare               | ✅ Data not collected |       |
+| [imgur.010032.xyz](https://imgur.010032.xyz/)                 | 🇰🇷 KR        | Cloudflare               | ✅ Data not collected |       |
 
 ### Tor
 
