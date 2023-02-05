@@ -78,6 +78,8 @@
   },
   {
     "url": "https://ri.zzls.xyz",
+    "onion": "http://rimgo.zzlsghu6mvvwyy75mvga6gaf4znbp3erk5xwfzedb4gg6qqh2j6rlvid.onion",
+    "i2p": ["rimgo.zzls.i2p", "p57356k2xwhxrg2lxrjajcftkrptv4zejeeblzfgkcvpzuetkz2a.b32.i2p"],
     "countries": [
       "cl"
     ],
