@@ -115,7 +115,7 @@ To help distribute load, consider using instances other than the official one.
 ### LibRedirect
 Use [LibRedirect](https://github.com/libredirect/libredirect) to automatically redirect Imgur links to rimgo!
 - [Firefox](https://addons.mozilla.org/firefox/addon/libredirect/)
-- [Chromium-based browsers (Brave, Google Chrome)](https://github.com/libredirect/libredirect#install-in-chromium-brave-and-chrome)
+- [Chromium-based browsers (Brave, Google Chrome)](https://github.com/libredirect/libredirect#install-in-chromium-browsers)
 
 ### GreaseMonkey script
 There is a script to redirect Imgur links to rimgo.
