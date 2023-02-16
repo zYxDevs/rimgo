@@ -88,6 +88,7 @@ To help distribute load, consider using instances other than the official one.
 | [rimgo.marcopisco.com](https://rimgo.marcopisco.com/)         | 🇵🇹 PT        | Cloudflare               | ⚠️ Data collected     |       |
 | [rimgo.lunar.icu](https://rimgo.marcopisco.com/)              | 🇩🇪 DE        | Cloudflare               | ✅ Data not collected |       |
 | [imgur.010032.xyz](https://imgur.010032.xyz/)                 | 🇰🇷 KR        | Cloudflare               | ✅ Data not collected |       |
+| [rimgo.kling.gg](https://rimgo.kling.gg/)                     | 🇳🇱 NL        | RamNode                  | ✅ Data not collected |       |
 
 ### Tor
 
@@ -100,6 +101,7 @@ To help distribute load, consider using instances other than the official one.
 | [tdp6uqjtmok723suum5ms3jbquht6d7dssug4cgcxhfniatb25gcipad.onion](http://tdp6uqjtmok723suum5ms3jbquht6d7dssug4cgcxhfniatb25gcipad.onion)             | ✅ Data not collected | Onion of rimgo.privacytools.io |
 | [i.habeehrhadazsw3izbrbilqajalfyqqln54mrja3iwpqxgcuxnus7eid.onion](http://i.habeehrhadazsw3izbrbilqajalfyqqln54mrja3iwpqxgcuxnus7eid.onion/)        | ✅ Data not collected | Onion of i.habedieeh.re |
 | [rimgo.zzlsghu6mvvwyy75mvga6gaf4znbp3erk5xwfzedb4gg6qqh2j6rlvid.onion](http://rimgo.zzlsghu6mvvwyy75mvga6gaf4znbp3erk5xwfzedb4gg6qqh2j6rlvid.onion/) | ✅ Data not collected | Onion of ri.zzls.xyz |
+| [tdn7zoxctmsopey77mp4eg2gazaudyhgbuyytf4zpk5u7lknlxlgbnid.onion/](http://tdn7zoxctmsopey77mp4eg2gazaudyhgbuyytf4zpk5u7lknlxlgbnid.onion/) | ✅ Data not collected | Onion of rimgo.kling.gg |
 
 ### I2P
 
@@ -109,6 +111,7 @@ To help distribute load, consider using instances other than the official one.
 | [rimgov7l2tqyrm5txrtvhtnfyrzkc5d7ipafofavchbnnyog4r3q.b32.i2p](http://rimgov7l2tqyrm5txrtvhtnfyrzkc5d7ipafofavchbnnyog4r3q.b32.i2p) | ✅ Data not collected | Same as rimgo.i2p |
 | [rimgo.zzls.i2p](http://rimgo.zzls.i2p) | ✅ Data not collected | ri.zzls.xyz on I2P |
 | [p57356k2xwhxrg2lxrjajcftkrptv4zejeeblzfgkcvpzuetkz2a.b32.i2p](http://p57356k2xwhxrg2lxrjajcftkrptv4zejeeblzfgkcvpzuetkz2a.b32.i2p) | ✅ Data not collected | Same as rimgo.zzls.i2p |
+| [ovzamsts5czfx3jasbbhbccyyl2z7qmdngtlqxdh4oi7abhdz3ia.b32.i2p](http://ovzamsts5czfx3jasbbhbccyyl2z7qmdngtlqxdh4oi7abhdz3ia.b32.i2p) | ✅ Data not collected | rimgo.kling.gg on I2P |
 
 ## Automatically redirect links
 
