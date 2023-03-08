@@ -122,7 +122,7 @@ Use [LibRedirect](https://github.com/libredirect/libredirect) to automatically r
 
 ### GreaseMonkey script
 There is a script to redirect Imgur links to rimgo.
-[https://codeberg.org/zortazert/GreaseMonkey-Redirect/src/branch/main/imgur-to-rimgo.user.js](https://codeberg.org/zortazert/GreaseMonkey-Redirect/src/branch/main/imgur-to-rimgo.user.js)
+https://codeberg.org/zortazert/GreaseMonkey-Redirect/src/branch/main/imgur-to-rimgo.user.js
 
 ### Redirector
 You can use the [Redirector](https://github.com/einaregilsson/Redirector) extension to redirect Imgur links to rimgo with the configuration below:
@@ -154,18 +154,18 @@ rimgo can run on any platform Go compiles on.
 
 ### Docker (recommended)
 Install [Docker](https://docs.docker.com/engine/install/) and [docker-compose](https://docs.docker.com/compose/install/), then clone this repository.
-```
+```bash
 git clone https://codeberg.org/video-prize-ranch/rimgo
 cd rimgo
 ```
 
 Edit the `docker-compose.yml` file using your favorite text editor.
-```
+```bash
 nvim docker-compose.yml
 ```
 
 You can now run rimgo.
-```
+```bash
 sudo docker-compose up -d
 ```
 
@@ -188,28 +188,28 @@ services:
 * Go v1.16 or later
 
 Clone the repository and `cd` into it.
-```
+```bash
 git clone https://codeberg.org/video-prize-ranch/rimgo
 cd rimgo
 ```
 
 Build rimgo.
-```
+```bash
 go build
 ```
 
 You can now run rimgo.
-```
+```bash
 ./rimgo
 ```
 
 To include version information use:
-```
+```bash
 go build -ldflags "-X codeberg.org/video-prize-ranch/rimgo/pages.VersionInfo=$(date '+%Y-%m-%d')-$(git rev-list --abbrev-commit -1 HEAD)"
 ```
 
 (optional) You can use a .env file to set environment variables for configuration.
-```
+```bash
 cp .env.example .env
 nvim .env
 ```
