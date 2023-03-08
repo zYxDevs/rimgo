@@ -114,5 +114,12 @@
       "nl"
     ],
     "cloudflare": false
+  },
+  {
+    "url": "https://i.01r.xyz",
+    "countries": [
+      "us"
+    ],
+    "cloudflare": true
   }
 ]

@@ -89,6 +89,7 @@ To help distribute load, consider using instances other than the official one.
 | [rimgo.lunar.icu](https://rimgo.marcopisco.com/)              | 🇩🇪 DE        | Cloudflare               | ✅ Data not collected |       |
 | [imgur.010032.xyz](https://imgur.010032.xyz/)                 | 🇰🇷 KR        | Cloudflare               | ✅ Data not collected |       |
 | [rimgo.kling.gg](https://rimgo.kling.gg/)                     | 🇳🇱 NL        | RamNode                  | ✅ Data not collected |       |
+| [i.01r.xyz](https://i.01r.xyz/)                               | 🇺🇸 US        | Cloudflare               | ✅ Data not collected |       |
 
 ### Tor
 
