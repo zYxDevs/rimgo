@@ -94,11 +94,6 @@ func main() {
 
 	app.Get("/", pages.HandleFrontpage)
 	app.Get("/privacy", pages.HandlePrivacy)
-	app.Get("/:postID.gifv", pages.HandleGifv)
-	app.Get("/:baseName.:extension", pages.HandleMedia)
-	app.Get("/stack/:baseName.:extension", pages.HandleMedia)
-	app.Get("/:postID", pages.HandlePost)
-	app.Get("/:postID/embed", pages.HandleEmbed)
 	app.Get("/a/:postID", pages.HandlePost)
 	app.Get("/a/:postID/embed", pages.HandleEmbed)
 	app.Get("/t/:tag", pages.HandleTag)
@@ -108,6 +103,11 @@ func main() {
 	app.Get("/user/:userID/avatar", pages.HandleUserAvatar)
 	app.Get("/gallery/:postID", pages.HandlePost)
 	app.Get("/gallery/:postID/embed", pages.HandleEmbed)
+	app.Get("/:postID.gifv", pages.HandleGifv)
+	app.Get("/:baseName.:extension", pages.HandleMedia)
+	app.Get("/stack/:baseName.:extension", pages.HandleMedia)
+	app.Get("/:postID", pages.HandlePost)
+	app.Get("/:postID/embed", pages.HandleEmbed)
 
 	app.Listen(utils.Config.Addr + ":" + utils.Config.Port)
 }
