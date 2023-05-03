@@ -121,5 +121,12 @@
       "us"
     ],
     "cloudflare": true
+  },
+  {
+     "url": "https://rimgo.fascinated.cc",
+     "countries": [
+	"us"
+     ],
+     "cloudflare": true
   }
 ]

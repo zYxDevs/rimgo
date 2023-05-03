@@ -94,6 +94,7 @@ To help distribute load, consider using instances other than the official one.
 | [rimgo.eu.projectsegfau.lt](https://rimgo.projectsegfau.lt/)  | 🇱🇺 LU | FranTech Solutions              | ✅ Data not collected |       |
 | [rimgo.us.projectsegfau.lt](https://rimgo.projectsegfau.lt/)  | 🇺🇸 US | DigitalOcean                    | ✅ Data not collected |       |
 | [rimgo.in.projectsegfau.lt](https://rimgo.projectsegfau.lt/)  | 🇮🇳 IN | Airtel                          | ✅ Data not collected |       |
+| [rimgo.fascinated.cc](https://rimgo.fascinated.cc/)           | 🇺🇸 US | Cloudflare                      | ✅ Data not collected |       |
 
 ### Tor
 
