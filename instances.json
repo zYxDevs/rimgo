@@ -128,5 +128,12 @@
 	"us"
      ],
      "cloudflare": true
+  },
+  {
+     "url": "https://rimgo.xbdm.fun",
+     "countries": [
+	"de"
+     ],
+     "cloudflare": true
   }
 ]
