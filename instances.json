@@ -86,13 +86,6 @@
     "cloudflare": false
   },
   {
-    "url": "https://rimgo.marcopisco.com",
-    "countries": [
-      "pt"
-    ],
-    "cloudflare": true
-  },
-  {
     "url": "https://rimgo.lunar.icu",
     "countries": [
       "de"
