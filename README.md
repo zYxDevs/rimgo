@@ -77,7 +77,6 @@ To help distribute load, consider using instances other than the official one.
 | [rimgo.pussthecat.org](https://rimgo.pussthecat.org)       	  | 🇩🇪 DE        | Hetzner                  | ⚠️ Data collected     |       |
 | [rimgo.totaldarkness.net](https://rimgo.totaldarkness.net) 	  | 🇨🇦 CA        | Vultr                    | ✅ Data not collected |       |
 | [rimgo.bus-hit.me](https://rimgo.bus-hit.me)               	  | 🇨🇦 CA        | Oracle                   | ✅ Data not collected |       |
-| [rimgo.esmailelbob.xyz](https://rimgo.esmailelbob.xyz)     	  | 🇨🇦 CA        | OVH                      | ⚠️ Data collected     |       |
 | [imgur.artemislena.eu](https://imgur.artemislena.eu)       	  | 🇩🇪 DE        | Vodafone Deutschland     | ✅ Data not collected | Self-hosted, provider is ISP |
 | [rimgo.vern.cc](https://rimgo.vern.cc)                        | 🇺🇸 US        | OVHCloud                 | ✅ Data not collected | [Edited theme](https://git.vern.cc/root/modifications/src/branch/master/rimgo) |
 | [rim.odyssey346.dev](https://rim.odyssey346.dev/)             | 🇫🇷️ FR        | Trolling Solutions (OVH) | ✅ Data not collected |       |
@@ -100,7 +99,6 @@ To help distribute load, consider using instances other than the official one.
 
 | URL | Privacy | Notes                    |
 | :-- | :------ | :----------------------- |
-| [rimgo.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion](http://rimgo.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion) | ✅ Data not collected | Onion of rimgo.esmailelbob.xyz |
 | [rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion) | ✅ Data not collected | Onion of rimgo.vern.cc         |
 | [imgur.lpoaj7z2zkajuhgnlltpeqh3zyq7wk2iyeggqaduhgxhyajtdt2j7wad.onion](http://imgur.lpoaj7z2zkajuhgnlltpeqh3zyq7wk2iyeggqaduhgxhyajtdt2j7wad.onion) | ✅ Data not collected | Onion of imgur.artemislena.eu  |
 | [rim.odysfvr23q5wgt7i456o5t3trw2cw5dgn56vbjfbq2m7xsc5vqbqpcyd.onion](http://rim.odysfvr23q5wgt7i456o5t3trw2cw5dgn56vbjfbq2m7xsc5vqbqpcyd.onion)     | ⚠️ Data collected |  |
