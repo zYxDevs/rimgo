@@ -44,26 +44,11 @@ func LoadConfig() {
 		imgurId = os.Getenv("RIMGU_IMGUR_CLIENT_ID")
 	}
 
-	imageCache := os.Getenv("IMAGE_CACHE") == "true"
-
-	cleanupInterval, err := time.ParseDuration(os.Getenv("IMAGE_CACHE_CLEANUP_INTERVAL"))
-	if err != nil && imageCache {
-		log.Fatal("invalid configuration: invalid duration for IMAGE_CACHE_CLEANUP_INTERVAL")
-	}
-
-	cacheDir := os.Getenv("IMAGE_CACHE_DIR")
-	if cacheDir == "" && imageCache {
-		log.Fatal("invalid configuration: no IMAGE_CACHE_DIR")
-	}
-
 	Config = config{
 		Port:            port,
 		Addr:            addr,
 		ImgurId:         imgurId,
 		FiberPrefork:    os.Getenv("FIBER_PREFORK") == "true",
-		ImageCache:      imageCache,
-		CleanupInterval: cleanupInterval,
-		CacheDir:        cacheDir,
 		Privacy: map[string]interface{}{
 			"set":           os.Getenv("PRIVACY_NOT_COLLECTED") != "",
 			"policy":        os.Getenv("PRIVACY_POLICY"),
