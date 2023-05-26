@@ -93,7 +93,7 @@ To help distribute load, consider using instances other than the official one.
 | [rimgo.us.projectsegfau.lt](https://rimgo.projectsegfau.lt/)  | 🇺🇸 US | DigitalOcean                    | ✅ Data not collected |       |
 | [rimgo.in.projectsegfau.lt](https://rimgo.projectsegfau.lt/)  | 🇮🇳 IN | Airtel                          | ✅ Data not collected |       |
 | [rimgo.fascinated.cc](https://rimgo.fascinated.cc/)           | 🇺🇸 US | Cloudflare                      | ✅ Data not collected |       |
-| [rimgo.xbdm.fun](https://rimgo.xbdm.fun/)           | 🇩🇪 DE | Cloudflare                      | ✅ Data not collected |       |
+| [rimgo.whateveritworks.org](https://rimgo.whateveritworks.org/)           | 🇩🇪 DE | Cloudflare                      | ✅ Data not collected |       |
 
 ### Tor
 
