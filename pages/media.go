@@ -1,8 +1,6 @@
 package pages
 
 import (
-	"crypto/sha256"
-	"encoding/hex"
 	"net/http"
 	"os"
 	"strings"
@@ -43,23 +41,12 @@ func handleMedia(c *fiber.Ctx, url string) error {
 		url = url + "?" + strings.Split(c.OriginalURL(), "?")[1]
 	}
 
-	optionsHash := ""
-	if utils.Config.ImageCache {
-		hasher := sha256.New()
-		hasher.Write([]byte(url))
-		optionsHash = hex.EncodeToString(hasher.Sum(nil))
-
-		image, err := os.ReadFile(utils.Config.CacheDir + "/" + optionsHash)
-		if err == nil {
-			_, err := c.Write(image)
-			return err
-		}
-	}
-
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return err
 	}
+	
+	utils.SetReqHeaders(req)
 
 	if c.Get("Range") != "" {
 		req.Header.Set("Range", c.Get("Range"))
@@ -70,9 +57,11 @@ func handleMedia(c *fiber.Ctx, url string) error {
 		return err
 	}
 
+	c.Status(res.StatusCode)
 	if res.StatusCode == 404 {
-		c.Status(404)
 		return c.Render("errors/404", nil)
+	} else if res.StatusCode == 429 {
+		return c.Render("errors/429", nil)
 	}
 
 	c.Set("Accept-Ranges", "bytes")
