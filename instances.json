@@ -1,5 +1,4 @@
 [
-
   {
     "url": "https://rimgo.pussthecat.org",
     "countries": [
@@ -55,7 +54,10 @@
   {
     "url": "https://i.habedieeh.re",
     "onion": "http://i.habeehrhadazsw3izbrbilqajalfyqqln54mrja3iwpqxgcuxnus7eid.onion",
-    "i2p": ["rimgo.i2p", "rimgov7l2tqyrm5txrtvhtnfyrzkc5d7ipafofavchbnnyog4r3q.b32.i2p"],
+    "i2p": [
+      "rimgo.i2p",
+      "rimgov7l2tqyrm5txrtvhtnfyrzkc5d7ipafofavchbnnyog4r3q.b32.i2p"
+    ],
     "countries": [
       "ca"
     ],
@@ -71,7 +73,10 @@
   {
     "url": "https://ri.zzls.xyz",
     "onion": "http://rimgo.zzlsghu6mvvwyy75mvga6gaf4znbp3erk5xwfzedb4gg6qqh2j6rlvid.onion",
-    "i2p": ["rimgo.zzls.i2p", "p57356k2xwhxrg2lxrjajcftkrptv4zejeeblzfgkcvpzuetkz2a.b32.i2p"],
+    "i2p": [
+      "rimgo.zzls.i2p",
+      "p57356k2xwhxrg2lxrjajcftkrptv4zejeeblzfgkcvpzuetkz2a.b32.i2p"
+    ],
     "countries": [
       "cl"
     ],
@@ -108,17 +113,24 @@
     "cloudflare": true
   },
   {
-     "url": "https://rimgo.fascinated.cc",
-     "countries": [
-	"us"
-     ],
-     "cloudflare": true
+    "url": "https://rimgo.fascinated.cc",
+    "countries": [
+      "us"
+    ],
+    "cloudflare": true
   },
   {
-     "url": "https://rimgo.whateveritworks.org",
-     "countries": [
-	"de"
-     ],
-     "cloudflare": true
+    "url": "https://rimgo.whateveritworks.org",
+    "countries": [
+      "de"
+    ],
+    "cloudflare": true
+  },
+  {
+    "url": "https://rimgo.nohost.network",
+    "countries": [
+      "mx"
+    ],
+    "cloudflare": false
   }
 ]

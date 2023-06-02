@@ -94,6 +94,7 @@ To help distribute load, consider using instances other than the official one.
 | [rimgo.in.projectsegfau.lt](https://rimgo.projectsegfau.lt/)  | 🇮🇳 IN | Airtel                          | ✅ Data not collected |       |
 | [rimgo.fascinated.cc](https://rimgo.fascinated.cc/)           | 🇺🇸 US | Cloudflare                      | ✅ Data not collected |       |
 | [rimgo.whateveritworks.org](https://rimgo.whateveritworks.org/)           | 🇩🇪 DE | Cloudflare                      | ✅ Data not collected |       |
+| [rimgo.nohost.network](https://rimgo.nohost.network/)         | 🇲🇽 US | Telmex                          | ✅ Data not collected |       |
 
 ### Tor
 
