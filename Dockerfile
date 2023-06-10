@@ -8,7 +8,7 @@ COPY . .
 
 RUN npx tailwindcss -i static/tailwind.css -o static/app.css -m
 RUN go mod download
-RUN GOOS=linux GOARCH=$TARGETARCH CGO_ENABLED=0 go build -ldflags "-X codeberg.org/video-prize-ranch/rimgo/pages.VersionInfo=$(date '+%Y-%m-%d')-$(git rev-list --abbrev-commit -1 HEAD)"
+RUN GOOS=linux GOARCH=$TARGETARCH CGO_ENABLED=0 go build -ldflags "-X codeberg.org/rimgo/rimgo/pages.VersionInfo=$(date '+%Y-%m-%d')-$(git rev-list --abbrev-commit -1 HEAD)"
 
 FROM scratch as bin
 
