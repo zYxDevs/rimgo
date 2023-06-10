@@ -3,7 +3,7 @@ package pages
 import (
 	"os"
 
-	"codeberg.org/video-prize-ranch/rimgo/utils"
+	"codeberg.org/rimgo/rimgo/utils"
 	"github.com/gofiber/fiber/v2"
 )
 

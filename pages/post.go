@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-	"codeberg.org/video-prize-ranch/rimgo/api"
-	"codeberg.org/video-prize-ranch/rimgo/utils"
+	"codeberg.org/rimgo/rimgo/api"
+	"codeberg.org/rimgo/rimgo/utils"
 	"github.com/gofiber/fiber/v2"
 )
 

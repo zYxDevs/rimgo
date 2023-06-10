@@ -1,7 +1,7 @@
 package pages
 
 import (
-	"codeberg.org/video-prize-ranch/rimgo/utils"
+	"codeberg.org/rimgo/rimgo/utils"
 	"github.com/gofiber/fiber/v2"
 )
 

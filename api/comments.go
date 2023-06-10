@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"codeberg.org/video-prize-ranch/rimgo/utils"
+	"codeberg.org/rimgo/rimgo/utils"
 	"github.com/dustin/go-humanize"
 	"github.com/microcosm-cc/bluemonday"
 	"github.com/patrickmn/go-cache"

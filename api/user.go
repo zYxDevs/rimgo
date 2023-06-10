@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"codeberg.org/video-prize-ranch/rimgo/utils"
+	"codeberg.org/rimgo/rimgo/utils"
 	"github.com/tidwall/gjson"
 )
 

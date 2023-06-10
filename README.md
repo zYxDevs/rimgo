@@ -1,4 +1,4 @@
-<img alt="" src="https://codeberg.org/video-prize-ranch/rimgo/raw/branch/main/static/img/rimgo.svg" width="96" height="96" />
+<img alt="" src="https://codeberg.org/rimgo/rimgo/raw/branch/main/static/img/rimgo.svg" width="96" height="96" />
 
 # rimgo
 An alternative frontend for Imgur. Originally based on [rimgu](https://codeberg.org/3np/rimgu).
@@ -161,7 +161,7 @@ rimgo can run on any platform Go compiles on.
 ### Docker (recommended)
 Install [Docker](https://docs.docker.com/engine/install/) and [docker-compose](https://docs.docker.com/compose/install/), then clone this repository.
 ```bash
-git clone https://codeberg.org/video-prize-ranch/rimgo
+git clone https://codeberg.org/rimgo/rimgo
 cd rimgo
 ```
 
@@ -196,7 +196,7 @@ services:
 
 Clone the repository and `cd` into it.
 ```bash
-git clone https://codeberg.org/video-prize-ranch/rimgo
+git clone https://codeberg.org/rimgo/rimgo
 cd rimgo
 ```
 
@@ -213,7 +213,7 @@ You can now run rimgo.
 
 To include version information use:
 ```bash
-go build -ldflags "-X codeberg.org/video-prize-ranch/rimgo/pages.VersionInfo=$(date '+%Y-%m-%d')-$(git rev-list --abbrev-commit -1 HEAD)"
+go build -ldflags "-X codeberg.org/rimgo/rimgo/pages.VersionInfo=$(date '+%Y-%m-%d')-$(git rev-list --abbrev-commit -1 HEAD)"
 ```
 
 (optional) You can use a .env file to set environment variables for configuration.
@@ -254,7 +254,7 @@ rimgo can be configured using environment variables. The path to the .env file c
 | PRIVACY_DIAGNOSTICS   |                 |      |
 
 ## Contributing
-Pull requests are welcome! If you have any questions or bug reports, open an [issue](https://codeberg.org/video-prize-ranch/rimgo/issues/new).
+Pull requests are welcome! If you have any questions or bug reports, open an [issue](https://codeberg.org/rimgo/rimgo/issues/new).
 
 ## License
 This software is released under the AGPL-3.0 license. If you make any modifications to the code and distribute it (including use on a network server), you must publicly distribute your changes and release them under the AGPL-3.0.

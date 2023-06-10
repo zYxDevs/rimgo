@@ -3,7 +3,7 @@ package pages
 import (
 	"github.com/gofiber/fiber/v2"
 
-	"codeberg.org/video-prize-ranch/rimgo/utils"
+	"codeberg.org/rimgo/rimgo/utils"
 )
 
 func HandlePrivacy(c *fiber.Ctx) error {
