@@ -1,0 +1,48 @@
+{{#if config.Privacy.not_collected}}
+    <div class="flex flex-col items-center w-full lg:w-1/2 p-4 bg-slate-600 rounded-lg">
+      <img class="invert" src="/static/icons/PhCheckCircle.svg" alt="" height="36" width="36" />
+      <h2 class="font-bold text-xl">Data not collected</h2>
+      <p class="text-lg">This instance does not collect any data.</p>
+    </div>
+    {{/if}}
+    {{#unless config.Privacy.set}}
+    <div class="flex flex-col items-center w-full lg:w-1/2 p-4 bg-slate-600 rounded-lg">
+      <img class="invert" src="/static/icons/PhWarning.svg" alt="" height="36" width="36" />
+      <h2 class="font-bold text-xl">No details provided</h2>
+      <p class="text-lg">The operator of this instance will be required to provide privacy details to be added to the instance list.</p>
+    </div>
+    {{else}}
+    {{#unless config.Privacy.not_collected}}
+    <div class="flex flex-col items-center w-full lg:w-1/2 p-4 bg-slate-600 rounded-lg">
+      <img class="invert" src="/static/icons/PhWarningCircle.svg" alt="" height="36" width="36" />
+      <h2 class="font-bold text-xl">Data collected</h2>
+      <p class="text-lg">The following data may be collected:</p>
+      <ul class="flex flex-col">
+        {{#if config.Privacy.ip}}
+        <li class="flex gap-1">
+          <img class="invert" src="/static/icons/PhGlobe.svg" alt="" width="24px" height="24px" />
+          Internet address (IP Address)
+        </li>
+        {{/if}}
+        {{#if config.Privacy.url}}
+        <li class="flex gap-1">
+          <img class="invert" src="/static/icons/PhLink.svg" alt="" width="24px" height="24px" />
+          Page viewed (Request URL)
+        </li>
+        {{/if}}
+        {{#if config.Privacy.device}}
+        <li class="flex gap-1">
+          <img class="invert" src="/static/icons/PhDevices.svg" alt="" width="24px" height="24px" />
+          Device Type (User agent)
+        </li>
+        {{/if}}
+        {{#if config.Privacy.diagnostics}}
+        <li class="flex gap-1">
+          <img class="invert" src="/static/icons/PhWrench.svg" alt="" width="24px" height="24px" />
+          Diagnostics
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+    {{/unless}}
+    {{/unless}}

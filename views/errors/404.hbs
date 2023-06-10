@@ -2,21 +2,20 @@
 <html lang="en">
 
 <head>
-  {{> 'partials/head' }}
+  <title>Not Found - rimgo</title>
 
-  <link rel="stylesheet" href="/static/css/error.css" />
-
-  <title>404 Not Found - rimgo</title>
+  {{> partials/head }}
 </head>
 
-<body>
-  {{> 'partials/header' }}
+<body class="font-sans text-lg bg-slate-800 text-white">
+  {{> partials/nav }}
 
   <main>
-    <h2 class="errorTitle">404 Not Found</h2>
-    <p class="errorTitle">Click <a href="/">here</a> to return to home.</p>
+    <h2 class="text-2xl font-bold">Not Found</h2>
+    <p>Click <a href="/">here</a> to return to home.</p>
   </main>
 
+  {{> partials/footer }}  
 </body>
 
 </html>

@@ -7,62 +7,58 @@
     {{post.Title}} - 
     {{/if}}
     rimgo
-    </title>
+  </title>
 
   {{> partials/head }}
-
-  <link rel="stylesheet" href="/static/css/album.css" />
-  <link rel="stylesheet" href="/static/css/comments.css" />
-
 </head>
 
-<body>
-  {{> partials/header }}
+<body class="font-sans text-lg bg-slate-800 text-white">
+  {{> partials/nav }}
 
   <header>
-    <h1>{{post.Title}}</h1>
+    <h1 class="text-3xl font-bold">{{post.Title}}</h1>
     <p>{{post.CreatedAt}}</p>
   </header>
   
   <main>
-    <div class="flex flex-center-y gap-4">
+    <div class="flex gap-4 items-center my-4">
       {{#if post.User.Username}}
-      <a href="/user/{{post.User.Username}}" class="user">
-        <img src="{{post.User.Avatar}}" class="pfp" width="36" height="36" />
+      <a href="/user/{{post.User.Username}}" class="flex gap-2 items-center">
+        <img src="{{post.User.Avatar}}" class="rounded-full" width="36" height="36" />
         <p>
           <b>{{post.User.Username}}</b>
         </p>
       </a>
       {{/if}}
-      <div class="flex flex-center-y gap-2">
+      <div class="flex gap-2 items-center">
         <div class="flex flex-center gap-2">
-          <img class="icon" src="/static/icons/eye.svg" alt="Views">
+          <img class="icon invert" src="/static/icons/PhEye.svg" alt="Views" width="24px" height="24px">
           <p>{{post.Views}}</p>
         </div>
         {{#if post.SharedWithCommunity}}
         <div class="flex flex-center gap-2">
-          <img class="icon" src="/static/icons/chevron-up.svg" alt="Likes">
+          <img class="icon invert" src="/static/icons/PhArrowFatUp.svg" alt="Likes" width="24px" height="24px">
           <p>{{post.Upvotes}}</p>
         </div>
         <div class="flex flex-center gap-2">
-          <img class="icon" src="/static/icons/chevron-down.svg" alt="Dislikes">
+          <img class="icon invert" src="/static/icons/PhArrowFatDown.svg" alt="Dislikes" width="24px" height="24px">
           <p>{{post.Downvotes}}</p>
         </div>
         {{/if}}
       </div>
     </div>
 
-    <div class="post__media flex flex-center flex-col">
+    <div class="flex flex-center flex-col">
       {{#each post.Media}}
       {{#if this.Title}}
-      <h4>{{this.Title}}</h4>
+      <h4 class="font-bold">{{this.Title}}</h4>
       {{/if}}
 
       {{#equal this.Type "image"}}
-      <img src="{{this.Url}}" loading="lazy">
+      <img class="my-2 max-h-96 object-contain" src="{{this.Url}}" loading="lazy">
       {{/equal}}
       {{#equal this.Type "video"}}
-      <video controls loop>
+      <video class="my-2 max-h-96 object-contain" controls loop>
         <source type="{{this.MimeType}}" src="{{this.Url}}" />
       </video>
       {{/equal}}
@@ -74,7 +70,7 @@
     </div>
 
     {{#if post.tags}}
-    <div class="tags">
+    <div class="flex gap-2 my-2 flex-flow-wrap">
       <style nonce="{{nonce}}">
         {{#each post.tags}}
           .{{this.BackgroundId}} { background-image: url('{{this.Background}}') }
@@ -82,8 +78,8 @@
       </style>
       {{#each post.tags}}
       <a href="/t/{{this.Tag}}">
-        <div class="tag {{this.BackgroundId}}">
-          <p class="tag__display">{{this.Display}}</p>
+        <div class="rounded-md p-4 min-w-[110px] bg-slate-500 {{this.BackgroundId}}">
+          <p class="font-bold text-white text-center">{{this.Display}}</p>
         </div>
       </a>
       {{/each}}
@@ -94,13 +90,12 @@
   <section>
     {{#if comments}}
     <div>
-      <hr>
-      <input id="comments__expandBtn" type="checkbox">
-      <label class="comments__expandBtn__label" for="comments__expandBtn">
-        <h3>Comments ({{post.Comments}})</h3>
-        <span class="comments__expandBtn__icon"></span>
+      <input id="comments__expandBtn" type="checkbox" checked>
+      <label class="comments__expandBtn__label my-2 py-4 border-solid border-t-2 border-slate-400" for="comments__expandBtn">
+        <h3 class="text-xl font-bold">Comments ({{post.Comments}})</h3>
+        <span class="text-xl font-bold"></span>
       </label>
-      <div class="comments flex flex-col">
+      <div class="comments flex flex-col gap-2">
         {{#each comments}}
         {{> partials/comment }}
         {{/each}}

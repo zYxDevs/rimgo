@@ -25,7 +25,9 @@ func HandleUser(c *fiber.Ctx) error {
 
 	user, err := ApiClient.FetchUser(c.Params("userID"))
 	if err != nil && err.Error() == "ratelimited by imgur" {
-		return c.Status(429).Render("errors/429", nil)
+		return c.Status(429).Render("errors/429", fiber.Map{
+			"path": c.Path(),
+		})
 	}
 	if err != nil {
 		return err
@@ -37,7 +39,9 @@ func HandleUser(c *fiber.Ctx) error {
 	submissions, err := ApiClient.FetchSubmissions(c.Params("userID"), "newest", page)
 	if err != nil && err.Error() == "ratelimited by imgur" {
 		c.Status(429)
-		return c.Render("errors/429", nil)
+		return c.Render("errors/429", fiber.Map{
+			"path": c.Path(),
+		})
 	}
 	if err != nil {
 		return err

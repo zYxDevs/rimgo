@@ -3,6 +3,7 @@ package api
 import (
 	"io"
 	"net/http"
+	"regexp"
 	"strings"
 	"sync"
 	"time"
@@ -33,6 +34,8 @@ type Submission struct {
 	Views     int64
 	IsAlbum   bool
 }
+
+var imgurRe = regexp.MustCompile(`https?://i?\.?imgur\.com`)
 
 func (client *Client) FetchUser(username string) (User, error) {
 	cacheData, found := client.Cache.Get(username + "-user")
@@ -108,10 +111,15 @@ func (client *Client) FetchSubmissions(username string, sort string, page string
 				}
 
 				id := value.Get("id").String()
+				
+				link := "/a/" + id
+				if value.Get("in_gallery").Bool() {
+					link = "/gallery/" + id
+				}
 
 				submissions = append(submissions, Submission{
 					Id:    id,
-					Link:  "/a/" + id,
+					Link:  link,
 					Title: value.Get("title").String(),
 					Cover: cover,
 					Points:    value.Get("points").Int(),

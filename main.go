@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"net/http"
+	"os"
 	"time"
 
 	"codeberg.org/video-prize-ranch/rimgo/pages"
@@ -29,8 +30,12 @@ func main() {
 	
 	pages.InitializeApiClient()
 
-	engine := handlebars.NewFileSystem(http.FS(views.GetFiles()), ".hbs")
-
+	views := http.FS(views.GetFiles())
+	if os.Getenv("ENV") == "dev" {
+		views = http.Dir("./views")
+	}
+	engine := handlebars.NewFileSystem(views, ".hbs")
+	
 	engine.AddFunc("noteq", func(a interface{}, b interface{}, options *raymond.Options) interface{} {
 		if raymond.Str(a) != raymond.Str(b) {
 			return options.Fn()
@@ -67,19 +72,34 @@ func main() {
 			fmt.Println(e)
 		},
 	}))
-	app.Use("/static", filesystem.New(filesystem.Config{
-		Next: func(c *fiber.Ctx) bool {
-			c.Response().Header.Add("Cache-Control", "public,max-age=2592000")
-			return false
-		},
-		Root: http.FS(static.GetFiles()),
-	}))
-	app.Use(cache.New(cache.Config{
-		Expiration:           30 * time.Minute,
-		MaxBytes:             25000000,
-		CacheControl:         true,
-		StoreResponseHeaders: true,
-	}))
+	
+	if os.Getenv("ENV") == "dev" {
+		app.Use("/static", filesystem.New(filesystem.Config{
+			MaxAge: 2592000,
+			Root: http.Dir("./static"),
+		}))
+		app.Get("/errors/429", func(c *fiber.Ctx) error {
+			return c.Render("errors/429", nil)
+		})
+		app.Get("/errors/404", func(c *fiber.Ctx) error {
+			return c.Render("errors/404", nil)
+		})
+		app.Get("/errors/error", func(c *fiber.Ctx) error {
+			return c.Render("errors/error", fiber.Map{
+				"err": "Test error",
+			})
+		})
+	} else {
+		app.Use("/static", filesystem.New(filesystem.Config{
+			Root: http.FS(static.GetFiles()),
+		}))
+		app.Use(cache.New(cache.Config{
+			Expiration:           30 * time.Minute,
+			MaxBytes:             25000000,
+			CacheControl:         true,
+			StoreResponseHeaders: true,
+		}))
+	}
 
 	app.Get("/robots.txt", func(c *fiber.Ctx) error {
 		file, _ := static.GetFiles().ReadFile("robots.txt")
@@ -93,6 +113,7 @@ func main() {
 	})
 
 	app.Get("/", pages.HandleFrontpage)
+	app.Get("/about", pages.HandleAbout)
 	app.Get("/privacy", pages.HandlePrivacy)
 	app.Get("/a/:postID", pages.HandlePost)
 	app.Get("/a/:postID/embed", pages.HandleEmbed)

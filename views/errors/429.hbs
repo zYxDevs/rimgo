@@ -2,21 +2,20 @@
 <html lang="en">
 
 <head>
-  {{> 'partials/head' }}
-
-  <link rel="stylesheet" href="/static/css/error.css" />
-
   <title>Rate limited by Imgur - rimgo</title>
+  
+  {{> partials/head }}
 </head>
 
-<body>
-  {{> 'partials/header' }}
+<body class="font-sans text-lg bg-slate-800 text-white">
+  {{> partials/nav }}
 
   <main>
-    <h2 class="errorTitle">Rate limited by Imgur</h2>
-    <p class="errorTitle">This instance has been temporarily blocked by Imgur. <a href="https://rimgo.codeberg.page/">Try using another instance</a>.</p>
+    <h2 class="text-2xl font-bold">Rate limited by Imgur</h2>
+    <p>This instance has been temporarily blocked by Imgur. <a href="https://rimgo.codeberg.page/#{{ path }}">Try using another instance ></a></p>
   </main>
 
+  {{> partials/footer }}
 </body>
 
 </html>

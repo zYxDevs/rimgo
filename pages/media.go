@@ -59,17 +59,21 @@ func handleMedia(c *fiber.Ctx, url string) error {
 
 	c.Status(res.StatusCode)
 	if res.StatusCode == 404 {
-		return c.Render("errors/404", nil)
+		return c.Render("errors/404", fiber.Map{
+			"path": c.Path(),
+		})
 	} else if res.StatusCode == 429 {
-		return c.Render("errors/429", nil)
+		return c.Render("errors/429", fiber.Map{
+			"path": c.Path(),
+		})
 	}
-
+	
 	c.Set("Accept-Ranges", "bytes")
 	c.Set("Content-Type", res.Header.Get("Content-Type"));
 	c.Set("Content-Length", res.Header.Get("Content-Length"))
 	if res.Header.Get("Content-Range") != "" {
 		c.Set("Content-Range", res.Header.Get("Content-Range"))
 	}
-
+	
 	return c.SendStream(res.Body)
 }

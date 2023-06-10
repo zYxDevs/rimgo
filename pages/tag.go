@@ -30,7 +30,9 @@ func HandleTag(c *fiber.Ctx) error {
 
 	tag, err := ApiClient.FetchTag(c.Params("tag"), c.Query("sort"), page)
 	if err != nil && err.Error() == "ratelimited by imgur" {
-		return c.Status(429).Render("errors/429", nil)
+		return c.Status(429).Render("errors/429", fiber.Map{
+			"path": c.Path(),
+		})
 	}
 	if err != nil {
 		return err
