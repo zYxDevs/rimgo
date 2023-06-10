@@ -192,6 +192,7 @@ services:
 
 #### Requirements
 * Go v1.16 or later
+* [Tailwind CLI](https://tailwindcss.com/blog/standalone-cli)
 
 Clone the repository and `cd` into it.
 ```bash
@@ -201,6 +202,7 @@ cd rimgo
 
 Build rimgo.
 ```bash
+tailwindcss -i static/tailwind.css -o static/app.css -m
 go build
 ```
 
@@ -218,6 +220,12 @@ go build -ldflags "-X codeberg.org/video-prize-ranch/rimgo/pages.VersionInfo=$(d
 ```bash
 cp .env.example .env
 nvim .env
+```
+
+For development, use [air](https://github.com/cosmtrek/air) for live reload and build CSS with [Tailwind CLI](https://tailwindcss.com/blog/standalone-cli):
+```bash
+air
+tailwindcss -i static/tailwind.css -o static/app.css -m -w
 ```
 
 ## Configuration
