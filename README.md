@@ -80,12 +80,10 @@ To help distribute load, consider using instances other than the official one.
 | [imgur.artemislena.eu](https://imgur.artemislena.eu)       	  | 🇩🇪 DE        | Vodafone Deutschland     | ✅ Data not collected | Self-hosted, provider is ISP |
 | [rimgo.vern.cc](https://rimgo.vern.cc)                        | 🇺🇸 US        | OVHCloud                 | ✅ Data not collected | [Edited theme](https://git.vern.cc/root/modifications/src/branch/master/rimgo) |
 | [rim.odyssey346.dev](https://rim.odyssey346.dev/)             | 🇫🇷️ FR        | Trolling Solutions (OVH) | ✅ Data not collected |       |
-| [rimgo.privacytools.io](https://rimgo.privacytools.io/)       | 🇸🇪 SE        | Cloudflare               | ✅ Data not collected |       |
 | [i.habedieeh.re](https://i.habedieeh.re/)                     | 🇨🇦️ CA        | Oracle Cloud             | ✅ Data not collected |       |
 | [rimgo.hostux.net](https://rimgo.hostux.net/)	                | 🇫🇷️ FR        | Gandi	                   | ⚠️ Data collected     |       |
 | [ri.zzls.xyz](https://ri.zzls.xyz/)                           | 🇨🇱 CL        | TELEFÓNICA CHILE         | ✅ Data not collected | Self-hosted, provider is ISP |
 | [rimgo.lunar.icu](https://rimgo.marcopisco.com/)              | 🇩🇪 DE        | Cloudflare               | ✅ Data not collected |       |
-| [imgur.010032.xyz](https://imgur.010032.xyz/)                 | 🇰🇷 KR        | Cloudflare               | ✅ Data not collected |       |
 | [rimgo.kling.gg](https://rimgo.kling.gg/)                     | 🇳🇱 NL        | RamNode                  | ✅ Data not collected |       |
 | [i.01r.xyz](https://i.01r.xyz/)                               | 🇺🇸 US        | Cloudflare               | ✅ Data not collected |       |
 | [rimgo.projectsegfau.lt](https://rimgo.projectsegfau.lt/)     | 🇱🇺 LU, 🇺🇸 US, 🇮🇳 IN | See below         | ✅ Data not collected |       |

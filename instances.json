@@ -44,14 +44,6 @@
     "cloudflare": false
   },
   {
-    "url": "https://rimgo.privacytools.io",
-    "onion": "http://tdp6uqjtmok723suum5ms3jbquht6d7dssug4cgcxhfniatb25gcipad.onion",
-    "countries": [
-      "se"
-    ],
-    "cloudflare": true
-  },
-  {
     "url": "https://i.habedieeh.re",
     "onion": "http://i.habeehrhadazsw3izbrbilqajalfyqqln54mrja3iwpqxgcuxnus7eid.onion",
     "i2p": [
@@ -86,13 +78,6 @@
     "url": "https://rimgo.lunar.icu",
     "countries": [
       "de"
-    ],
-    "cloudflare": true
-  },
-  {
-    "url": "https://imgur.010032.xyz",
-    "countries": [
-      "kr"
     ],
     "cloudflare": true
   },
