@@ -76,7 +76,7 @@ To help distribute load, consider using instances other than the official one.
 | :------------------------------------------------------------ | :----------- | :----------------------- | :-------------------- | :---- |
 | [rimgo.pussthecat.org](https://rimgo.pussthecat.org)       	  | 🇩🇪 DE        | Hetzner                  | ⚠️ Data collected     |       |
 | [rimgo.totaldarkness.net](https://rimgo.totaldarkness.net) 	  | 🇨🇦 CA        | Vultr                    | ✅ Data not collected |       |
-| [rimgo.bus-hit.me](https://rimgo.bus-hit.me)               	  | 🇨🇦 CA        | Oracle                   | ✅ Data not collected |       |
+| [rimgo.bus-hit.me](https://rimgo.bus-hit.me)               	  | 🇨🇦 CA        | Oracle                   | ⚠️ Data collected |       |
 | [imgur.artemislena.eu](https://imgur.artemislena.eu)       	  | 🇩🇪 DE        | Vodafone Deutschland     | ✅ Data not collected | Self-hosted, provider is ISP |
 | [rimgo.vern.cc](https://rimgo.vern.cc)                        | 🇺🇸 US        | OVHCloud                 | ✅ Data not collected | [Edited theme](https://git.vern.cc/root/modifications/src/branch/master/rimgo) |
 | [rim.odyssey346.dev](https://rim.odyssey346.dev/)             | 🇫🇷️ FR        | Trolling Solutions (OVH) | ✅ Data not collected |       |
