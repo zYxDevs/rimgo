@@ -118,6 +118,7 @@ func main() {
 	app.Get("/a/:postID", pages.HandlePost)
 	app.Get("/a/:postID/embed", pages.HandleEmbed)
 	app.Get("/t/:tag", pages.HandleTag)
+	app.Get("/t/:tag/:postID", pages.HandlePost)
 	app.Get("/user/:userID", pages.HandleUser)
 	app.Get("/r/:sub/:postID", pages.HandlePost)
 	app.Get("/user/:userID/cover", pages.HandleUserCover)

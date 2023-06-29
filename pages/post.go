@@ -20,6 +20,8 @@ func HandlePost(c *fiber.Ctx) error {
 		post, err = ApiClient.FetchAlbum(c.Params("postID"))
 	case strings.HasPrefix(c.Path(), "/gallery"):
 		post, err = ApiClient.FetchPosts(c.Params("postID"))
+	case strings.HasPrefix(c.Path(), "/t"):
+		post, err = ApiClient.FetchPosts(c.Params("postID"))
 	default:
 		post, err = ApiClient.FetchMedia(c.Params("postID"))
 	}
