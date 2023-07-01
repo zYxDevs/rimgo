@@ -19,19 +19,17 @@ An alternative frontend for Imgur. Originally based on [rimgu](https://codeberg.
 - [Instances](#instances)
   - [Clearnet](#clearnet)
   - [Tor](#tor)
-- [Automatically redirect links](#automatically-redirect-links)
-  - [LibRedirect](#libredirect)
-  - [GreaseMonkey script](#greasemonkey-script)
-  - [Redirector](#redirector)
-- [Install](#install)
-  - [Docker (recommended)](#docker-recommended)
-    - [Automatic updates](#automatic-updates)
-  - [Build from source](#build-from-source)
-    - [Requirements](#requirements)
-- [Configuration](#configuration)
-  - [Environment variables](#environment-variables)
 - [Contributing](#contributing)
 - [License](#license)
+
+### Documentation
+
+Our new documentation is now available at [https://rimgo.codeberg.page/docs/](https://rimgo.codeberg.page/docs/)!
+
+- [Install](https://rimgo.codeberg.page/docs/getting-started/install/)
+- [Configuration](https://rimgo.codeberg.page/docs/usage/configuration/)
+- [Redirection](https://rimgo.codeberg.page/docs/usage/configuration/)
+- [Instance privacy](https://rimgo.codeberg.page/docs/usage/instance-privacy/)
 
 ## Features
 - Lightweight
@@ -64,13 +62,14 @@ Replace imgur.com or i.imgur.com with the instance domain. For i.stack.imgur.com
 Imgur: `https://imgur.com/gallery/j2sOQkJ` -> `https://rimgo.bcow.xyz/gallery/j2sOQkJ`
 Stack Overflow: `https://i.stack.imgur.com/KnO3v.jpg?s=64&g=1` -> `https://rimgo.bcow.xyz/stack/KnO3v.jpg?s=64&g=1`
 
-## Instances
-Open an issue to have your instance listed here! Instance privacy information is required for the instance list, see [Environment variables](#environment-variables).
+To automatically redirect Imgur links, see [Redirection](https://rimgo.codeberg.page/docs/usage/redirection/).
 
-> For more details on instance privacy, see https://librarian.codeberg.page/docs/usage/instance-privacy/
+## Instances
+Open an issue to have your instance listed here! See the rules for the instance list [here](https://rimgo.codeberg.page/docs/usage/instance-list-rules/).
+
+> For more details on instance privacy, see https://rimgo.codeberg.page/docs/usage/instance-privacy/
 
 ### Clearnet
-To help distribute load, consider using instances other than the official one.
 
 | URL                                                        	  | Country      | Provider                 | Privacy               | Notes |
 | :------------------------------------------------------------ | :----------- | :----------------------- | :-------------------- | :---- |
@@ -117,139 +116,13 @@ To help distribute load, consider using instances other than the official one.
 | [p57356k2xwhxrg2lxrjajcftkrptv4zejeeblzfgkcvpzuetkz2a.b32.i2p](http://p57356k2xwhxrg2lxrjajcftkrptv4zejeeblzfgkcvpzuetkz2a.b32.i2p) | ✅ Data not collected | Same as rimgo.zzls.i2p |
 | [ovzamsts5czfx3jasbbhbccyyl2z7qmdngtlqxdh4oi7abhdz3ia.b32.i2p](http://ovzamsts5czfx3jasbbhbccyyl2z7qmdngtlqxdh4oi7abhdz3ia.b32.i2p) | ✅ Data not collected | rimgo.kling.gg on I2P |
 
-## Automatically redirect links
-
-### LibRedirect
-Use [LibRedirect](https://github.com/libredirect/libredirect) to automatically redirect Imgur links to rimgo!
-- [Firefox](https://addons.mozilla.org/firefox/addon/libredirect/)
-- [Chromium-based browsers (Brave, Google Chrome)](https://github.com/libredirect/libredirect#install-in-chromium-browsers)
-
-### GreaseMonkey script
-There is a script to redirect Imgur links to rimgo.
-https://codeberg.org/zortazert/GreaseMonkey-Redirect/src/branch/main/imgur-to-rimgo.user.js
-
-### Redirector
-You can use the [Redirector](https://github.com/einaregilsson/Redirector) extension to redirect Imgur links to rimgo with the configuration below:
-
-* Description: Imgur -> rimgo
-* Example URL: https://imgur.com/a/H8M4rcp
-* Include pattern: `^https?://i?.?imgur.com(/.*)?$`
-* Redirect to: `https://rimgo.example.com$1`
-* Pattern type: Regular Expression
-* Advanced options:
-  * Apply to:
-    * [x] Main window (address bar)
-    * [x] Images
-
-For Stack Overflow images:
-* Description: Stack Overflow Imgur -> rimgo
-* Example URL: https://i.stack.imgur.com/BTKqD.png?s=128&g=1
-* Include pattern: `^https?://i\.stack\.imgur\.com(/.*)?$`
-* Redirect to: `https://rimgo.example.com/stack$1`
-* Pattern type: Regular Expression
-* Advanced options:
-  * Apply to:
-    * [x] Images
-
 ## Install
-rimgo can run on any platform Go compiles on.
 
-> It is strongly recommended to use [Caddy](https://caddyserver.com/) as your reverse proxy. Caddy is simple to configure, automatically manages your TLS certificates, and provides better performance with support for HTTP/2 and /3 (allow UDP port 443 in your firewall to use HTTP/3).
-
-### Docker (recommended)
-Install [Docker](https://docs.docker.com/engine/install/) and [docker-compose](https://docs.docker.com/compose/install/), then clone this repository.
-```bash
-git clone https://codeberg.org/rimgo/rimgo
-cd rimgo
-```
-
-Edit the `docker-compose.yml` file using your favorite text editor.
-```bash
-nvim docker-compose.yml
-```
-
-You can now run rimgo.
-```bash
-sudo docker-compose up -d
-```
-
-#### Automatic updates
-[Watchtower](https://containrrr.dev/watchtower/) can automatically update your Docker containers.
-
-Create a new `docker-compose.yml` file or add the watchtower section to your existing `docker-compose.yml` file.
-```yml
-version: "3"
-services:
-  watchtower:
-    image: containrrr/watchtower
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-```
-
-### Build from source
-
-#### Requirements
-* Go v1.16 or later
-* [Tailwind CLI](https://tailwindcss.com/blog/standalone-cli)
-
-Clone the repository and `cd` into it.
-```bash
-git clone https://codeberg.org/rimgo/rimgo
-cd rimgo
-```
-
-Build rimgo.
-```bash
-tailwindcss -i static/tailwind.css -o static/app.css -m
-go build
-```
-
-You can now run rimgo.
-```bash
-./rimgo
-```
-
-To include version information use:
-```bash
-go build -ldflags "-X codeberg.org/rimgo/rimgo/pages.VersionInfo=$(date '+%Y-%m-%d')-$(git rev-list --abbrev-commit -1 HEAD)"
-```
-
-(optional) You can use a .env file to set environment variables for configuration.
-```bash
-cp .env.example .env
-nvim .env
-```
-
-For development, use [air](https://github.com/cosmtrek/air) for live reload and build CSS with [Tailwind CLI](https://tailwindcss.com/blog/standalone-cli):
-```bash
-air
-tailwindcss -i static/tailwind.css -o static/app.css -m -w
-```
+See [Install](https://rimgo.codeberg.page/docs/getting-started/install/).
 
 ## Configuration
 
-rimgo can be configured using environment variables. The path to the .env file can be changed the -c flag.
-
-### Environment variables
-
-> For more details on instance privacy, see https://librarian.codeberg.page/docs/usage/instance-privacy/
-
-| Name                  | Default         | Note |
-|-----------------------|-----------------|------|
-| PORT                  | 3000            |      |
-| ADDRESS               | 0.0.0.0         |      |
-| IMGUR_CLIENT_ID       | 546c25a59c58ad7 |      |
-| FORCE_WEBP            | 0               |      |
-| PRIVACY_POLICY        |                 | Optional, URL to privacy policy |
-| PRIVACY_MESSAGE       |                 | Optional, message to display on privacy page |
-| PRIVACY_COUNTRY       |                 |      |
-| PRIVACY_PROVIDER      |                 |      |
-| PRIVACY_CLOUDFLARE    |                 |      |
-| PRIVACY_NOT_COLLECTED |                 |      |
-| PRIVACY_IP            |                 |      |
-| PRIVACY_URL           |                 |      |
-| PRIVACY_DEVICE        |                 |      |
-| PRIVACY_DIAGNOSTICS   |                 |      |
+See [Configuration](https://rimgo.codeberg.page/docs/usage/configuration/).
 
 ## Contributing
 Pull requests are welcome! If you have any questions or bug reports, open an [issue](https://codeberg.org/rimgo/rimgo/issues/new).
