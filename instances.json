@@ -44,6 +44,13 @@
     "cloudflare": false
   },
   {
+    "url": "https://imgur.010032.xyz",
+    "countries": [
+      "kr"
+    ],
+    "cloudflare": false
+  },
+  {
     "url": "https://i.habedieeh.re",
     "onion": "http://i.habeehrhadazsw3izbrbilqajalfyqqln54mrja3iwpqxgcuxnus7eid.onion",
     "i2p": [

@@ -83,6 +83,7 @@ Open an issue to have your instance listed here! See the rules for the instance 
 | [rimgo.hostux.net](https://rimgo.hostux.net/)	                | 🇫🇷️ FR        | Gandi	                   | ⚠️ Data collected     |       |
 | [ri.zzls.xyz](https://ri.zzls.xyz/)                           | 🇨🇱 CL        | TELEFÓNICA CHILE         | ✅ Data not collected | Self-hosted, provider is ISP |
 | [rimgo.lunar.icu](https://rimgo.marcopisco.com/)              | 🇩🇪 DE        | Cloudflare               | ✅ Data not collected |       |
+| [imgur.010032.xyz](https://imgur.010032.xyz/)                 | 🇰🇷 KR        | Oracle Cloud             | ✅ Data not collected |       |
 | [rimgo.kling.gg](https://rimgo.kling.gg/)                     | 🇳🇱 NL        | RamNode                  | ✅ Data not collected |       |
 | [i.01r.xyz](https://i.01r.xyz/)                               | 🇺🇸 US        | Cloudflare               | ✅ Data not collected |       |
 | [rimgo.projectsegfau.lt](https://rimgo.projectsegfau.lt/)     | 🇱🇺 LU, 🇺🇸 US, 🇮🇳 IN | See below         | ✅ Data not collected |       |
