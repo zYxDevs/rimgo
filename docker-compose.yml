@@ -11,11 +11,7 @@ services:
     user: 65534:65534 # equivalent to `nobody`
     read_only: true
     security_opt:
-      - no-new-privileges: true
+      - no-new-privileges
     cap_drop:
       - ALL
-    networks:
-      - rimgo
-
-networks:
-  - rimgo
+    env_file: .env
