@@ -22,10 +22,7 @@ import (
 
 func main() {
 	envPath := flag.String("c", ".env", "Path to env file")
-	err := godotenv.Load(*envPath)
-	if err != nil {
-		fmt.Println(err)
-	}
+	_ := godotenv.Load(*envPath)
 	utils.LoadConfig()
 	
 	pages.InitializeApiClient()
