@@ -3,7 +3,6 @@ package api
 import (
 	"io"
 	"net/http"
-	"regexp"
 	"strings"
 	"sync"
 	"time"
@@ -34,8 +33,6 @@ type Submission struct {
 	Views     int64
 	IsAlbum   bool
 }
-
-var imgurRe = regexp.MustCompile(`https?://i?\.?imgur\.com`)
 
 func (client *Client) FetchUser(username string) (User, error) {
 	cacheData, found := client.Cache.Get(username + "-user")
@@ -93,20 +90,18 @@ func (client *Client) FetchSubmissions(username string, sort string, page string
 				defer wg.Done()
 
 				coverData := value.Get("images.#(id==\"" + value.Get("cover").String() + "\")")
-				cover := Media{}
+				cover := Media{
+					Id:          value.Get("id").String(),
+					Description: value.Get("description").String(),
+					Type:        strings.Split(value.Get("type").String(), "/")[0],
+					Url:         strings.ReplaceAll(value.Get("link").String(), "https://i.imgur.com", ""),
+				}
 				if coverData.Exists() {
 					cover = Media{
 						Id:          coverData.Get("id").String(),
 						Description: coverData.Get("description").String(),
 						Type:        strings.Split(coverData.Get("type").String(), "/")[0],
 						Url:         strings.ReplaceAll(coverData.Get("link").String(), "https://i.imgur.com", ""),
-					}
-				} else {
-					cover = Media{
-						Id:          value.Get("id").String(),
-						Description: value.Get("description").String(),
-						Type:        strings.Split(value.Get("type").String(), "/")[0],
-						Url:         strings.ReplaceAll(value.Get("link").String(), "https://i.imgur.com", ""),
 					}
 				}
 
