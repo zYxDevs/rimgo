@@ -59,6 +59,8 @@ func (client *Client) FetchComments(galleryID string) ([]Comment, error) {
 	return comments, nil
 }
 
+var imgurRe = regexp.MustCompile(`https?://imgur\.com/(gallery|a)?/(.*)`)
+var imgurRe2 = regexp.MustCompile(`https?://imgur\.com/(.*)`)
 var imgRe = regexp.MustCompile(`https?://i\.imgur\.com/(.*)\.(png|gif|jpg|webp)`)
 var vidRe = regexp.MustCompile(`https?://i\.imgur\.com/(.*)\.(mp4|webm)`)
 var vidFormatRe = regexp.MustCompile(`\.(mp4|webm)`)
@@ -107,6 +109,8 @@ func parseComment(data gjson.Result) Comment {
 		link := `<a href="` + origLink + `">` + origLink + `</a>`
 		comment = strings.Replace(comment, origLink, link, 1)
 	}
+	comment = imgurRe.ReplaceAllString(comment, "/$1/$2")
+	comment = imgurRe2.ReplaceAllString(comment, "/$1")
 
 	p := bluemonday.UGCPolicy()
 	p.AllowImages()
