@@ -124,5 +124,12 @@
       "mx"
     ],
     "cloudflare": false
+  },
+  {
+    "url": "https://rimgo.catsarch.com",
+    "countries": [
+      "us"
+    ],
+    "cloudflare": false
   }
 ]

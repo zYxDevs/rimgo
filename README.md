@@ -93,6 +93,7 @@ Open an issue to have your instance listed here! See the rules for the instance 
 | [rimgo.fascinated.cc](https://rimgo.fascinated.cc/)           | 🇺🇸 US | Cloudflare                      | ✅ Data not collected |       |
 | [rimgo.whateveritworks.org](https://rimgo.whateveritworks.org/)           | 🇩🇪 DE | Cloudflare                      | ✅ Data not collected |       |
 | [rimgo.nohost.network](https://rimgo.nohost.network/)         | 🇲🇽 MX | Telmex                          | ✅ Data not collected |       |
+| [rimgo.catsarch.com](https://rimgo.catsarch.com/)             | 🇺🇸 US | Comcast                         | ✅ Data not collected | Self-hosted, provider is ISP |
 
 ### Tor
 
