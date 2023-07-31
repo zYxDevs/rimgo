@@ -94,6 +94,7 @@ Open an issue to have your instance listed here! See the rules for the instance 
 | [rimgo.whateveritworks.org](https://rimgo.whateveritworks.org/)           | 🇩🇪 DE | Cloudflare                      | ✅ Data not collected |       |
 | [rimgo.nohost.network](https://rimgo.nohost.network/)         | 🇲🇽 MX | Telmex                          | ✅ Data not collected |       |
 | [rimgo.catsarch.com](https://rimgo.catsarch.com/)             | 🇺🇸 US | Comcast                         | ✅ Data not collected | Self-hosted, provider is ISP |
+| [rimgo.frontendfriendly.xyz](https://rimgo.frontendfriendly.xyz/) | 🇩🇪 DE   | Hetzner                   | ⚠️ Data collected     |       |
 
 ### Tor
 

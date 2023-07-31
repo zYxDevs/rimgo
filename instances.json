@@ -131,5 +131,12 @@
       "us"
     ],
     "cloudflare": false
+  },
+  {
+    "url": "https://rimgo.frontendfriendly.xyz",
+    "countries": [
+      "de"
+    ],
+    "cloudflare": false
   }
 ]
