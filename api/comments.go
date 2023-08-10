@@ -61,7 +61,7 @@ func (client *Client) FetchComments(galleryID string) ([]Comment, error) {
 
 var imgurRe = regexp.MustCompile(`https?://imgur\.com/(gallery|a)?/(.*)`)
 var imgurRe2 = regexp.MustCompile(`https?://imgur\.com/(.*)`)
-var imgRe = regexp.MustCompile(`https?://i\.imgur\.com/(.*)\.(png|gif|jpg|webp)`)
+var imgRe = regexp.MustCompile(`https?://i\.imgur\.com/(.*)\.(png|gif|jpe?g|webp)`)
 var vidRe = regexp.MustCompile(`https?://i\.imgur\.com/(.*)\.(mp4|webm)`)
 var vidFormatRe = regexp.MustCompile(`\.(mp4|webm)`)
 var iImgurRe = regexp.MustCompile(`https?://i\.imgur\.com`)
