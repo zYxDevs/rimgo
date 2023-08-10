@@ -16,7 +16,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/cache"
 	"github.com/gofiber/fiber/v2/middleware/filesystem"
 	"github.com/gofiber/fiber/v2/middleware/recover"
-	"github.com/gofiber/template/handlebars"
+	"github.com/gofiber/template/handlebars/v2"
 	"github.com/joho/godotenv"
 )
 
@@ -93,6 +93,9 @@ func main() {
 		app.Use(cache.New(cache.Config{
 			Expiration:           30 * time.Minute,
 			MaxBytes:             25000000,
+			KeyGenerator: func(c *fiber.Ctx) string {
+        return c.OriginalURL()
+    	},
 			CacheControl:         true,
 			StoreResponseHeaders: true,
 		}))
@@ -112,6 +115,7 @@ func main() {
 	app.Get("/", pages.HandleFrontpage)
 	app.Get("/about", pages.HandleAbout)
 	app.Get("/privacy", pages.HandlePrivacy)
+	app.Get("/search", pages.HandleSearch)
 	app.Get("/a/:postID", pages.HandlePost)
 	app.Get("/a/:postID/embed", pages.HandleEmbed)
 	app.Get("/t/:tag", pages.HandleTag)

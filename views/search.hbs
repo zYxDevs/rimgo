@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>{{query}} - rimgo</title>
+
+  {{> partials/head }}
+</head>
+
+<body class="font-sans text-lg bg-slate-800 text-white">
+  {{> partials/nav }}
+
+  <section class="my-4 w-full flex flex-col items-center">
+    {{> partials/searchBar }}
+  </section>
+  
+  <main>
+    <div class="posts">
+      {{#each results}}
+      {{> partials/result }}
+      {{/each}}
+    </div>
+  </main>
+
+  {{> partials/footer }}
+</body>
+
+</html>

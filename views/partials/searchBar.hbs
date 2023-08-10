@@ -1,0 +1,6 @@
+<form method="GET" action="/search" class="flex gap-2 w-full lg:w-1/2">
+  <input class="p-2 rounded-lg bg-slate-600 w-full" name="q" type="text" placeholder="Search or paste a link" {{#if query}}value="{{query}}"{{/if}}/>
+  <button type="submit" class="p-2 rounded-lg bg-slate-600">
+    <img class="invert icon" src="/static/icons/PhMagnifyingGlass.svg" alt="Search" width="24px" height="24px">
+  </button>
+</form>
