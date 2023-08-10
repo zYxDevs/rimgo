@@ -20,6 +20,14 @@
       {{> partials/result }}
       {{/each}}
     </div>
+
+    <div class="flex justify-between mt-4 font-bold">
+      {{#if displayPrev}}
+      <a href="/search?q={{query}}&page={{prevPage}}">Previous page</a>
+      {{/if}}
+      <p>Page {{page}}</p>
+      <a href="/search?q={{query}}&page={{nextPage}}">Next page</a>
+    </div>
   </main>
 
   {{> partials/footer }}

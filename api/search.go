@@ -21,9 +21,9 @@ type SearchResult struct {
 	RelTime		string
 }
 
-func (client *Client) Search(query string) ([]SearchResult, error) {
+func (client *Client) Search(query string, page string) ([]SearchResult, error) {
 	query = url.QueryEscape(query)
-	req, err := http.NewRequest("GET", "https://imgur.com/search?qs=list&q=" + query, nil)
+	req, err := http.NewRequest("GET", "https://imgur.com/search/all/page/" + page + "?scrolled&q_size_is_mpx=off&qs=list&q=" + query, nil)
 	if err != nil {
 		return []SearchResult{}, err
 	}

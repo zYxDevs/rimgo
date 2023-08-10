@@ -1,6 +1,8 @@
 package pages
 
 import (
+	"strconv"
+
 	"codeberg.org/rimgo/rimgo/utils"
 	"github.com/gofiber/fiber/v2"
 )
@@ -17,7 +19,7 @@ func HandleSearch(c *fiber.Ctx) error {
 		return c.Redirect(utils.ImgurRe.ReplaceAllString(query, ""))
 	}
 
-	/*page := "1"
+	page := "0"
 	if c.Query("page") != "" {
 		page = c.Query("page")
 	}
@@ -28,21 +30,21 @@ func HandleSearch(c *fiber.Ctx) error {
 	}
 
 	displayPrevPage := true
-	if page == "1" {
+	if page == "0" {
 		displayPrevPage = false
-	}*/
+	}
 
-	results, err := ApiClient.Search(query)
+	results, err := ApiClient.Search(query, page)
 	if err != nil {
 		return err
 	}
 
 	return c.Render("search", fiber.Map{
-		"query":	query,
-		"results":        results,
-		/*"page":        page,
+		"query":			 query,
+		"results":     results,
+		"page":        pageNumber + 1,
 		"displayPrev": displayPrevPage,
 		"nextPage":    pageNumber + 1,
-		"prevPage":    pageNumber - 1,*/
+		"prevPage":    pageNumber - 1,
 	})
 }
