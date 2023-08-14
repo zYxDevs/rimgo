@@ -1,3 +1,4 @@
 .env
 tmp
 static/app.css
+dist/

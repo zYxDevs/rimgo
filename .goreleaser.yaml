@@ -1,0 +1,49 @@
+before:
+  hooks:
+    - tailwindcss -i static/tailwind.css -o static/app.css -m
+    - go mod tidy
+project_name: rimgo
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -X codeberg.org/rimgo/rimgo/pages.VersionInfo={{.Version}}
+archives:
+  - format: tar.gz
+    name_template: >-
+      {{ .ProjectName }}-{{ .Os }}-{{ .Arch }}{{- if .Arm }}v{{ .Arm }}{{ end }}
+    format_overrides:
+    - goos: windows
+      format: zip
+checksum:
+  name_template: 'checksums.txt'
+kos:
+  - repository: codeberg.org/rimgo/ko-test
+    base_image: scratch
+    tags:
+    - '{{.Version}}'
+    - latest
+    bare: true
+    preserve_import_paths: false
+    platforms:
+    - linux/amd64
+    - linux/arm64
+release:
+  gitea:
+    owner: rimgo
+    name: rimgo
+  name_template: "{{.ProjectName}} v{{.Version}}"
+  disable: false
+  mode: append
+
+# The lines beneath this are called `modelines`. See `:help modeline`
+# Feel free to remove those if you don't want/use them.
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+# vim: set ts=2 sw=2 tw=0 fo=cnqoj
