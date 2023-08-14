@@ -6,16 +6,11 @@ root = "."
 tmp_dir = "tmp"
 
 [build]
-# Just plain old shell command. You could use `make` as well.
-cmd = "ENV=dev go build -o ./tmp/rimgo ./main.go"
-# Binary file yields from `cmd`.
-bin = "./tmp/rimgo"
-# Customize binary.
-full_bin = "./tmp/rimgo"
+full_bin = "ENV=dev go run main.go"
 # Watch these filename extensions.
-include_ext = ["go", "tpl", "tmpl", "html", "mustache", "hbs", "pug", "css"]
+include_ext = ["go", "hbs"]
 # Ignore these filename extensions or directories.
-exclude_dir = ["tmp", "vendor", "node_modules"]
+exclude_dir = ["tmp", "vendor", "static"]
 # Watch these directories if you specified.
 include_dir = []
 # Exclude files.
