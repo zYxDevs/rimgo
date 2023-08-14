@@ -26,7 +26,6 @@ checksum:
   name_template: 'checksums.txt'
 kos:
   - repository: codeberg.org/rimgo/ko-test
-    base_image: scratch
     tags:
     - '{{.Version}}'
     - latest
