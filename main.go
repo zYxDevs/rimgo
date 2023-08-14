@@ -24,7 +24,7 @@ func main() {
 	envPath := flag.String("c", ".env", "Path to env file")
 	godotenv.Load(*envPath)
 	utils.LoadConfig()
-	
+
 	pages.InitializeApiClient()
 
 	views := http.FS(views.GetFiles())
@@ -32,7 +32,7 @@ func main() {
 		views = http.Dir("./views")
 	}
 	engine := handlebars.NewFileSystem(views, ".hbs")
-	
+
 	engine.AddFunc("noteq", func(a interface{}, b interface{}, options *raymond.Options) interface{} {
 		if raymond.Str(a) != raymond.Str(b) {
 			return options.Fn()
@@ -69,11 +69,11 @@ func main() {
 			fmt.Println(e)
 		},
 	}))
-	
+
 	if os.Getenv("ENV") == "dev" {
 		app.Use("/static", filesystem.New(filesystem.Config{
 			MaxAge: 2592000,
-			Root: http.Dir("./static"),
+			Root:   http.Dir("./static"),
 		}))
 		app.Get("/errors/429", func(c *fiber.Ctx) error {
 			return c.Render("errors/429", nil)
@@ -91,11 +91,11 @@ func main() {
 			Root: http.FS(static.GetFiles()),
 		}))
 		app.Use(cache.New(cache.Config{
-			Expiration:           30 * time.Minute,
-			MaxBytes:             25000000,
+			Expiration: 30 * time.Minute,
+			MaxBytes:   25000000,
 			KeyGenerator: func(c *fiber.Ctx) string {
-        return c.OriginalURL()
-    	},
+				return c.OriginalURL()
+			},
 			CacheControl:         true,
 			StoreResponseHeaders: true,
 		}))
@@ -116,6 +116,7 @@ func main() {
 	app.Get("/about", pages.HandleAbout)
 	app.Get("/privacy", pages.HandlePrivacy)
 	app.Get("/search", pages.HandleSearch)
+	app.Get("/trending", pages.HandleTrending)
 	app.Get("/a/:postID", pages.HandlePost)
 	app.Get("/a/:postID/embed", pages.HandleEmbed)
 	app.Get("/t/:tag", pages.HandleTag)

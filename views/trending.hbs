@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Trending - rimgo</title>
+
+  {{> partials/head }}
+</head>
+
+<body class="font-sans text-lg bg-slate-800 text-white">
+  {{> partials/nav }}
+
+  <section class="my-4 w-full flex flex-col items-center">
+    {{> partials/searchBar }}
+  </section>
+
+  <header class="p-4 rounded-xl text-white mb-4 bg-gradient-to-r from-blue-400 to-emerald-400">
+    <div class="flex flex-col items-center justify-center text-center">
+      <h2 class="text-2xl font-extrabold">Trending</h2>
+    </div>
+    <div class="flex flex-col sm:flex-row sm:justify-between">
+      <div class="flex flex-col">
+        {{#equal section "hot"}}
+        <a href="?section=hot&sort={{sort}}"><b>Hot</b></a>
+        <a href="?section=new&sort={{sort}}">New</a>
+        <a href="?section=top&sort={{sort}}">Top</a>
+        {{/equal}}
+        {{#equal section "new"}}
+        <a href="?section=hot&sort={{sort}}">Hot</a>
+        <a href="?section=new&sort={{sort}}"><b>New</b></a>
+        <a href="?section=top&sort={{sort}}">Top</a>
+        {{/equal}}
+        {{#equal section "top"}}
+        <a href="?section=hot&sort={{sort}}">Hot</a>
+        <a href="?section=new&sort={{sort}}">New</a>
+        <a href="?section=top&sort={{sort}}"><b>Top</b></a>
+        {{/equal}}
+      </div>
+      <hr class="sm:hidden my-2" />
+      <div class="flex flex-col sm:items-end">
+        {{#equal sort "popular"}}
+        <a href="?section={{section}}&sort=popular"><b>Popular</b></a>
+        <a href="?section={{section}}&sort=newest">Newest</a>
+        <a href="?section={{section}}&sort=best">Best</a>
+        {{/equal}}
+        {{#equal sort "newest"}}
+        <a href="?section={{section}}&sort=popular">Popular</a>
+        <a href="?section={{section}}&sort=newest"><b>Newest</b></a>
+        <a href="?section={{section}}&sort=best">Best</a>
+        {{/equal}}
+        {{#equal sort "best"}}
+        <a href="?section={{section}}&sort=popular">Popular</a>
+        <a href="?section={{section}}&sort=newest">Newest</a>
+        <a href="?section={{section}}&sort=best"><b>Best</b></a>
+        {{/equal}}
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="posts">
+      {{#each results}}
+      {{> partials/post }}
+      {{/each}}
+    </div>
+
+    <div class="flex justify-between mt-4 font-bold">
+      {{#if displayPrev}}
+      <a href="/trending?section={{section}}&sort={{sort}}&page={{prevPage}}">Previous page</a>
+      {{/if}}
+      <p>Page {{page}}</p>
+      <a href="/trending?section={{section}}&sort={{sort}}&page={{nextPage}}">Next page</a>
+    </div>
+  </main>
+
+  {{> partials/footer }}
+</body>
+
+</html>
