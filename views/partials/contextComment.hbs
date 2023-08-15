@@ -1,0 +1,22 @@
+<a href="{{Post.Link}}">
+  <div class="sm:grid gap-4 w-full" style="grid-template-columns: 120px 1fr;">
+    <img class="object-cover block w-full h-[300px] sm:w-[120px] sm:h-[140px] rounded-lg rounded-b-none sm:rounded-b-lg" src="{{this.Post.Cover.Url}}" alt="">
+    <div class="flex flex-col gap-2 bg-slate-600 p-4 rounded-lg rounded-t-none sm:rounded-t-lg w-full">
+      <div class="flex flex-col h-full">
+        <p>{{{this.Comment}}}</p>
+        <div class="flex-grow"></div>
+        <div class="flex gap-2">
+          <span title="{{this.CreatedAt}}">{{this.RelTime}}</span>
+          {{#if this.DeletedAt}}
+          <span class="text-md">(deleted {{this.DeletedAt}})</span>
+          {{/if}}
+          |
+          <img class="invert icon" src="/static/icons/PhArrowFatUp.svg" alt="Likes" width="24px" height="24px">
+          {{this.Upvotes}}
+          <img class="invert icon" src="/static/icons/PhArrowFatDown.svg" alt="Dislikes" width="24px" height="24px">
+          {{this.Downvotes}}
+        </div>
+      </div>
+    </div>
+  </div>
+</a>

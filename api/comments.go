@@ -16,14 +16,15 @@ import (
 
 type Comment struct {
 	Comments  []Comment
-	User			User
+	User      User
+	Post      Submission
 	Id        string
 	Comment   string
 	Upvotes   int64
 	Downvotes int64
 	Platform  string
 	CreatedAt string
-	RelTime		string
+	RelTime   string
 	UpdatedAt string
 	DeletedAt string
 }
@@ -55,7 +56,7 @@ func (client *Client) FetchComments(galleryID string) ([]Comment, error) {
 	)
 	wg.Wait()
 
-	client.Cache.Set(galleryID + "-comments", comments, cache.DefaultExpiration)
+	client.Cache.Set(galleryID+"-comments", comments, cache.DefaultExpiration)
 	return comments, nil
 }
 
@@ -130,13 +131,14 @@ func parseComment(data gjson.Result) Comment {
 			Username: data.Get("account.username").String(),
 			Avatar:   userAvatar,
 		},
+		Post:      parseSubmission(data.Get("post")),
 		Id:        data.Get("id").String(),
 		Comment:   comment,
 		Upvotes:   data.Get("upvote_count").Int(),
 		Downvotes: data.Get("downvote_count").Int(),
 		Platform:  data.Get("platform").String(),
 		CreatedAt: createdAt,
-		RelTime: 	 humanize.Time(createdTime),
+		RelTime:   humanize.Time(createdTime),
 		UpdatedAt: updatedAt,
 		DeletedAt: deletedAt,
 	}
