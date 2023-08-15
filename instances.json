@@ -105,6 +105,27 @@
     "cloudflare": true
   },
   {
+    "url": "https://rimgo.eu.projectsegfau.lt",
+    "countries": [
+      "fr"
+    ],
+    "cloudflare": false
+  },
+  {
+    "url": "https://rimgo.us.projectsegfau.lt",
+    "countries": [
+      "us"
+    ],
+    "cloudflare": false
+  },
+  {
+    "url": "https://rimgo.in.projectsegfau.lt",
+    "countries": [
+      "in"
+    ],
+    "cloudflare": false
+  },
+  {
     "url": "https://rimgo.whateveritworks.org",
     "countries": [
       "de"
