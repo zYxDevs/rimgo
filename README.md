@@ -86,10 +86,10 @@ Open an issue to have your instance listed here! See the rules for the instance 
 | [imgur.010032.xyz](https://imgur.010032.xyz/)                 | 🇰🇷 KR        | Oracle Cloud             | ✅ Data not collected |       |
 | [rimgo.kling.gg](https://rimgo.kling.gg/)                     | 🇳🇱 NL        | RamNode                  | ✅ Data not collected |       |
 | [i.01r.xyz](https://i.01r.xyz/)                               | 🇺🇸 US        | Cloudflare               | ✅ Data not collected |       |
-| [rimgo.projectsegfau.lt](https://rimgo.projectsegfau.lt/)     | 🇱🇺 LU, 🇺🇸 US, 🇮🇳 IN | See below         | ✅ Data not collected |       |
-| [rimgo.eu.projectsegfau.lt](https://rimgo.projectsegfau.lt/)  | 🇱🇺 LU | FranTech Solutions              | ✅ Data not collected |       |
-| [rimgo.us.projectsegfau.lt](https://rimgo.projectsegfau.lt/)  | 🇺🇸 US | DigitalOcean                    | ✅ Data not collected |       |
-| [rimgo.in.projectsegfau.lt](https://rimgo.projectsegfau.lt/)  | 🇮🇳 IN | Airtel                          | ✅ Data not collected |       |
+| [rimgo.projectsegfau.lt](https://rimgo.projectsegfau.lt/)     | 🇫🇷 FR, 🇺🇸 US, 🇮🇳 IN | See below         | ✅ Data not collected |       |
+| [rimgo.eu.projectsegfau.lt](https://rimgo.eu.projectsegfau.lt/)  | 🇫🇷 FR | Orange S.A.              | ✅ Data not collected |       |
+| [rimgo.us.projectsegfau.lt](https://rimgo.us.projectsegfau.lt/)  | 🇺🇸 US | Racknerd                    | ✅ Data not collected |       |
+| [rimgo.in.projectsegfau.lt](https://rimgo.in.projectsegfau.lt/)  | 🇮🇳 IN | Airtel                          | ✅ Data not collected |       |
 | [rimgo.whateveritworks.org](https://rimgo.whateveritworks.org/)           | 🇩🇪 DE | Cloudflare                      | ✅ Data not collected |       |
 | [rimgo.nohost.network](https://rimgo.nohost.network/)         | 🇲🇽 MX | Telmex                          | ✅ Data not collected |       |
 | [rimgo.catsarch.com](https://rimgo.catsarch.com/)             | 🇺🇸 US | Comcast                         | ✅ Data not collected | Self-hosted, provider is ISP |
