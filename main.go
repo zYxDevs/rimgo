@@ -72,8 +72,7 @@ func main() {
 
 	if os.Getenv("ENV") == "dev" {
 		app.Use("/static", filesystem.New(filesystem.Config{
-			MaxAge: 2592000,
-			Root:   http.Dir("./static"),
+			Root: http.Dir("./static"),
 		}))
 		app.Get("/errors/429", func(c *fiber.Ctx) error {
 			return c.Render("errors/429", nil)
@@ -88,6 +87,7 @@ func main() {
 		})
 	} else {
 		app.Use("/static", filesystem.New(filesystem.Config{
+			MaxAge: 2592000,
 			Root: http.FS(static.GetFiles()),
 		}))
 		app.Use(cache.New(cache.Config{
