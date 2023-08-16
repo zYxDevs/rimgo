@@ -7,7 +7,7 @@ body {
 }
 
 p a {
-  text-decoration: underline
+  @apply break-words underline
 }
 
 .posts {

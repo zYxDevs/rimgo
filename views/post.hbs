@@ -25,7 +25,7 @@
   </header>
   
   <main>
-    <div class="flex gap-4 items-center my-4">
+    <div class="flex flex-col gap-2 md:flex-row md:gap-4 md:items-center my-4">
       {{#if post.User.Username}}
       <a href="/user/{{post.User.Username}}" class="flex gap-2 items-center">
         <img src="{{post.User.Avatar}}" class="rounded-full" width="36" height="36" />
