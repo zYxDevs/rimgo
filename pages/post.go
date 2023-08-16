@@ -3,12 +3,34 @@ package pages
 import (
 	"crypto/rand"
 	"fmt"
+	"strconv"
 	"strings"
 
 	"codeberg.org/rimgo/rimgo/api"
 	"codeberg.org/rimgo/rimgo/utils"
 	"github.com/gofiber/fiber/v2"
 )
+
+// Cursed function
+func nextInTag(client *api.Client, tagname, sort, page, I string) string {
+	i, err := strconv.Atoi(I)
+	if err != nil || i < 0 {
+		return ""
+	}
+	tag, err := client.FetchTag(tagname, sort, page)
+	if err != nil {
+		return ""
+	}
+	if i >= len(tag.Posts)-1 {
+		pageNumber, _ := strconv.Atoi(page)
+		tagn, err := client.FetchTag(tagname, sort, strconv.Itoa(pageNumber+1))
+		if err != nil {
+			return ""
+		}
+		return tagn.Posts[0].Link
+	}
+	return tag.Posts[i+1].Link
+}
 
 func HandlePost(c *fiber.Ctx) error {
 	utils.SetHeaders(c)
@@ -33,7 +55,7 @@ func HandlePost(c *fiber.Ctx) error {
 	if err != nil && post.Id == "" && strings.Contains(err.Error(), "404") {
 		return c.Status(404).Render("errors/404", nil)
 	}
- 	if err != nil {
+	if err != nil {
 		return err
 	}
 
@@ -58,8 +80,12 @@ func HandlePost(c *fiber.Ctx) error {
 	}
 	c.Set("Content-Security-Policy", csp)
 
+	tag, sort, page, index := c.Query("tag"), c.Query("sort"), c.Query("page"), c.Query("i")
+	next := nextInTag(ApiClient, tag, sort, page, index)
+
 	return c.Render("post", fiber.Map{
 		"post":     post,
+		"next":     next,
 		"comments": comments,
 		"nonce":    nonce,
 	})

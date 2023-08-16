@@ -3,9 +3,9 @@ package api
 import (
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"strings"
-	"sync"
-	
+
 	"github.com/patrickmn/go-cache"
 	"github.com/tidwall/gjson"
 )
@@ -64,47 +64,47 @@ func (client *Client) FetchTag(tag string, sort string, page string) (Tag, error
 
 	data := gjson.Parse(string(body))
 
-	wg := sync.WaitGroup{}
 	posts := make([]Submission, 0)
 	data.Get("posts").ForEach(
 		func(key, value gjson.Result) bool {
-			wg.Add(1)
+			url, _ := url.Parse(strings.ReplaceAll(value.Get("url").String(), "https://imgur.com", ""))
+			q := url.Query()
+			q.Add("tag", tag)
+			q.Add("sort", sort)
+			q.Add("page", page)
+			q.Add("i", key.String())
+			url.RawQuery = q.Encode()
 
-			go func() {
-				defer wg.Done()
-				posts = append(posts, Submission{
-					Id:    value.Get("id").String(),
-					Title: value.Get("title").String(),
-					Link:  strings.ReplaceAll(value.Get("url").String(), "https://imgur.com", ""),
-					Cover: Media{
-						Id:   value.Get("cover_id").String(),
-						Type: value.Get("cover.type").String(),
-						Url:  strings.ReplaceAll(value.Get("cover.url").String(), "https://i.imgur.com", ""),
-					},
-					Points:    value.Get("point_count").Int(),
-					Upvotes:   value.Get("upvote_count").Int(),
-					Downvotes: value.Get("downvote_count").Int(),
-					Comments:  value.Get("comment_count").Int(),
-					Views:     value.Get("view_count").Int(),
-					IsAlbum:   value.Get("is_album").Bool(),
-				})
-			}()
+			posts = append(posts, Submission{
+				Id:    value.Get("id").String(),
+				Title: value.Get("title").String(),
+				Link:  url.String(),
+				Cover: Media{
+					Id:   value.Get("cover_id").String(),
+					Type: value.Get("cover.type").String(),
+					Url:  strings.ReplaceAll(value.Get("cover.url").String(), "https://i.imgur.com", ""),
+				},
+				Points:    value.Get("point_count").Int(),
+				Upvotes:   value.Get("upvote_count").Int(),
+				Downvotes: value.Get("downvote_count").Int(),
+				Comments:  value.Get("comment_count").Int(),
+				Views:     value.Get("view_count").Int(),
+				IsAlbum:   value.Get("is_album").Bool(),
+			})
 
 			return true
 		},
 	)
 
-	wg.Wait()
-
 	tagData := Tag{
-		Tag:          tag,
-		Display:      data.Get("display").String(),
-		Sort:         sort,
-		PostCount:    data.Get("post_count").Int(),
-		Posts:        posts,
-		Background:   "/" + data.Get("background_id").String() + ".webp",
+		Tag:        tag,
+		Display:    data.Get("display").String(),
+		Sort:       sort,
+		PostCount:  data.Get("post_count").Int(),
+		Posts:      posts,
+		Background: "/" + data.Get("background_id").String() + ".webp",
 	}
 
-	client.Cache.Set(tag + sort + page + "-tag", tagData, cache.DefaultExpiration)
+	client.Cache.Set(tag+sort+page+"-tag", tagData, cache.DefaultExpiration)
 	return tagData, nil
 }

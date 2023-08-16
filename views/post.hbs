@@ -4,7 +4,7 @@
 <head>
   <title>
     {{#if post.Title}}
-    {{post.Title}} - 
+    {{post.Title}} -
     {{/if}}
     rimgo
   </title>
@@ -23,33 +23,45 @@
     <h1 class="text-3xl font-bold">{{post.Title}}</h1>
     <p>{{post.CreatedAt}}</p>
   </header>
-  
+
   <main>
-    <div class="flex flex-col gap-2 md:flex-row md:gap-4 md:items-center my-4">
-      {{#if post.User.Username}}
-      <a href="/user/{{post.User.Username}}" class="flex gap-2 items-center">
-        <img src="{{post.User.Avatar}}" class="rounded-full" width="36" height="36" />
-        <p>
-          <b>{{post.User.Username}}</b>
-        </p>
-      </a>
-      {{/if}}
-      <div class="flex gap-2 items-center">
-        <div class="flex flex-center gap-2">
-          <img class="icon invert" src="/static/icons/PhEye.svg" alt="Views" width="24px" height="24px">
-          <p>{{post.Views}}</p>
-        </div>
-        {{#if post.SharedWithCommunity}}
-        <div class="flex flex-center gap-2">
-          <img class="icon invert" src="/static/icons/PhArrowFatUp.svg" alt="Likes" width="24px" height="24px">
-          <p>{{post.Upvotes}}</p>
-        </div>
-        <div class="flex flex-center gap-2">
-          <img class="icon invert" src="/static/icons/PhArrowFatDown.svg" alt="Dislikes" width="24px" height="24px">
-          <p>{{post.Downvotes}}</p>
-        </div>
+    <div class="flex flex-col sm:flex-row my-4 w-full justify-between">
+      <div class="flex flex-col gap-2 md:flex-row md:gap-4 md:items-center">
+        {{#if post.User.Username}}
+        <a href="/user/{{post.User.Username}}" class="flex gap-2 items-center">
+          <img src="{{post.User.Avatar}}" class="rounded-full" width="36" height="36" />
+          <p>
+            <b>{{post.User.Username}}</b>
+          </p>
+        </a>
         {{/if}}
+        <div class="flex gap-2 items-center">
+          <div class="flex flex-center gap-2">
+            <img class="icon invert" src="/static/icons/PhEye.svg" alt="Views" width="24px" height="24px">
+            <p>{{post.Views}}</p>
+          </div>
+          {{#if post.SharedWithCommunity}}
+          <div class="flex flex-center gap-2">
+            <img class="icon invert" src="/static/icons/PhArrowFatUp.svg" alt="Likes" width="24px" height="24px">
+            <p>{{post.Upvotes}}</p>
+          </div>
+          <div class="flex flex-center gap-2">
+            <img class="icon invert" src="/static/icons/PhArrowFatDown.svg" alt="Dislikes" width="24px" height="24px">
+            <p>{{post.Downvotes}}</p>
+          </div>
+          {{/if}}
+        </div>
       </div>
+      {{#noteq next ""}}
+      <div class="flex">
+        {{#noteq prev ""}}
+        <!-- TODO: prev -->
+        <a href="{{prev}}" title="Previous" class="px-3 py-2 rounded-l-lg bg-gray-400 text-gray-800">&lt;</a>
+        {{/noteq}}
+        <a href="{{next}}" class="px-3 py-2 rounded-r-lg [&:only-child]:rounded-lg bg-green-400 text-gray-800">Next
+          &gt;</a>
+      </div>
+      {{/noteq}}
     </div>
 
     <div class="flex flex-center flex-col">
@@ -70,7 +82,7 @@
       {{#if this.Description}}
       <p>{{{this.Description}}}</p>
       {{/if}}
-    {{/each}}
+      {{/each}}
     </div>
 
     {{#if post.tags}}
@@ -78,7 +90,7 @@
       <style nonce="{{nonce}}">
         {{#each post.tags}}
           .{{this.BackgroundId}} { background-image: url('{{this.Background}}') }
-        {{/each}}	      
+        {{/each}}
       </style>
       {{#each post.tags}}
       <a href="/t/{{this.Tag}}">
@@ -101,7 +113,8 @@
     {{#if comments}}
     <div>
       <input id="comments__expandBtn" type="checkbox" checked>
-      <label class="comments__expandBtn__label my-2 py-4 border-solid border-t-2 border-slate-400" for="comments__expandBtn">
+      <label class="comments__expandBtn__label my-2 py-4 border-solid border-t-2 border-slate-400"
+        for="comments__expandBtn">
         <h3 class="text-xl font-bold">Comments ({{post.Comments}})</h3>
         <span class="text-xl font-bold"></span>
       </label>
