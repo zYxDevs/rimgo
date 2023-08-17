@@ -21,6 +21,9 @@ type Tag struct {
 }
 
 func (client *Client) FetchTag(tag string, sort string, page string) (Tag, error) {
+	// Dots are automatically removed on Imgur, so more cache hits
+	tag = strings.ReplaceAll(tag, ".", "")
+
 	cacheData, found := client.Cache.Get(tag + sort + page + "-tag")
 	if found {
 		return cacheData.(Tag), nil
