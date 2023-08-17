@@ -80,8 +80,12 @@ func HandlePost(c *fiber.Ctx) error {
 	}
 	c.Set("Content-Security-Policy", csp)
 
-	tag, sort, page, index := c.Query("tag"), c.Query("sort"), c.Query("page"), c.Query("i")
-	next := nextInTag(ApiClient, tag, sort, page, index)
+	var next string
+	tagParam := strings.Split(c.Query("tag"), ".")
+	if len(tagParam) == 4 {
+		tag, sort, page, index := tagParam[0], tagParam[1], tagParam[2], tagParam[3]
+		next = nextInTag(ApiClient, tag, sort, page, index)
+	}
 
 	return c.Render("post", fiber.Map{
 		"post":     post,

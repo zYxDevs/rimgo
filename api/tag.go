@@ -69,10 +69,7 @@ func (client *Client) FetchTag(tag string, sort string, page string) (Tag, error
 		func(key, value gjson.Result) bool {
 			url, _ := url.Parse(strings.ReplaceAll(value.Get("url").String(), "https://imgur.com", ""))
 			q := url.Query()
-			q.Add("tag", tag)
-			q.Add("sort", sort)
-			q.Add("page", page)
-			q.Add("i", key.String())
+			q.Add("tag", tag+"."+sort+"."+page+"."+key.String())
 			url.RawQuery = q.Encode()
 
 			posts = append(posts, Submission{
