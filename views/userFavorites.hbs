@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>{{user.Username}} - rimgo</title>
+  <title>{{user.Username}}'s favorites - rimgo</title>
 
   {{> partials/head }}
 </head>
@@ -23,8 +23,8 @@
       </div>
       <hr class="sm:border-0 flex-grow">
       <div class="flex flex-col items-center sm:items-end">
-        <a href="/user/{{user.Username}}"><b>Submissions</b></a>
-        <a href="/user/{{user.Username}}/favorites">Favorites</a>
+        <a href="/user/{{user.Username}}">Submissions</a>
+        <a href="/user/{{user.Username}}/favorites"><b>Favorites</b></a>
         <a href="/user/{{user.Username}}/comments">Comments</a>
       </div>
     </div>
@@ -33,7 +33,7 @@
 
   <main>
     <div class="posts">
-      {{#each submissions}}
+      {{#each favorites}}
       {{> partials/post }}
       {{/each}}
     </div>

@@ -88,7 +88,7 @@ func main() {
 	} else {
 		app.Use("/static", filesystem.New(filesystem.Config{
 			MaxAge: 2592000,
-			Root: http.FS(static.GetFiles()),
+			Root:   http.FS(static.GetFiles()),
 		}))
 		app.Use(cache.New(cache.Config{
 			Expiration: 30 * time.Minute,
@@ -123,6 +123,7 @@ func main() {
 	app.Get("/t/:tag/:postID", pages.HandlePost)
 	app.Get("/r/:sub/:postID", pages.HandlePost)
 	app.Get("/user/:userID", pages.HandleUser)
+	app.Get("/user/:userID/favorites", pages.HandleUserFavorites)
 	app.Get("/user/:userID/comments", pages.HandleUserComments)
 	app.Get("/user/:userID/cover", pages.HandleUserCover)
 	app.Get("/user/:userID/avatar", pages.HandleUserAvatar)

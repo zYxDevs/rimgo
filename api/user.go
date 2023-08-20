@@ -102,6 +102,55 @@ func (client *Client) FetchSubmissions(username string, sort string, page string
 	return submissions, nil
 }
 
+func (client *Client) FetchUserFavorites(username string, sort string, page string) ([]Submission, error) {
+	cacheData, found := client.Cache.Get(username + "-favorites")
+	if found {
+		return cacheData.([]Submission), nil
+	}
+
+	req, err := http.NewRequest("GET", "https://api.imgur.com/3/account/"+username+"/gallery_favorites/"+page+"/"+sort, nil)
+	if err != nil {
+		return []Submission{}, err
+	}
+	utils.SetReqHeaders(req)
+	q := req.URL.Query()
+	q.Add("client_id", client.ClientID)
+	req.URL.RawQuery = q.Encode()
+
+	res, err := http.DefaultClient.Do(req)
+	if err != nil {
+		return []Submission{}, err
+	}
+
+	body, err := io.ReadAll(res.Body)
+	if err != nil {
+		return []Submission{}, err
+	}
+
+	data := gjson.Parse(string(body))
+
+	submissions := []Submission{}
+
+	wg := sync.WaitGroup{}
+	data.Get("data").ForEach(
+		func(key, value gjson.Result) bool {
+			wg.Add(1)
+
+			go func() {
+				defer wg.Done()
+
+				submissions = append(submissions, parseSubmission(value))
+			}()
+
+			return true
+		},
+	)
+	wg.Wait()
+
+	client.Cache.Set(username+"-favorites", submissions, 15*time.Minute)
+	return submissions, nil
+}
+
 func (client *Client) FetchUserComments(username string) ([]Comment, error) {
 	cacheData, found := client.Cache.Get(username + "-usercomments")
 	if found {
