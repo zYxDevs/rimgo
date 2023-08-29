@@ -1,7 +1,7 @@
 package api
 
 import (
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
@@ -60,7 +60,7 @@ func (client *Client) FetchTag(tag string, sort string, page string) (Tag, error
 		return Tag{}, err
 	}
 
-	body, err := ioutil.ReadAll(res.Body)
+	body, err := io.ReadAll(res.Body)
 	if err != nil {
 		return Tag{}, err
 	}
