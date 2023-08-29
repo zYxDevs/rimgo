@@ -38,11 +38,10 @@
       {{/each}}
     </div>
 
-    <div class="mt-4 font-bold">
-      {{#equal page "0" }}
-      {{else}}
+    <div class="flex mt-4 font-bold justify-between">
+      {{#noteq page "0" }}
       <a href="{{channel.RelUrl}}?page={{prevPage}}">Previous page</a>
-      {{/equal}}
+      {{/noteq}}
       <a href="{{channel.RelUrl}}?page={{nextPage}}">Next page</a>
     </div>
   </main>
