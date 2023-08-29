@@ -70,7 +70,7 @@ func (client *Client) FetchUser(username string) (User, error) {
 }
 
 func (client *Client) FetchSubmissions(username string, sort string, page string) ([]Submission, error) {
-	cacheData, found := client.Cache.Get(username + "-submissions")
+	cacheData, found := client.Cache.Get(username + "-submissions-" + sort + page)
 	if found {
 		return cacheData.([]Submission), nil
 	}
@@ -98,12 +98,12 @@ func (client *Client) FetchSubmissions(username string, sort string, page string
 	)
 	wg.Wait()
 
-	client.Cache.Set(username+"-submissions", submissions, 15*time.Minute)
+	client.Cache.Set(username+"-submissions-"+sort+page, submissions, 15*time.Minute)
 	return submissions, nil
 }
 
 func (client *Client) FetchUserFavorites(username string, sort string, page string) ([]Submission, error) {
-	cacheData, found := client.Cache.Get(username + "-favorites")
+	cacheData, found := client.Cache.Get(username + "-favorites-" + sort + page)
 	if found {
 		return cacheData.([]Submission), nil
 	}
@@ -147,7 +147,7 @@ func (client *Client) FetchUserFavorites(username string, sort string, page stri
 	)
 	wg.Wait()
 
-	client.Cache.Set(username+"-favorites", submissions, 15*time.Minute)
+	client.Cache.Set(username+"-favorites-"+sort+page, submissions, 15*time.Minute)
 	return submissions, nil
 }
 
