@@ -45,10 +45,11 @@
       {{/each}}
     </div>
 
-    <div class="mt-4 font-bold">
-      {{#if displayPrev}}
+    <div class="flex justify-between mt-4 font-bold">
+      {{#noteq page "1"}}
       <a href="{{channel.RelUrl}}?page={{prevPage}}">Previous page</a>
-      {{/if}}
+      {{/noteq}}
+      <p>Page {{nextPage}}</p>
       <a href="{{channel.RelUrl}}?page={{nextPage}}">Next page</a>
     </div>
   </main>

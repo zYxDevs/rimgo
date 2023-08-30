@@ -65,9 +65,9 @@
     </div>
 
     <div class="flex justify-between mt-4 font-bold">
-      {{#if displayPrev}}
+      {{#noteq page "1"}}
       <a href="/trending?section={{section}}&sort={{sort}}&page={{prevPage}}">Previous page</a>
-      {{/if}}
+      {{/noteq}}
       <p>Page {{page}}</p>
       <a href="/trending?section={{section}}&sort={{sort}}&page={{nextPage}}">Next page</a>
     </div>

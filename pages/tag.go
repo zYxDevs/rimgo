@@ -23,11 +23,6 @@ func HandleTag(c *fiber.Ctx) error {
 		pageNumber = 0
 	}
 
-	displayPrevPage := true
-	if page == "1" {
-		displayPrevPage = false
-	}
-
 	tag, err := ApiClient.FetchTag(c.Params("tag"), c.Query("sort"), page)
 	if err != nil && err.Error() == "ratelimited by imgur" {
 		return c.Status(429).Render("errors/429", fiber.Map{
@@ -44,7 +39,6 @@ func HandleTag(c *fiber.Ctx) error {
 	return c.Render("tag", fiber.Map{
 		"tag":         tag,
 		"page":        page,
-		"displayPrev": displayPrevPage,
 		"nextPage":    pageNumber + 1,
 		"prevPage":    pageNumber - 1,
 	})

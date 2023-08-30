@@ -36,11 +36,6 @@ func HandleTrending(c *fiber.Ctx) error {
 		sort = "popular"
 	}
 
-	displayPrevPage := true
-	if page == "1" {
-		displayPrevPage = false
-	}
-
 	results, err := ApiClient.FetchTrending(section, sort, page)
 	if err != nil {
 		return err
@@ -51,7 +46,6 @@ func HandleTrending(c *fiber.Ctx) error {
 		"section":     section,
 		"sort":        sort,
 		"page":        pageNumber,
-		"displayPrev": displayPrevPage,
 		"nextPage":    pageNumber + 1,
 		"prevPage":    pageNumber - 1,
 	})

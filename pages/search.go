@@ -29,11 +29,6 @@ func HandleSearch(c *fiber.Ctx) error {
 		pageNumber = 0
 	}
 
-	displayPrevPage := true
-	if page == "0" {
-		displayPrevPage = false
-	}
-
 	results, err := ApiClient.Search(query, page)
 	if err != nil {
 		return err
@@ -42,8 +37,7 @@ func HandleSearch(c *fiber.Ctx) error {
 	return c.Render("search", fiber.Map{
 		"query":			 query,
 		"results":     results,
-		"page":        pageNumber + 1,
-		"displayPrev": displayPrevPage,
+		"page":        pageNumber,
 		"nextPage":    pageNumber + 1,
 		"prevPage":    pageNumber - 1,
 	})

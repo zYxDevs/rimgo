@@ -22,10 +22,10 @@
     </div>
 
     <div class="flex justify-between mt-4 font-bold">
-      {{#if displayPrev}}
+      {{#noteq page "0"}}
       <a href="/search?q={{query}}&page={{prevPage}}">Previous page</a>
-      {{/if}}
-      <p>Page {{page}}</p>
+      {{/noteq}}
+      <p>Page {{nextPage}}</p>
       <a href="/search?q={{query}}&page={{nextPage}}">Next page</a>
     </div>
   </main>
