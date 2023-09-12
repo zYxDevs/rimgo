@@ -107,6 +107,7 @@ Open an issue to have your instance listed here! See the rules for the instance 
 | [rimgo.zzlsghu6mvvwyy75mvga6gaf4znbp3erk5xwfzedb4gg6qqh2j6rlvid.onion](http://rimgo.zzlsghu6mvvwyy75mvga6gaf4znbp3erk5xwfzedb4gg6qqh2j6rlvid.onion/) | ✅ Data not collected | Onion of ri.zzls.xyz |
 | [tdn7zoxctmsopey77mp4eg2gazaudyhgbuyytf4zpk5u7lknlxlgbnid.onion/](http://tdn7zoxctmsopey77mp4eg2gazaudyhgbuyytf4zpk5u7lknlxlgbnid.onion/) | ✅ Data not collected | Onion of rimgo.kling.gg |
 | [rimgo.pjsfkvpxlinjamtawaksbnnaqs2fc2mtvmozrzckxh7f3kis6yea25ad.onion](http://rimgo.pjsfkvpxlinjamtawaksbnnaqs2fc2mtvmozrzckxh7f3kis6yea25ad.onion/) | ✅ Data not collected | Onion of rimgo.eu.projectsegfau.lt |
+| [rimgo.skunky7dhv7nohsoalpwe3sxfz3fbkad7r3wk632riye25vqm3meqead.onion](http://rimgo.skunky7dhv7nohsoalpwe3sxfz3fbkad7r3wk632riye25vqm3meqead.onion/) | ✅ Data not collected | Not always online, see [#135](https://codeberg.org/rimgo/rimgo/issues/135) |
 
 ### I2P
 
