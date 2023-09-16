@@ -152,5 +152,12 @@
       "de"
     ],
     "cloudflare": false
+  },
+  {
+    "url": "https://rimgo.quantenzitrone.eu",
+    "countries": [
+      "cz"
+    ],
+    "cloudflare": false
   }
 ]
