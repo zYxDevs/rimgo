@@ -77,7 +77,7 @@ See [Install](https://rimgo.codeberg.page/docs/getting-started/install/).
 See [Configuration](https://rimgo.codeberg.page/docs/usage/configuration/).
 
 ## Contributing
-Pull requests are welcome! If you have any questions or bug reports, open an [issue](https://codeberg.org/rimgo/rimgo/issues/new).
+Pull requests are welcome! If you have any questions or bug reports, open an [issue](https://codeberg.org/rimgo/rimgo/issues/new). Please remember to follow our [Code of Conduct](https://rimgo.codeberg.page/docs/code-of-conduct/)!
 
 ## License
 This software is released under the AGPL-3.0 license. If you make any modifications to the code and distribute it (including use on a network server), you must publicly distribute your changes and release them under the AGPL-3.0.
