@@ -83,4 +83,4 @@ Pull requests are welcome! If you have any questions or bug reports, open an [is
 This software is released under the AGPL-3.0 license. If you make any modifications to the code and distribute it (including use on a network server), you must publicly distribute your changes and release them under the AGPL-3.0.
 
 ## Legal notice
-rimgo does not allow uploads or host any content, media. All content on any rimgo instances is from Imgur™. Imgur is a trademark of Imgur, Inc. Any issues with content on rimgo should be be reported to Imgur.
+rimgo does not allow uploads or host any content, media. All content on any rimgo instances is from Imgur™. Imgur is a trademark of Imgur, Inc. Any issues with content on rimgo should be be reported to Imgur. rimgo is not affiliated with Imgur, Inc.
