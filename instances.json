@@ -29,21 +29,6 @@
     "cloudflare": false
   },
   {
-    "url": "https://rimgo.vern.cc",
-    "onion": "http://rimgo.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion",
-    "countries": [
-      "ca"
-    ],
-    "cloudflare": false
-  },
-  {
-    "url": "https://rim.odyssey346.dev",
-    "countries": [
-      "fr"
-    ],
-    "cloudflare": false
-  },
-  {
     "url": "https://imgur.010032.xyz",
     "countries": [
       "kr"
@@ -98,13 +83,6 @@
     "cloudflare": false
   },
   {
-    "url": "https://i.01r.xyz",
-    "countries": [
-      "us"
-    ],
-    "cloudflare": true
-  },
-  {
     "url": "https://rimgo.eu.projectsegfau.lt",
     "countries": [
       "fr"
@@ -122,6 +100,13 @@
     "url": "https://rimgo.in.projectsegfau.lt",
     "countries": [
       "in"
+    ],
+    "cloudflare": false
+  },
+  {
+    "url": "https://rimgo.fascinated.cc",
+    "countries": [
+      "us"
     ],
     "cloudflare": false
   },
@@ -154,9 +139,23 @@
     "cloudflare": false
   },
   {
+    "url": "https://rimgo.drgns.space",
+    "countries": [
+      "us"
+    ],
+    "cloudflare": false
+  },
+  {
     "url": "https://rimgo.quantenzitrone.eu",
     "countries": [
       "cz"
+    ],
+    "cloudflare": false
+  },
+  {
+    "url": "https://rimgo.frylo.net",
+    "countries": [
+      "nl"
     ],
     "cloudflare": false
   }
